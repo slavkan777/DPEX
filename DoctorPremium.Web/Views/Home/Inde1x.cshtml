@@ -1,0 +1,106 @@
+﻿@using System.Web.UI.WebControls
+
+@{
+    Layout = "~/Views/Shared/_LaoutLanding.cshtml";
+}
+
+
+
+@section head {
+    @Styles.Render("~/Content/assetsScheduleCSS")
+    @Scripts.Render("~/bundles/assetsScheduleJS")
+    @*@Styles.Render("~/bundles/EventCSS")
+        @Scripts.Render("~/bundles/QtipeJS")*@
+
+    <style type="text/css">
+    </style>
+}
+
+
+<div class="col-lg-9">
+
+    <!-- /.panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>О программе:</h4>
+        </div>
+        <div class="panel-body">
+            Программа предназначена для ведения базы данных пациентов, хранения истории оказанных услуг, обследований, заключений и другой ифнормации.
+        </div>
+    </div>
+    <!-- /.panel -->
+</div>
+
+<div class="col-lg-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Начать работу:
+        </div>
+
+        <div class="panel-body">
+            <form id="form-2" novalidate>
+                @Html.ActionLink("Войти", "Login", "Account", null, new { @class = "bloc-button btn btn-block btn-true-blue btn-small", style = "background-color: limegreen; color: whitesmoke" })
+                @Html.ActionLink("Регистрация", "Register", "Account", null, new { @class = "bloc-button btn btn-block btn-true-blue btn-small" })
+                @Html.ActionLink("Вспомнить пароль", "ForgotPassword", "Account", null, new { @class = "bloc-button btn btn-block btn-true-blue btn-small" })
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-lg-9">
+
+    <!-- /.panel -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Детально:</h4>
+        </div>
+        <div class="panel-body">
+
+            <ol>
+
+                <li>
+                    Сохранение карточки пациента <br>
+                    ФИО, Дата рождения,Тел.,Email., Адрес.<br>
+                </li>
+                <li>
+                    Сохранение медицинских данных: <br>
+                </li>
+                Анамнез. Алерго статус. Имуно статус.
+                <br>
+                <li>
+                    Сохранение истории болезни: <br>
+                    Дата визита. Субъективные жалобы. Дополнительные исследования. Данные рентгеновский исследований, лабораторных исследований.
+                    Клинический диагноз. Проведённое лечение. Назначение врача. Стоимость услуг.<br>
+                </li>
+                <li>
+                    Поиск по базе пациентов:<br>
+                    По фио.	По тел.	По полу. По возрасту. По дате посещении. По долгам.	По vip статусу.<br>
+                </li>
+                <li>
+                    Программа будет вам напоминать:<br>
+                    Плановый осмотр раз в пол года. Запланированный осмотр. Напоминание о запланированном событии. Если праздник у пациента.
+                    Если должник. Запланированные посещения<br>
+                </li>
+                <li>
+                    Программа работает на таких устройствах:<br>
+                    Android. Windows phone. Apple. Ноутбуки. Настольные компьютеры. Планшеты. Везде где есть интернет.<br>
+                </li>
+                <li>
+                    Создать расписание:<br>
+                    Добавить визит пациента. Записать контактные данные: фио, тел, дата визита, время. Добавить событие: название события (пример: купить бинт), время события.<br>
+                </li>
+                <li>
+                    Создание рассылки<br>
+                    Тема рассылки. Адрес рассылки. Время и дата рассылки<br>
+                </li>
+                <li>
+                    Задачи:<br>
+                    Установка задачи. Напоминание о запланированной задачи.<br>
+                </li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.panel -->
+</div>

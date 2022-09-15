@@ -1,0 +1,311 @@
+﻿@using System.Globalization
+@using DoctorPremium.Web.Helpers
+@using Microsoft.Ajax.Utilities
+@model DoctorPremium.Web.Models.ScheduleEditModel
+<style type="text/css">
+    .search_chosen {
+        width: 100%;
+    }
+
+
+
+    /*#submit_form:focus,
+    #submit_form:active,
+    #submit_form.active {
+        background-color: ;
+    }*/
+
+    /*#submit_form:hover {
+        background-color: green;
+        background-position: 32px 32px;
+    }
+
+    #cancel:hover {
+        background-color: #3a87ad;
+        background-position: 32px 32px;
+    }
+
+    #btnDelete:hover {
+        background-color: red;
+        background-position: 32px 32px;
+    }*/
+</style>
+
+<div class="modal fade" id="uiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="padding-right: 10%;">
+    <div class="modal-dialog" style="left: 5%;">
+        <div class="modal-content">
+            <div class="modal-header" style="@(Model.ScheduleRecordTypeId == 2 ? "background-color: #336699; color #FFFFFF" : "background-color: #339966; color #FFFFFF")">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="H2" style="color: #000000">@Resources.Schedule.NewAppoint</h4>
+            </div>
+            @using (Ajax.BeginForm("EditEntry", "Schedule", new AjaxOptions
+            {
+                HttpMethod = "POST",
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "editEntryForm"
+            }, new { @id = "editEntryForm" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.ScheduleRecordId)
+                @Html.HiddenFor(m => m.ScheduleRecordTypeId)
+                <div class="modal-body">
+                    <div class="box">
+                        <header>
+                            <div class="icons">
+                                <i class="icon-user"></i>
+                            </div>
+                            <h5>@Resources.Schedule.Info @(Model.ScheduleRecordTypeId == 2 ? @Resources.Schedule.InfoLastTask : @Resources.Schedule.InfoLastApp)</h5>
+                            @*<a class="btn btn-success" href="/Home/Help" style=" float: right">@Resources.Resource.HelpButton</a>*@
+                        </header>
+                        <div class="body collapse in">
+                            <div class="tab" data-tab-name="PatientForm" data-tab-target="PatientTabs">
+                                <div class="row" style="@(Model.ScheduleRecordTypeId == 2 ? "display:none" : "display:block")">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                           @Html.LabelFor(model => model.CostOfFeautureServices)
+                                            @*@Html.EditorFor(model => model.CostOfFeautureServices)*@
+                                            @Html.EditorFor(model => model.CostOfFeautureServices, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.CostOfFeautureServices, "", new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @if (Model.ScheduleRecordId == 0)
+                                {
+                                    <div class="row" style="@(Model.ScheduleRecordTypeId == 2 ? "display:none" : "display:block")">
+                                        <form role="form">
+                                            <label class="btn btn-primary col-xs-6" style="margin-left: 15px">
+                                                <input id="textbox1" type="radio" name="optradio" checked="checked" onclick="check_second()">@Resources.Schedule.NewApp
+                                            </label>
+                                            <label class="btn btn-primary col-xs-5" style="margin-left: 8px">
+                                                <input id="textbox2" type="radio" name="optradio" value="2" onclick="check()">@Resources.Schedule.SecondApp
+                                            </label>
+                                        </form>
+                                    </div>
+                                }
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        @*<div class="form-group" style="width: 45%; float: left">*@
+                                        <div class="form-group" style="@(Model.ScheduleRecordTypeId == 2 ? "width: 100%;" : @Model.ScheduleRecordId == 0 ? "width: 45%; float: left" : "width: 100%;")">
+                                            @Html.Label(@Model.ScheduleRecordTypeId == 2 ? @Resources.Schedule.NameTask : @Resources.Schedule.NamePatient)
+                                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @id = "NameValue" } })
+                                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                                        </div>
+                                        @if (Model.ScheduleRecordId == 0)
+                                        {
+                                            <div class="form-group" style="width: 45%; float: right; height: 35px; @(Model.ScheduleRecordTypeId == 2 ? "display:none" : "display:block")">
+                                                <label for="check1">@Resources.Schedule.SecondVisit</label>
+                                                @*<select data-placeholder="Choose a Country" class="form-control chzn-select-search" disabled="true" id="search" tabindex="2" style="width: 100%; height: 35px;">
+
+                                                    </select>*@
+                                                @Html.DropDownListFor(md => md.PatientId, Model.PatientsItems, @Resources.Schedule.SearchPatient, new { @class = "form-control chzn-select-search", @onchange = "jqueryFunc()", @disabled = "true", @id = "search", @style = "width: 100%; height: 35px;" })
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            @Html.HiddenFor(m => m.PatientId)
+                                        }
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            @Html.Label(@Model.ScheduleRecordTypeId == 2 ? @Resources.Schedule.DescriptionTask : @Resources.Schedule.Service)
+                                            @*<a class="btn btn-success btn-xs" href="/Home/Help" style="margin-left: 10px">* @Resources.Resource.InfoSchedule</a>*@
+                                            @Html.TextAreaFor(model => model.Description, new { @class = "form-control noresize", rows = "3" })
+                                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                @*<div class="row" style="@(Model.ScheduleRecordTypeId == 2 ? "display:none" : "display:block")">*@
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <header>
+                            <div class="icons">
+                                <i class="icon-user"></i>
+                            </div>
+                            <h5>@Resources.Schedule.TimeLabel @(Model.ScheduleRecordTypeId == 2 ? @Resources.Schedule.TaskLabel : @Resources.Schedule.VizitLabel)</h5>
+                        </header>
+                        <div class="body collapse in">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.RecordDate)
+                                        <div class="input-group date default_datepicker">
+                                            @*data-date-format="dd/mm/yyyy"*@
+                                            @{ Html.EnableClientValidation(false); }
+                                            @Html.TextBox("RecordDate", Model.RecordDate.ToString("d"), new { @class = "form-control", data_mask = "99/99/9999" })
+                                            <span class="input-group-addon add-on"><i class="icon-calendar"></i></span>
+                                            @Html.ValidationMessageFor(model => model.RecordDate, "", new { @class = "text-danger" })
+                                            @{ Html.EnableClientValidation(true); }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.RecordStartTime)
+                                        <div class="input-group bootstrap-timepicker">
+                                            @Html.EditorFor(model => model.RecordStartTime, new { htmlAttributes = new { @class = "form-control timepicker-24" } })
+                                            <span class="input-group-addon add-on"><i class="icon-time"></i></span>
+
+                                        </div>
+                                        @Html.ValidationMessageFor(model => model.RecordStartTime, "", new { @class = "text-danger" })
+                                        @*<p class="help-block">Если поле пустое, значит время визита еще не определено.</p>*@
+                                    </div>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    @Html.LabelFor(model => model.Duration)
+                                    <div class="input-group">
+                                        @Html.DropDownListFor(model => model.Duration, Model.DurationItems, new { @class = "form-control" })
+                                        <span class="input-group-addon add-on"><i class="icon-time"></i></span>
+                                    </div>
+                                </div>
+                                @if (Model.ScheduleRecordTypeId != 2)
+                                {
+
+                                    if (Model.ScheduleRecordId > 0)
+                                    {
+                                        <div class="form-group col-sm-3">
+                                            @if (Model.PatientId > 0)
+                                            {
+                                                @Html.ActionLink(@Resources.Schedule.GoToPatient, "Review", "Patient", new { id = Model.PatientId }, new { @class = "btn btn-default", @style = "float: left" })
+                                                @*<button id="btnGpPatient" type="button" data-PAtientdid="@Model.PatientId" class="btn btn-default" style="float: left; color: white; background-color:green">Перейти в карточку паицента</button>*@
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(@Resources.Schedule.CreatePatient, "New", "Patient", new { ScheduleRecordID = Model.ScheduleRecordId }, new { @class = "btn btn-default", @style = "float: left; " })
+                                                @*<button id="btnGpPatientNew" type="button"  class="btn btn-default" style="float: left; color: white; background-color:green">Создать паицента</button>*@
+                                            }
+                                        </div>
+                                    }
+                                    if (Model.ScheduleRecordId > 0)
+                                    {
+                                        if (Model.PatientId > 0)
+                                        {
+                                            <div class="form-group col-sm-3" style="width: 30%;margin-left:15%">
+                                                @if (Model.PatientVisitId > 0)
+                                                {
+                                                    @Html.ActionLink(@Resources.Schedule.GoToHistory, "Edit", "PatientVisit", new { id = Model.PatientVisitId }, new { @class = "btn btn-default", @style = "float: left" })
+                                                    @*<button id="btnGpPatient" type="button" data-PAtientdid="@Model.PatientId" class="btn btn-default" style="float: left; color: white; background-color:green">Перейти в карточку паицента</button>*@
+                                                }
+                                                else
+                                                {
+                                                    @Html.ActionLink(Resources.Schedule.CreateHistory, "Edit", "PatientVisit", new { patientId = Model.PatientId, ScheduleRecordID = Model.ScheduleRecordId }, new { @class = "btn btn-default", @style = "float: left; " })
+                                                    @*<button id="btnGpPatientNew" type="button"  class="btn btn-default" style="float: left; color: white; background-color:green">Создать паицента</button>*@
+                                                }
+
+                                            </div>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                    @if(Model.ScheduleRecordId > 0)
+                    {
+                        <button id="btnDelete" type="button" data-schedulerecordid="@Model.ScheduleRecordId" class="btn btn-default" style="float: left;">@Resources.Schedule.Delete</button>
+                    }
+                        <button id="submit_form" style="float: right" type="submit" class="btn btn-default">@Resources.Schedule.Save</button>
+                    <button id="cancel" style="float: right;margin-right: 5px;" type="button" class="btn btn-default" data-dismiss="modal">@Resources.Schedule.Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$("#btnDelete").click(function () {
+		var id = $("#btnDelete").attr("data-schedulerecordid");
+		DeleteDataCalendar(id);
+
+	});
+
+	$(document).ready(function() {
+		$.validator.methods.range = function (value, element, param) {
+			var globalizedValue = value.replace(",", ".");
+			return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+		}
+
+		$.validator.methods.number = function (value, element) {
+			if (@(LanguageHelper.GetCurrentLanguageId()) == 2) {
+				return this.optional(element) || /^-?(?:\d+|\d{1,2}(?:[\s,]\d{2})+)(?:[,]\d{1,2})?$/.test(value);
+			} else {
+				return this.optional(element) || /^-?(?:\d+|\d{1,2}(?:[\s\.]\d{2})+)(?:[\.]\d{1,2})?$/.test(value);
+			}
+		}
+	});
+
+	$("#cancel").click(function () {
+		DeleteFlag();
+	});
+
+	@*$("#btnGpPatient").click(function () {
+        var id = $("#btnGpPatient").attr("data-PAtientdid");
+        //DeleteDataCalendar(id);
+        window.location.href = '@Url.Action("Review", "Patient")/' + id;
+
+        });*@
+
+    @*$("#btnGpPatientNew").click(function () {
+        //var id = $("#btnGpPatient").attr("data-PAtientdid");
+        //DeleteDataCalendar(id);
+        window.location.href = '@Url.Action("New", "Patient")';
+
+    });*@
+
+    //http://harvesthq.github.io/chosen/options.html
+    $(".chzn-select-search").chosen({
+        search_contains: true,
+        //height: "35px",
+        width: "100%"
+
+    });
+
+    //function check() {
+    //    $('#search1').prop('disabled', false);
+    //};
+    $('#RecordDate').datepicker({
+        //format: "dd/mm/yyyy",
+        todayBtn: true,
+        language: '@(LanguageHelper.GetCurrentLanguage())',
+        orientation: "top left",
+        todayHighlight: true
+    });
+
+    $('#RecordStartTime').timepicker({
+        minuteStep: 5,
+        showSeconds: false,
+        showMeridian: false
+    });
+
+    $(function () {
+        jQuery.validator.unobtrusive.parse();
+        jQuery.validator.unobtrusive.parse("#editEntryForm");
+    });
+
+    $("#editEntryForm").submit(function (e, v) {
+        e.preventDefault();
+        $(this).validate();
+        if ($(this).valid()) {
+
+            $.ajax({
+                type: "POST",
+                url: $(this).prop('action'),
+                data: $(this).serialize(),
+                success: function (data) {
+                    if (data.success) {
+                        $('#cancel').click();
+                        $('#calendar').fullCalendar('refetchEvents');
+                    }
+                }
+            });
+            return false;
+        }
+    });
+</script>

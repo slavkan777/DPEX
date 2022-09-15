@@ -1,0 +1,4 @@
+2020-03-11 12:03:49,554 [1] INFO  - Startup application.
+2020-03-11 12:07:11,103 [1] INFO  - Startup application.
+2020-03-11 12:09:33,025 [12] ERROR - Page or file not found: http://localhost:47153/sessiondata.UserName: testdoc@mail.com. IP: ::1
+2020-03-11 12:46:38,888 [1] INFO  - Startup application.

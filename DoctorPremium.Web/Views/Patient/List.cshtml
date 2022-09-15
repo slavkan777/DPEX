@@ -1,0 +1,245 @@
+﻿@using DoctorPremium.Web.Helpers
+@{
+    ViewBag.Title = "Список пациентов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head {
+    @Styles.Render("~/bundles/TablesCSS")
+    @Scripts.Render("~/bundles/TablesJS")
+}
+
+<div class="panel panel-primary top10">
+    <div class="heading">
+        <h3>@Resources.ListP.Patients</h3>
+    </div>
+    <div class="panel-body">
+        <div class="box">
+            <header>
+                <input id="fast_search" s-index="0" class="form-control" style="width:50%;float:left; margin-top:4px; margin-left: 5px;" />
+                <div class="toolbar">
+                    <div class="btn-group">
+                        <a href="#sortableTable" data-toggle="collapse" class="btn btn-default btn-sm accordion-toggle minimize-box">
+                            <i class="icon-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+                @*<a class="btn btn-success" href="/Home/Help" style="float: left; margin: 5px;">@Resources.Resource.InfoAllButtonHelp</a>*@
+                <h5 style="float:right;" class='hidden-xs hidden-sm'>@Resources.ListP.Search</h5>
+            </header>
+            <div class="body collapse" id="sortableTable">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Resources.ListP.Last</label>
+                            <input id="search_lastname" s-index="1" class="search-field form-control text-box single-line" />
+                            <p class="help-block"></p>
+                        </div>
+                        @*<div class="form-group">
+                                <label>@Resources.ListP.PatientIdCard</label>
+                                <input s-index="2" class="form-control search-field" />
+                                <p class="help-block"></p>
+                            </div>*@
+                        <div class="form-group">
+                            <label>@Resources.ListP.BirthDay</label>
+                            <div class="input-group">
+                                <input s-index="3" class="form-control mask uniform-input text" type="text" id="mask-date" data-mask="99/99/9999" />
+                                <span class="input-group-addon">99/99/9999</span>
+                            </div>
+                            <p class="help-block"></p>
+                        </div>
+
+                        @*<div class="form-group">
+                                <label>Промежуток возраста</label>
+                                <input s-index="4" type="text" placeholder="" class="form-control search-field" />
+                            </div>*@
+                        <div class="form-group">
+                            <label>@Resources.ListP.Period</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="icon-calendar"></i></span>
+                                <input s-index="5" type="text" class="form-control search-field" value="" id="reportrange" />
+                            </div>
+
+                            <p class="help-block"></p>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Resources.ListP.Phone</label>
+                            <input s-index="6" class="form-control search-field" type="text" />@*data-mask="(999) 999-9999"*@
+                        </div>
+                        @*<div class="form-group">
+                                <label>@Resources.ListP.Diagnosis</label>
+                                <input s-index="7" class="form-control search-field" />
+                                <p class="help-block"></p>
+                            </div>*@
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input s-index="8" class="form-control search-field" />
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>@Resources.ListP.Gender</label><br />
+                            @*<button data-toggle="dropdown" class="btn dropdown-toggle">муж. / жен. <span class="caret"></span></button>
+                                <ul s-index="9" class="dropdown-menu search-field">
+                                    <li><a href="#">муж</a></li>
+                                    <li><a href="#">жен</a></li>
+                                </ul>*@
+                            <select s-index="9" class="form-control search-field">
+                                <option value="" selected="selected">@Resources.ListP.Chosen</option>
+                                <option value="man">@Resources.ListP.Male</option>
+                                <option value="woman">@Resources.ListP.Female</option>
+                            </select>
+                            <p class="help-block"></p>
+                        </div>
+                        <div class="form-group pull-right">
+                            <button id="button_reset" class="btn btn-default">@Resources.ListP.Reset</button>
+                            <button id="button_search" class="btn btn-default">@Resources.ListP.Find</button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="table-responsive top15" style="overflow: scroll; outline: none;">
+            <table id="PatientsTable" class="dynamicTable display table table-bordered dataTable" data-target="patient">
+                <colgroup>
+                    <col style="width: 30px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>№</th>
+                        <th>@Resources.ListP.Name</th>
+                        <th>@Resources.ListP.Debt</th>
+                        <th>@Resources.ListP.PhoneTable</th>
+                        <th>@Resources.ListP.BirthDayTable</th>
+                        <th>VIP</th>
+                        <th>@Resources.ListP.GenderTable</th>
+                        <th>@Resources.ListP.VisitTable</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@*<div id="footer">
+        <p> Email: &nbsp;infodoctorpremium@gmail.com &nbsp;</p>
+    </div>*@
+@section scripts
+{
+    <script type="text/javascript">
+		var lang = '@(LanguageHelper.GetCurrentLanguage())';
+		var yesString = lang == "ru" ? "Да" : "Yes";
+		var noString = lang == "ru" ? "Нет" : "No";
+		var maleString = lang == "ru" ? "Муж" : "Male";
+		var femaleString = lang == "ru" ? "Жен" : "Female";
+
+        var i = 1;
+        var table = $('#PatientsTable').DataTable({
+            paging: true,
+            searching: false,
+            processing: false,
+            serverSide: true,
+            ordering: true,
+            order: [[2, "asc"]],
+            language: {
+            	url: lang == "ru" ? "/Scripts/dataTables.Russian.js" : ""
+            },
+        	info: true,
+        	columns: [
+                { data: 'PatientId', orderable: false, width: "7%", className: "text-center", render: function (data, type, row) { return "<a class='btn btn-primary btn-sm btn-line' href='/Patient/Review/" + data + "'" + ">" + (lang == "ru" ? "Просмотр" : "Open") + "</a>"; } },
+                { data: 'PatientId', orderable: false, width: "7%", className: "text-center", render: function (data, type, row) { return "<a class='btn btn-primary btn-sm btn-line' href='/PatientVisit/Edit/?patientId=" + data + "'" + ">" + (lang == "ru" ? "Новый визит" : "New visit") + "</a>"; } },
+                {
+                	data: 'PatientId',
+                	orderable: false,
+                	width: "4%",
+                	className: "text-center",
+                	render: function (pDate) { return i++; }
+                },
+                { data: 'FullName', order: [[1, 'asc']], width: "20%" },
+                {
+                	data: 'Debt',
+                	width: "12%"
+
+
+                },
+                { data: 'Phones', orderable: false, width: "14%" },
+                {
+                	data: 'BirthDate',
+                	width: "9%",
+                	render: function (pDate) {
+                		return renderDate(pDate, lang);
+                	}
+                },
+                //{ data: 'VisitCount', width: "14%" },
+                {
+                	data: 'IsVip',
+                	width: "9%",
+                	render: function (pDate) {
+                		return pDate === true ? yesString : noString;
+                	}
+                },
+                {
+                	data: 'IsMale',
+                	width: "9%",
+
+                	render: function (pDate) {
+                		return pDate === true ? maleString : femaleString;
+                	}
+
+                },
+                {
+                	data: 'LastVisit',
+                	width: "22%",
+                	render: function (pDate) {
+                		return renderDate(pDate, lang);
+                	}
+                }
+        	],
+        	ajax: {
+        		url: '/Patient/ListPatients',
+        		type: 'POST'
+        	}
+        });
+		table.on(' processing.dt', function () {
+			i = 1;
+		});
+
+		$(document).ready(function () {
+			$('#fast_search').on('keyup', function () {
+				if ($(this).val() == '')
+					table.search('').draw();
+				else
+					table.search($(this).attr('s-index') + '^' + $(this).val()).draw();
+			});
+
+			$('#button_reset').on('click', function () {
+				var fields = $('#sortableTable').find('.search-field').each(function (index) {
+					$(this).val('');
+				});
+			});
+
+			$('#button_search').on('click', function () {
+				var searchString = '';
+				var fields = $('#sortableTable').find('.search-field');
+				fields.each(function (index) {
+					if ($(this).val() != '') {
+						if (searchString != '') {
+							searchString += '$';
+						}
+						searchString += $(this).attr('s-index') + '^' + $(this).val();
+					}
+				});
+				table.search(searchString).draw();
+			});
+		});
+    </script>
+}
+

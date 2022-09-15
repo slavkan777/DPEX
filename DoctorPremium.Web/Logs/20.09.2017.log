@@ -1,0 +1,7 @@
+2017-09-20 12:14:18,700 [1] INFO  - Startup application.
+2017-09-20 12:21:32,395 [1] INFO  - Startup application.
+2017-09-20 12:22:11,567 [6] ERROR - Ошибка сервера: c:\Projects\doctor-premium.com\trunk\DoctorPremium.Web\Views\Schedule\BuyPersonalVariant.cshtml(41): error CS1002: ; expected
+2017-09-20 12:23:13,879 [6] INFO  - Application end.
+2017-09-20 12:23:43,687 [11] INFO  - Startup application.
+2017-09-20 12:30:42,906 [1] INFO  - Startup application.
+2017-09-20 12:42:53,636 [1] INFO  - Startup application.

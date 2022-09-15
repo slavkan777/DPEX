@@ -1,0 +1,12 @@
+2016-09-20 13:12:03,121 [1] INFO  - Startup application.
+2016-09-20 14:10:18,696 [1] INFO  - Startup application.
+2016-09-20 14:27:27,643 [28] INFO  - Application end.
+2016-09-20 14:27:54,127 [27] INFO  - Startup application.
+2016-09-20 15:11:23,709 [1] INFO  - Startup application.
+2016-09-20 15:12:04,429 [7] INFO  - Application end.
+2016-09-20 15:12:09,264 [12] INFO  - Startup application.
+2016-09-20 15:12:14,299 [11] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/__browserLink/requestData/f5eac22d0e3f4f42ad95198bd41f1b5f?version=2
+2016-09-20 15:33:02,486 [1] INFO  - Startup application.
+2016-09-20 15:33:42,203 [8] INFO  - Startup application.
+2016-09-20 15:33:44,954 [10] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/__browserLink/requestData/293d063361284d2b89e0abbfcec47241?version=2
+2016-09-20 15:33:48,506 [5] INFO  - Application end.

@@ -1,0 +1,38 @@
+﻿@using DoctorPremium.Web.Models
+@model ConfirmEmailManualViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="loginContainer">
+    @*<div class="form-group">*@
+    <div style="margin: 0px -20px; padding: 10px 20px 0px 20px;" class="form-actions">
+        <h3>
+            <span>@Resources.Account.ConfirmManualTitle</span>
+        </h3>
+    </div>
+    @*</div>*@
+    @using (Html.BeginForm("ConfirmEmailManual", "Account", null, FormMethod.Post, new { @class = "form-horizontal", role = "form", @id = "loginForm" }))
+    {
+		@Html.HiddenFor(m => m.UserId)
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <a class="btn btn-success btn-xs" href="/Home/Help" style="float: left;margin-top: 10px">@Resources.Resource.HelpButton</a>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmCode, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.TextBoxFor(m => m.ConfirmCode, new { @class = "form-control", placeholder = @Resources.Account.ConfirmCode })
+                @Html.ValidationMessageFor(m => m.ConfirmCode, "", new { @class = "text-danger" })
+                <span class="icon16 icomoon-icon-lock right gray marginR10"></span>
+            </div>
+        </div><!-- End .form-group  -->
+        <div class="form-group"> 
+              <div class="col-lg-12 clearfix form-actions">
+                <div class="checkbox left">
+                </div>
+                <button type="submit" class="btn btn-info right" id="loginBtn"><span class="icon16 icomoon-icon-enter white"></span>@Resources.Account.ConfirmBtn</button>
+            </div>
+        </div><!-- End .form-group  -->
+    }
+</div>

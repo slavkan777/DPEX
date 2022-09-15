@@ -1,0 +1,194 @@
+﻿@using System.Globalization
+@using DoctorPremium.Web.Helpers
+@model DoctorPremium.Web.Models.ProfileEditViewModel
+
+@{
+    ViewBag.Title = "Сведения о пользователе";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head {
+    @Scripts.Render("~/bundles/assetsPatientJS")
+	
+	@Scripts.Render("~/bundles/UploadJS")
+	@Styles.Render("~/Content/assetsPatientCSS")
+    @Styles.Render("~/Content/ChosenCSS")
+	@Scripts.Render("~/bundles/ChosenJS")
+    @Styles.Render("~/bundles/UploadCSS")
+@*<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>*@
+}
+
+
+@using (Html.BeginForm("Edit", "UserInfo", FormMethod.Post, new {id = "EditUserInfoForm", enctype = "multipart/form-data"}))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserInfoId)
+    @Html.HiddenFor(model => model.AspNetUserId)
+    @Html.HiddenFor(model => model.Photo)
+    @Html.HiddenFor(model => model.IsDeleted)
+    @Html.HiddenFor(model => model.IsLocked)
+    @Html.HiddenFor(model => model.WorkTimeFrom)
+    @Html.HiddenFor(model => model.WorkTimeTo)
+    @Html.HiddenFor(model => model.CreateDateUtc)
+    @Html.HiddenFor(model => model.UpdateDateUtc)
+
+    <div class="row">
+        @*<div class="col-sm-12">
+            <div class="panel panel-default" style="padding: 15px">*@
+                <div class="heading">
+					<h3>@Resources.UserInfos.UserInfoLabel</h3>
+                </div>
+                <div class="row" style="padding-top: 30px">
+                   
+                    <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <div id="photo_fileupload" class="fileupload fileupload-new" data-name="UserInfoPhoto" data-provides="fileupload">
+                                @*<input type="hidden" name="UserPhoto" accept="image/">*@
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                    @if (!String.IsNullOrEmpty(Model.Photo))
+                                    {
+                                        <img src=@String.Concat("/Photos/", Model.Photo) alt="" style="height: 140px;"/>
+                                    }
+                                    else
+                                    {
+                                        <img src="" style="height: 140px;" alt="" />@*@Url.Content("/Content/assets/css/../img/demoUpload.jpg")*@
+                                    }
+                                </div>
+                                <div id="UserPhoto" class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-primary"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                        @*<a class="btn btn-success btn-xs" href="/Home/Help"><span class="icon16 icomoon-icon-info-2 white"></span> @Resources.Resource.InfoAllBlueButton</a>*@
+                        <div class="form-group" style="margin-top: 2%">
+                            @Html.LabelFor(model => model.LastName)
+                            @Html.EditorFor(model => model.LastName, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.LastName, "", new {@class = "text-danger"})
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FirstName)
+                            @Html.EditorFor(model => model.FirstName, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new {@class = "text-danger"})
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SurName)
+                            @Html.EditorFor(model => model.SurName, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.SurName, "", new {@class = "text-danger"})
+
+                        </div>
+                        <div class="form-group">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.IsMale)
+
+                                @Html.DropDownListFor(model => model.IsMale, Model.genderItems, new {@class = "form-control"})
+
+                                @Html.ValidationMessageFor(model => model.IsMale, "", new {@class = "text-danger"})
+                                <p class="help-block"></p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address)
+
+                            @Html.EditorFor(model => model.Address, new {htmlAttributes = new {@class = "form-control"}})
+                            @Html.ValidationMessageFor(model => model.Address, "", new {@class = "text-danger"})
+
+                        </div>
+
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone1)
+                           
+                                @Html.EditorFor(model => model.Phone1, new {htmlAttributes = new {@class = "form-control"}})
+                                @Html.ValidationMessageFor(model => model.Phone1, "", new {@class = "text-danger"})
+                        
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Phone2)
+                            
+                                @Html.EditorFor(model => model.Phone2, new {htmlAttributes = new {@class = "form-control"}})
+                                @Html.ValidationMessageFor(model => model.Phone2, "", new {@class = "text-danger"})
+                         
+                        </div>
+                        @*<div class="form-group">
+                            <label>E-mail</label>
+                            <input class="form-control">
+                            <p class="help-block"></p>
+                        </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CountryId)                     
+							@Html.DropDownListFor(model => model.CountryId, Model.countryItems, "Choose the country", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CountryId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.CityId)
+                            @Html.DropDownListFor(model => model.CityId, Model.cityItems, "Select a city", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.BirthDate)
+	                        <div class="input-group" data-model-field="BirthDate">
+		                        @{ Html.EnableClientValidation(false); }
+		                        @Html.TextBoxFor(model => model.BirthDate, "{0:d}", new { @class = "form-control" })
+		                        <span class="input-group-addon" data-model-assoc-field="BirthDate" data-format="{0} лет"></span>
+	                        </div>
+                            @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+                            @{ Html.EnableClientValidation(true); }
+                        </div>
+                        <div class="form-group">
+                           @Html.LabelFor(model => model.Specialty)
+
+                        @Html.EditorFor(model => model.Specialty, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Specialty, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TimeZoneId)
+                            @Html.DropDownListFor(model => model.TimeZoneId, Model.timeZoneItems, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.TimeZoneId, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.LanguageId)
+                            @Html.DropDownListFor(model => model.LanguageId, Model.languageItems, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.LanguageId, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            @*</div>
+        </div>*@
+    </div>
+    <div class="row top15">
+        <div class="col-md-9 col-md-offset-7" style="margin-left:2%">
+            @*<a class="btn btn-success"  href="/Home/Help" style="float: left;margin-bottom: 5px">@Resources.Resource.HelpButton</a>*@
+        <button class="btn btn-default" type="submit" value="Save" style="float: right;margin-left: 5px">@Resources.UserInfos.Save</button>
+            @Html.ActionLink(@Resources.UserInfos.Cancel, "Index", "Schedule", null, new { @class = "btn btn-default", @style = "float: right;", onclick = "return confirm('"+ @Resources.Resource.Infowillbelost + "')" })
+        </div>
+    </div>
+}
+
+
+<script type="text/javascript">
+	CountryAndCityInit();
+	//$('#BirthDate').datepicker("destroy");
+	$('#BirthDate').datepicker({
+		language: '@(LanguageHelper.GetCurrentLanguage())',
+		changeMonth: true,
+		yearRange: "-80:+0",
+		changeYear: true
+	});
+	//$("#BirthDate").birthdayPicker({
+	//	//"defaultDate": "01-03-1980",
+	//	"maxYear": "2020",
+	//	"maxAge": 90,
+	//	"monthFormat": "short"
+	//});
+</script>
+	

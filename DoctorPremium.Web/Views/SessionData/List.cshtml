@@ -1,0 +1,142 @@
+﻿@using DoctorPremium.Web.Helpers
+
+@model DoctorPremium.Web.Models.SessionDataCounter
+
+@{
+    ViewBag.Title = "Список пациентов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head {
+    @Styles.Render("~/bundles/TablesCSS")
+    @Scripts.Render("~/bundles/TablesJS")
+}
+
+<div class="panel panel-primary top10">
+    <div class="heading">
+        <h3>Session Data</h3>
+    </div>
+    <div class="col-lg-12">
+        <p>Search by UserName, SessionStart, SessionId, IP</p>
+        <p>Date - mm/dd/yyyy</p>
+    </div>
+    <div class="col-lg-12">
+        <h4>За 1 день - @Model.Daily</h4>
+        <h4>За 7 дней - @Model.Weekly</h4>
+        <h4>За 30 дней - @Model.Monthly</h4>
+        <label> Дата для поиска </label>  <input type="text" name="SearchDate" id="SearchDate" value="" />
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive top15" style="overflow: scroll; outline: none;">
+            <table id="SessionDataTable" class="dynamicTable display table table-bordered dataTable" data-target="sessiondata">
+                <colgroup>
+                    <col style="width: 30px" />
+                </colgroup>
+                <thead>
+                    <tr>
+                        @*<th></th>
+                        <th></th>*@
+                        <th>№</th>
+                        <th>Session Id</th>
+                        <th>Session Start</th>
+                        <th>Duration</th>
+                        <th>UserName</th>
+                        <th>IP</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+		@*var lang = '@(LanguageHelper.GetCurrentLanguage())';
+		var yesString = lang == "ru" ? "Да" : "Yes";
+		var noString = lang == "ru" ? "Нет" : "No";
+		var maleString = lang == "ru" ? "Муж" : "Male";
+		var femaleString = lang == "ru" ? "Жен" : "Female";*@
+
+        var i = 1;
+        var table = $('#SessionDataTable').DataTable({
+            paging: true,
+            searching: true,
+            processing: false,
+            serverSide: true,
+            ordering: true,
+            order: [[2, "asc"]],
+            language: {
+            	url: lang == "ru" ? "/Scripts/dataTables.Russian.js" : ""
+            },
+        	info: true,
+        	columns: [
+                //{ data: 'PatientId', orderable: false, width: "7%", className: "text-center", render: function (data, type, row) { return "<a class='btn btn-primary btn-sm btn-line' href='/Patient/Review/" + data + "'" + ">" + (lang == "ru" ? "Просмотр" : "Open") + "</a>"; } },
+                //{ data: 'PatientId', orderable: false, width: "7%", className: "text-center", render: function (data, type, row) { return "<a class='btn btn-primary btn-sm btn-line' href='/PatientVisit/Edit/?patientId=" + data + "'" + ">" + (lang == "ru" ? "Новый визит" : "New visit") + "</a>"; } },
+                {
+                	data: 'Id',
+                	orderable: false,
+                	width: "4%",
+                	className: "text-center",
+                	render: function (pDate) { return i++; }
+                },
+                {
+                    data: 'SessionId', order: [[1, 'asc']], width: "20%"
+                },
+                {
+                    data: 'SessionStart', orderable: false, width: "14%",
+                    render: function (pDate) {
+                        return renderFullDate(pDate,'ru');
+                    }
+                },
+                {
+                    data: 'Duration',
+                	width: "9%"
+                	//render: function (pDate) {
+                	//    return new Date(parseInt(pDate.slice(6, -2)));
+                	//}
+                },
+                //{ data: 'VisitCount', width: "14%" },
+                {
+                	data: 'UserName',
+                	width: "9%"
+                },
+                {
+                    data: 'IPAddress',
+                	width: "9%"
+                }
+        	],
+        	ajax: {
+        	    url: '/SessionData/ListSessionData',
+        		type: 'POST'
+        	}
+        });
+		table.on(' processing.dt', function () {
+			i = 1;
+		});
+
+		$('#SearchDate').datepicker({
+		    language: 'en',
+		    changeMonth: true,
+		    yearRange: "-10:+10",
+		    changeYear: true,
+		    onChange: function (date) {
+		      //  $('input[type="search"]').val(date).keyup();
+		    //    table.search(date).draw();
+		        console.log("Selected date: " + dateText + "; input's current value: " + this.value);
+		    }
+		});
+
+		$(document).ready(function () {
+		    //  table.draw();
+
+		    $('#SearchDate').change(
+                function () {
+                    $('input[type="search"]').val($(this).val()).keyup();
+                    //    table.search(date).draw();
+                });
+		});
+    </script>
+}
+

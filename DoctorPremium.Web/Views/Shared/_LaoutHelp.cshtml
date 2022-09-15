@@ -1,0 +1,94 @@
+﻿@using DoctorPremium.Web.Helpers
+<!DOCTYPE html>
+<html lang=@LanguageHelper.GetCurrentLanguage()>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>@Resources.Resource.Title</title>
+    <meta name="keywords" content="@Resources.Resource.Keywords" />
+    <meta name="description" content="@Resources.Resource.Description">
+    <!-- Google fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- font awesome -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- bootstrap -->
+    @*<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+
+        <!-- animate.css -->
+        <link rel="stylesheet" href="assets/animate/animate.css" />
+        <link rel="stylesheet" href="assets/animate/set.css" />
+
+        <!-- gallery -->
+        <link rel="stylesheet" href="assets/gallery/blueimp-gallery.min.css">*@
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/Content/HelpPage/images/favicon.bmp" type="image/x-icon">
+    <link rel="icon" href="~/Content/HelpPage/images/favicon.bmp" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="~/Content/HelpPage/assets/style.css">
+    @Styles.Render("~/Content/HelpCSS")
+
+</head>
+
+<body>
+    <div class="topbar animated fadeInLeftBig"></div>
+
+
+    @RenderBody()
+
+    <!-- Footer Starts -->
+    <div class="footer text-center spacer">
+        @*<p class="wowload flipInX"><a href="#"><i class="fa fa-facebook fa-2x"></i></a> <a href="#"><i class="fa fa-instagram fa-2x"></i></a> <a href="#"><i class="fa fa-twitter fa-2x"></i></a> <a href="#"><i class="fa fa-flickr fa-2x"></i></a>
+            </p>*@
+        <p class="wowload flipInX"><a href="https://www.facebook.com/groups/765680770239043/" target="blank"><i class="fa fa-facebook fa-2x"></i></a><a href="https://www.linkedin.com/groups/8558904" target="blank"><i class="fa fa-linkedin fa-2x"></i></a><a href="https://new.vk.com/public126747071" target="blank"><i class="fa fa-vk"></i></a><a href="https://ok.ru/group/53334451945539" target="blank"><img src="~/Content/images/ok.jpg" alt="" width="20" height="20" /></a></p>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+        </span> infodoctorpremium@gmail.com</br>
+        Copyright 1999 Doctor-premium.com All rights reserved.
+    </div>
+    <!-- # Footer Ends -->
+    <a href="#start" class="gototop "><i class="fa fa-angle-up  fa-3x"></i></a>
+
+
+
+    <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+        <h3 class="title">Title</h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+    </div>
+
+    @Scripts.Render("~/Bundles/HelpJS")
+
+    <!-- jquery -->
+    @*<script src="~/Content/HelpPage/assets/jquery.js"></script>*@
+
+    <!-- wow script -->
+    @*<script src="~/Content/HelpPage/assets/wow/wow.min.js"></script>*@
+
+
+    <!-- boostrap -->
+    @*<script src="~/Content/HelpPage/assets/bootstrap/js/bootstrap.js" type="text/javascript"></script>*@
+
+    <!-- jquery mobile -->
+    @*<script src="~/Content/HelpPage/assets/mobile/touchSwipe.min.js"></script>*@
+    @*<script src="~/Content/HelpPage/assets/respond/respond.js"></script>
+
+        <!-- gallery -->
+        <script src="~/Content/HelpPage/assets/gallery/jquery.blueimp-gallery.min.js"></script>
+
+        <!-- custom script -->
+        <script src="~/Content/HelpPage/assets/script.js"></script>*@
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+﻿@model DoctorPremium.Web.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+@section head
+{
+    @*@Scripts.Render("~/bundles/ChosenJS")
+        @Styles.Render("~/Content/ChosenCSS")*@
+}
+<div class="loginContainer" style="margin-top: -20%;">
+    @*<div class="form-group">*@
+    <div style="margin: 0px -20px; padding: 10px 20px 0px 20px;" class="form-actions">
+        <h3>
+            <span>@Resources.Account.RegisterPage</span>
+        </h3>
+    </div>
+    @*</div>*@
+    @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal register", role = "form", @id = "loginForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <a class="btn btn-success btn-xs" href="/Home/Help" style="float: left;margin-top: 10px">@Resources.Resource.HelpButton</a>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = @Resources.Account.Email })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                <span class="icon16 icomoon-icon-user right gray marginR10"></span>
+            </div>
+        </div><!-- End .form-group  -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = @Resources.Account.Password })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                <span class="icon16 icomoon-icon-lock right gray marginR10"></span>
+            </div>
+        </div><!-- End .form-group  -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = @Resources.Account.Password })
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                <span class="icon16 icomoon-icon-lock right gray marginR10"></span>
+
+            </div>
+        </div><!-- End .form-group  -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.TimeZoneId, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.DropDownListFor(model => model.TimeZoneId, Model.timeZoneItems, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.TimeZoneId, "", new { @class = "text-danger" })
+                @*<span class="icon16 icomoon-icon-file-7 right gray marginR10"></span>*@
+
+            </div>
+        </div><!-- End .form-group  -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.LanguageId, new { @class = "col-lg-12 control-label" })
+            <div class="col-lg-12">
+                @Html.DropDownListFor(model => model.LanguageId, Model.languageItems, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LanguageId, "", new { @class = "text-danger" })
+                @*<span class="icon16 icomoon-icon-file-7 right gray marginR10"></span>*@
+
+            </div>
+        </div><!-- End .form-group -->
+
+
+        <div class="panel panel-default closed hover" style="margin-top:15px">
+
+            <div class="panel-heading">
+
+                <h4>
+                    <span class="icon16 icomoon-icon-equalizer-2"></span>
+                    <span style="font-weight: normal;">@Resources.Account.Term</span>
+                </h4>
+                <a href="#" class="maximize" style="display: block;">Minimize</a>
+            </div>
+            <div class="panel-body" style="display: block; padding: 0px;">
+                <div class="sidebar-widget">
+                    <div class="content">
+                        <div class="col-lg-9" style="width: 100%; padding-right: 0px; padding-left: 0px; padding-top: 5%;">
+                            @*<textarea id="textarea2" rows="3" class="form-control limit uniform" maxlength="990"></textarea>*@
+                            @Html.TextArea("myTextArea", @Resources.Account.TextLicense, new { @class = "form-control limit uniform", @maxlength = "995", rows = "16" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row top15">
+                    <div class="col-md-9 col-md-offset-7" style="margin-left: 20%; margin-bottom: 3%;">
+                        @*<a class="btn btn-success"  href="/Home/Help" style="float: left;margin-bottom: 5px">@Resources.Resource.HelpButton</a>*@
+
+                    </div>
+
+                </div>
+            </div>
+            <div style="position: absolute; display: none; word-wrap: break-word; white-space: pre-wrap; border: 1px solid rgb(204, 204, 204); font-weight: 400; width: 573px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 17.1429px; font-size: 12px; padding: 3px;">&nbsp;</div>
+            <label class="checkbox-inline" style="float: right;">
+                <div class=" checker" id="uniform-inlineCheckbox1" style="margin: 10px;">@Html.CheckBox("checkboxLicanse", true, new { @checked = "checked" })</div> @Resources.Account.Agree
+            </label>
+        </div>
+
+        <div class="form-group" style="margin-top: 10px;">
+            <div class="col-lg-12">
+                <p>
+                    <img src='@Url.Content("/Account/ShowCaptchaImage")' />
+                </p>
+                <p>Please enter text from picture:</p>
+                <p>@Html.TextBox("CaptchaText")</p>
+                <p style="color: red; font-size: 20px">@ViewBag.Message</p>
+            </div>
+        </div>
+         
+    @*<script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+    <div class="ya-share2" style="margin-left: 75px;" data-services="facebook,gplus,twitter,linkedin,vkontakte,odnoklassniki" data-title="Doctor-premium is free software for medical and healthcare"></div>*@
+   
+        <div class="form-group">
+            <div class="col-lg-12 clearfix form-actions">
+                <button type="submit" class="btn btn-info right" id="loginBtn"><span class="icon16 icomoon-icon-enter white"></span>@Resources.Account.RegisterBtn</button>
+            </div>
+        </div><!-- End .form-group -->
+        <div class="form-group" style="margin-right: 0px; margin-left: 0px; margin-bottom: 15px;">
+            <span class="forgot help-block" style="float: left;"><a class="" href="@Url.Action("Login", "Account")">@Resources.Account.LoginLink</a></span>
+            <span class="forgot help-block"><a class="" href="@Url.Action("ForgotPassword", "Account")">@Resources.Account.ForgotPassword</a></span>
+        </div>
+
+    }
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+    });
+    //CountryAndCityInit();
+</script>

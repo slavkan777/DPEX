@@ -1,0 +1,56 @@
+﻿
+@*@{
+    ViewBag.Title = "BuyPersonalVariant";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+
+
+@section head {
+
+    <style type="text/css">
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 30px;
+            height: 0;
+            overflow: hidden;
+        }
+
+            .video-container iframe, .video-container object, .video-container embed {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+    </style>
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Buy personal version</title>
+</head>
+<body>
+    <div class="video-container">
+        @if (ViewBag.Lang == "1")
+        {
+            @*<iframe class="col-lg-26" src="https://www.youtube.com/embed/TKwQpku0kiA" frameborder="0" allowfullscreen></iframe>*@
+    <p style="font-size:18px">
+        Весь базовый функционал есть на странице справки. Мы можем установить вам личную версию программы или разработать специальную систему для вашего бизнес-процесса. Более детально, пишите нам на Емаил: infodoctorpremium@gmail.com
+    </p>
+
+
+        }
+        else
+        {
+            <p style="font-size:18px">
+                Basic functionality is on the help page. We can install to you a personal version  of the program or develop a special system for your business process. Detail, write to us on the email: infodoctorpremium@gmail.com
+            </p>
+        }
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,5 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/IgnoredPaths/=ACCOUNT_005CSHOWCAPTCHAIMAGE/@EntryIndexedValue">Account\ShowCaptchaImage</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/MappedPaths/=CONTROLLERS_005CACCOUNT_005CSHOWCAPTCHAIMAGE/@EntryIndexedValue"></s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=ACCOUNT_005CSHOWCAPTCHAIMAGE/@EntryIndexedValue">Account\ShowCaptchaImage</s:String>
+	<s:String x:Key="/Default/CodeInspection/WebPathMapping/PathsInCorrectCasing/=CONTROLLERS_005CACCOUNT_005CSHOWCAPTCHAIMAGE/@EntryIndexedValue">Controllers\Account\ShowCaptchaImage</s:String></wpf:ResourceDictionary>

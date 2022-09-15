@@ -1,0 +1,1072 @@
+﻿@{
+    Layout = "~/Views/Shared/_LaoutLanding.cshtml";
+}
+
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="top-area">
+        <div class="container">
+            <div class="row">
+                <a class="navbar-brand" href="/Home/index" style="float: none;">
+                    <img src="~/Content/LandigPage/img/logo.png" alt="" class="col-md-2  hidden-xs" />
+                </a>
+                <div class="col-sm-6 col-md-6" style="font-weight: bold; width: 80%; float: right">
+                    <p class="bold text-left  hidden-xs" style="margin-bottom: 5px;float: left;">
+                        Напишите нам: infodoctorpremium@gmail.com
+                    </p>
+                    <p class="bold text-right  col-sx-3" style="margin-bottom: 5px;float: right;">
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            <a href=@Url.Action("index", "Schedule") class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">Кабинет</a>
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">@Resources.Resource.Exit</a>
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+                        }
+                        else
+                        {
+                            <a class="btn btn-skin btn-sm" href=@Url.Action("Register", "Account") style="background-color: #7eb138">Регистрация</a>
+                            <a href=@Url.Action("Login", "Account") class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">Войти</a>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container navigation" style="padding-bottom: 0px;">
+
+        <div class="navbar-header page-scroll" style=" margin-top: 2%;">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+
+
+        </div>
+
+        <!-- Collect the nav links,   forms, and other content for toggling   -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">О программе</a></li>
+                <li><a href="#facilities">Подробнее</a></li>
+                @*<li><a href="/Home/Help">Помощь</a></li>*@
+                <li><a href="/Home/Help" rel="nofollow" target="blank">Инструкция</a></li>
+                @*<li><a href="#service">Почему мы?</a></li>*@
+                @*<li><a href="#doctor">О проекте</a></li>*@
+                @*<li><a href="#testimonial">Отзывы</a></li>*@
+                <li>
+                    <a href="#partner">Контакты</a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="badge custom-badge red pull-right">Language</span>Ru <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="margin-top: 16px;">
+                        <li>
+                            @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguage", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+                            {
+                                @Html.Hidden("lang", "en")
+                            }
+                            <a href="#" onclick="$('#ChangeLanguage').submit(); return false;">En</a>
+                            @*@Html.ActionLink("LinkLang", "LinkLang", new { id = 1 })*@
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<div id="wrapper">
+    <div id="content" style="height: auto">
+    <div class="inner" style="height: auto">
+        <!-- Section: intro -->
+        <section id="intro" class="intro">
+            <div class="intro-content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s" style="font-size: 30px;">
+                                <h2 class="h-ultra" >Бесплатная медицинская программа.</h2>
+                            </div>
+                            <div class="wow fadeInUp animated" data-wow-offset="0" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <h4 class="h-light">Сохраняй бесплатно <span class="color"> базу пациентов</span> в облаке</h4>
+                            </div>
+                            <div class="well well-trans">
+                                <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                    Бесплатное облачное решение:
+                                    <ul class="lead-list">
+                                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Для каких целей:</strong><br />Онлайн автоматизация сохранения базы пациентов.</span></li>
+                                        <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Мобильность программы:</strong><br />Адаптивность под все виды мобильных устройств.</span></li>
+                                    </ul>
+                                    <p class="text-right wow bounceIn" data-wow-delay="0.4s">
+                                        <a href="/Home/Help" class="btn btn-skin btn-lg" style="font-size: 13px; background-color: #7eb138; float: left; margin-right: 5px;" rel="nofollow" target="blank">Инструкция</a>
+                                        <a class="btn btn-skin btn-lg" href=@Url.Action("Register", "Account") style="background-color: #7eb138; float: left; margin-right: 5px;font-size: 13px">Регистрация</a>
+
+                                        @using (Html.BeginForm("LoginTestAccount", "Account", FormMethod.Post))
+                                        {
+                                            <button type="submit" style="font-size: 13px" class="btn btn-skin btn-lg">Вход в демо версию<i class=" fa fa-angle-right"></i></button>
+                                        }
+
+                                        @*<a href="/Home/Help" class="btn btn-skin btn-sm" style="margin: 15px; float: left;font-size: 15px;background-color: #7eb138;" rel="nofollow" target="blank">Инструкция</a>*@
+
+
+                                    </p>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                                <img src="~/Content/LandigPage/img/dummy/img-1.png" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Section: intro -->
+    <section id="intro1" class="intro">
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            @*<h2 style="margin-top: 35px;" class="h-bold">Видео инструкция</h2>*@ @*<h2 style="margin-top: 35px;" class="h-bold">Видео инструкция</h2>*@
+                            @*<p>
+                                Пример использования онлайн системы
+                            </p>*@
+
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+        <div class="intro-content" style="padding: 50px 0 60px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s" style="font-size: 30px;">
+                            <h4 class="h-ultra" style="font-size: 25px;">Ваша  личная бесплатная онлайн база пациентов.</h4>
+                        </div>
+                        @*<div class="wow fadeInUp" data-wow-offset="0" data-wow-delay="0.1s">
+                                    <h6 class="h-light" style="font-size: 14px;">
+                                        Сохраняйте: контакты (Ф.И.О., тел.), медицинские карточки, истории болезней, рентгены, снимки, назначения.
+                                        Ваша личная база пациентов останется с вами  после смены работы.  К примеру, перед увольнением вы сохраните всю базу пациентов. Также постоянно накапливая вашу базу пациентов вы не будете нуждаться в новых пациентах.
+                                        Работая на нескольких работах одновременно, Вы сохраняете всю информацию в одно место.
+                                    </h6>
+                                    <h6 class="h-light" style="font-size: 14px;">
+                                        Заходите из разных мест в программу: с компьютеров, планшетов, телефонов.
+                                        Записываете, планируйте ваше ежедневное расписание. Функция планового визита сама напомнит через полгода про визит пациента, чтобы Вы могли его пригласить на прием.
+                                        Вы получаете свой персональный сайт и можете его редактировать. Ваш администратор может вести ваше расписание.
+                                    </h6>
+                                </div>*@
+                        <div class="well well-trans">
+                            <div class="wow fadeInRight" data-wow-delay="0.1s">
+
+                                <ul class="lead-list">
+                                    <li><span class="list"><strong>Как мои данные защищены от попадания к 3-им лицам?</strong><br />
+                                         <strong>
+                                             Имея дело с информацией о Ваших пациентах и финансах, мы серьезно продумали подход к защите Ваших данных.
+                                             Мы используем надежный хостинг для хранения данных. Для защиты данных в процессе передачи в интернет мы используем SSL-шифрование с ключом 256 бит - такую же защиту, которые используют банки при обработке Ваших финансовых данных.
+@*Копируйте себе всю базу пациентов вашей клиники. По статистике врач 
+    принимает за четыре года 3000 пациентов, он сохраняет эту базу пациентов в нашей веб системе,
+     мы не привязаны к компьютеру потому, что веб система онлайн и работаем на компютере, 
+    телефоне и планшете. После этого, к примеру, каждому пациенту необходимо сделать плановое 
+    лечение раз в полгода, пусть оно стоит минимум 10$. Умножим 10$ на 3000 пациентов с вашей базы, 
+    это равно 30000$ за полгода, затем делим на 6 месяцев и получаем 5000$ в месяц заработок. 
+    Программа сама вам напомнит через полгода, когда пациентов нужно приглашать. Также если вы работаете
+     на нескольких работах, то в одно место сохраняете всех ваших пациентов с всех клиник, 
+    тем самым увеличивая вашу личную базу пациентов. При смене работы все ваши пациенты и вся 
+    информация по лечению, контактам и следующему визиту остаётся всегда только с вами потому, 
+    что это онлайн система и мы не привязаны к одному компьютеру. Клиники приветствуют при приеме 
+    на работу, когда новый сотрудник имеет большую базу своих пациентов. Пример показан в среднем, 
+    не все могут прийти раз в полгода, ну и лечение может стоит больше чем 10$. То есть, основная идея онлайн системы, увеличение заработка доктора за счет существующих пациентов и увеличение своей базы пациентов копиуруя себе их в разных клиниках где он работает.*@ 
+</strong></span></li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    @*<div class="col-lg-6">
+                                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                                    <img src="~/Content/LandigPage/img/dummy/img-1.png" class="img-responsive" alt="" />
+                                </div>
+                            </div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section: vidio -->
+    <section id="vidio" class="intro">
+
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            <h2 style="margin-top: 35px;" class="h-bold">Видео инструкция</h2>
+                            <p>
+                                Пример использования онлайн системы
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="intro-content paddingbot-50" style="padding-top: 50px">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-26" style="width: 100%; height: 100%">
+                        <div class="col-lg-26" style="width: 100%; height: 100%">
+                            <iframe class="col-lg-26" style="width: 100%; height: 580px" src="https://www.youtube.com/embed/TKwQpku0kiA" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2" style="margin-top: 4%;">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            <p>
+                                Показать друзьям программу
+                                <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                <div class="ya-share2" style="" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="Я использую в работе Doctor-premium бесплатную  программу  для сохранения моей базы пациентов"></div>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- /Section: vidio -->
+
+
+    <!-- /Section: faclities -->
+    <section id="facilities" class="home-section paddingbot-60">
+    <div class="container marginbot-50">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <div class="wow fadeInDown" data-wow-delay="0.1s">
+                    <div class="section-heading text-center">
+                        <h2 class="h-bold" style="font-size: 50px;">Инструкция.</h2>
+                        <p>
+                            Описание онлайн системы
+                        </p>
+                    </div>
+                </div>
+                <div class="divider-short"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+    <div class="wow bounceInUp" data-wow-delay="0.3s">
+    <div id="owl-works" class="owl-carousel">
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Start/s-1.jpg" title="Начало." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Start/s-1.jpg"><img src="~/Instruction/HelpPageRu/Start/s-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Start/s-2.jpg" title="Краткое описание." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Start/s-2.jpg"><img src="~/Instruction/HelpPageRu/Start/s-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Start/s-3.jpg" title="Начало работы." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Start/s-3.jpg"><img src="~/Instruction/HelpPageRu/Start/s-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*schedule*@
+
+    @*patient*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-0.jpg" title="10. Начало" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-0.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-1.jpg" title="11. Карточка пациента" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-1.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-2.jpg" title="12. Медицинские сведения" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-2.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-3.jpg" title="13. Схема зубов" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-3.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-4.jpg" title="14. Общие сведения" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-4.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-5.jpg" title="12. Гланая страница" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-5.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-6.jpg" title="13. Снова схема зубов." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-6.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-6.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-7.jpg" title="14. Удаление карточки" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-7.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-7.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-8.jpg" title="15. Карточка пациента" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-8.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-8.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Patient/patient-9.jpg" title="16. Расписание" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Patient/patient-9.jpg"><img src="~/Instruction/HelpPageRu/Patient/patient-9.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*patientVisit*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-0.jpg" title="17. Начало" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-0.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-1.jpg" title="18. Список пациентов" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-1.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-2.jpg" title="19. Список визитов" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-2.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-3.jpg" title="20. Карточка визита" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-3.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-4.jpg" title="21. История болезни" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-4.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-5.jpg" title="22. Список пациентов" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PatientVisit/patientvisit-5.jpg"><img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-0.jpg" title="Расписание." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-0.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-0.1.jpg" title="Расписание." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-0.1.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-0.1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-1.jpg" title="1. Страница расписание" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-1.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-2.jpg" title="2. Страница - добавление информации" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-2.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-3.jpg" title="3. Список событий" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-3.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-4.jpg" title="4. Создание задачи" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-4.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-5.jpg" title="5. Форма для заполнения задачи" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-5.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-6.jpg" title="6. Страница в расписании" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-6.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-6.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-7.jpg" title="7. Расписание за неделю" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-7.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-7.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-8.jpg" title="8. Расписание за месяц" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-8.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-8.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Schedule/Schedule-9.jpg" title="9. Главная страница" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Schedule/Schedule-9.jpg"><img src="~/Instruction/HelpPageRu/Schedule/Schedule-9.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Balance*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-0.jpg" title="23. Начало" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-0.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-1.jpg" title="24. Пациенты" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-1.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-2.jpg" title="25. История болезни" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-2.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*<div class="item">
+                                            <a href="~/Instruction/HelpPageRu/Balance/Balance-3.jpg" title="26. Финансовый учет" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-3.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-3.jpg" class="img-responsive " alt="img"></a>
+                                        </div>*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-4.jpg" title="27. Баланс" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-4.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-5.jpg" title="28. Баланс в карточке" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-5.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-6.jpg" title="29. Список пациентов" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-6.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-6.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-7.jpg" title="30. Расписание" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-7.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-7.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-8.jpg" title="31. Меню в расписании" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-8.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-8.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Balance/Balance-9.jpg" title="32. Расписание" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Balance/Balance-9.jpg"><img src="~/Instruction/HelpPageRu/Balance/Balance-9.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*User page*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/UserPage/UserPage-0.jpg" title="33. Начало" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/UserPage/UserPage-0.jpg"><img src="~/Instruction/HelpPageRu/UserPage/UserPage-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/UserPage/UserPage-1.jpg" title="34. Страница расписание" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/UserPage/UserPage-1.jpg"><img src="~/Instruction/HelpPageRu/UserPage/UserPage-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/UserPage/UserPage-2.jpg" title="35. Страница пользователя" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/UserPage/UserPage-2.jpg"><img src="~/Instruction/HelpPageRu/UserPage/UserPage-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*<div class="item">
+                                            <a href="~/Instruction/HelpPageRu/UserPage/UserPage-3.jpg" title="33. Возращаемся обратно" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/UserPage/UserPage-3.jpg"><img src="~/Instruction/HelpPageRu/UserPage/UserPage-3.jpg" class="img-responsive " alt="img"></a>
+                                        </div>*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/UserPage/UserPage-4.jpg" title="36. Начало" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/UserPage/UserPage-4.jpg"><img src="~/Instruction/HelpPageRu/UserPage/UserPage-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Search base*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-0.jpg" title="37. Страница пользователя" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-0.jpg"><img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-1.jpg" title="38. Страница пользователя" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-1.jpg"><img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-2.jpg" title="39. Страница пользователя" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-2.jpg"><img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Personal web site*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-0.jpg" title="40. Страница пользователя" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-0.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-1.jpg" title="41. Страница пофиля" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-1.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-2.jpg" title="42. Странциа информации для сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-2.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-3.jpg" title="43. Сайт ваш" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-3.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-4.jpg" title="44. Меню главная" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-4.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-5.jpg" title="45. О нас" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-5.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-6.jpg" title="46. Контакты" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-6.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-6.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Adwertising*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-7.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-7.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-7.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-8.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-8.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-8.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-9.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-9.jpg"><img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-9.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Registration*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-0.jpg" title="47. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-0.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-1.jpg" title="48. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-1.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-2.jpg" title="49. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-2.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-3.jpg" title="50. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-3.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-4.jpg" title="51. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-4.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-4.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-5.jpg" title="52. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-5.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-5.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Registration/Registration-6.jpg" title="53. Регистрация" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Registration/Registration-6.jpg"><img src="~/Instruction/HelpPageRu/Registration/Registration-6.jpg" class="img-responsive " alt="img"></a>
+    </div>
+
+
+
+    @*Remember password*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Remember/Remember-0.jpg" title="54. Напомнить пароль." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Remember/Remember-0.jpg"><img src="~/Instruction/HelpPageRu/Remember/Remember-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Remember/Remember-1.jpg" title="55. Напомнить пароль." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Remember/Remember-1.jpg"><img src="~/Instruction/HelpPageRu/Remember/Remember-1.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Remember/Remember-2.jpg" title="56. Напомнить пароль." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Remember/Remember-2.jpg"><img src="~/Instruction/HelpPageRu/Remember/Remember-2.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Remember/Remember-3.jpg" title="57. Напомнить пароль." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Remember/Remember-3.jpg"><img src="~/Instruction/HelpPageRu/Remember/Remember-3.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    @*Contact*@
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Contact/Contact-0.jpg" title="58. Контакты." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Contact/Contact-0.jpg"><img src="~/Instruction/HelpPageRu/Contact/Contact-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    <div class="item">
+        <a href="~/Instruction/HelpPageRu/Contact/Contact-1.jpg" title="59. Контакты." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageRu/Contact/Contact-0.jpg"><img src="~/Instruction/HelpPageRu/Contact/Contact-0.jpg" class="img-responsive " alt="img"></a>
+    </div>
+    </div>
+    <a href="@Url.Action("Help", "Home")">
+        <h2 class="h-bold" style="text-align: right; color: margin-left:5px; color: #3fbbc0">Больше...</h2></a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+
+
+    <!-- Section: boxes -->
+    <section id="boxes" class="home-section paddingtop-80">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="box text-center">
+
+                            <i class="fa fa-check fa-3x circled bg-skin"></i>
+                            <h4 class="h-bold">Зачем вам наша программа?</h4>
+                            <p>
+                                24/7 в любой точке земного шара. Сервис доступен в любом месте земного шара, где есть интернет.
+                                Вам не нужно задерживаться на работе, чтобы сделать отчет.
+                                Вы можете контролировать работу клиники
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="box text-center">
+
+                            <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
+                            <h4 class="h-bold">Универсальность системы</h4>
+                            <p>
+                                Работать с данными о ваших пациентах можно с мобильного телефона, на компьютере и планшете.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="box text-center">
+                            <i class="fa fa-user-md fa-3x circled bg-skin"></i>
+                            <h4 class="h-bold">Учет финансов</h4>
+                            <p>
+                                В программе Вы можете вести как планируемую выручку, так и полученную.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="box text-center">
+
+                            <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
+                            <h4 class="h-bold">Быстрая работа с записью на прием</h4>
+                            <p>
+                                Расписание доктора на мобильном телефоне
+                                Автоматическое формирование расписание доктора в его мобильном телефоне.
+                                Удобство современных технологий, оперативность информации, контроль ситуации в любое время
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- /Section: boxes -->
+
+
+    <section id="callaction" class="home-section paddingtop-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="callaction bg-gray">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="wow fadeInUp" data-wow-delay="0.1s">
+                                    <div class="cta-text">
+                                        <h3>Почему мы нужны вам?</h3>
+                                        <p>Мы бесплатные. Наш функционал позволит Вам хранить всю информацию на протяжении многих лет о всех Ваших пациентах: расписание, финансы, визиты, карточки пациентов, анализы, назначения. Вся эта информация доступна только Вам и никому иному, Вы ее копите годами. У нас трехуровневая система защиты данных. Также мы Вам даем свой офис и страницу в интернете.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                                    <div class="cta-btn">
+                                        <a href="#" class="btn btn-skin btn-lg">Наверх</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section: services -->
+    <section id="service" class="home-section nopadding paddingtop-60">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="wow fadeInUp" data-wow-delay="0.2s">
+                        <img src="~/Content/LandigPage/img/dummy/img-1.jpg" class="img-responsive" alt=""/>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3">
+
+                    <div class="wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-stethoscope fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">Регистрация пациентов.</h5>
+                                <p>Регистрация пациентов с сохранением паспортных данных, контактов и т.д.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-wheelchair fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">Карта пациента</h5>
+                                <p>Анамнез, жалобы, сведения о каждом случае обращения и т.д.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-plus-square fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">Учет оплаты медуслуг</h5>
+                                <p>Регистрация оплаты, ведение баланса пациента.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-sm-3 col-md-3">
+
+                    <div class="wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-h-square fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">Запись на оказание услуг.</h5>
+                                <p>Позволяет предварительно записывать на оказание услуг.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-filter fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">История болезни</h5>
+                                <p>Возможность учета оказанных услуг по пациенту,</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="service-box">
+                            <div class="service-icon">
+                                <span class="fa fa-user-md fa-3x"></span>
+                            </div>
+                            <div class="service-desc">
+                                <h5 class="h-light">Персональный сайт.</h5>
+                                <p>У вас будет свой сайт</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Section: services -->
+    <!-- Section: team -->
+    <section id="doctor" class="home-section bg-gray paddingbot-60">
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center" style="text-align: left; color: black">
+                            <h2 class="h-bold">О проекте doctor-premium</h2>
+                            <p>DOCTOR-PREMIUM – программа, созданная для сохранения личной информации пациентов докторами. Для удобного использования одновременно на нескольких местах работы.</p>
+                            <p>Детально о возможностях онлайн системы:</p>
+                            <p>
+                                <ol>
+                                    <li>
+                                        Сохранение карточки пациента <br>
+                                        ФИО, Дата рождения,Тел.,Email., Адрес.<br>
+                                    </li>
+                                    <li>
+                                        Сохранение медицинских данных: <br>
+                                    </li>
+                                    <li>
+                                        Анамнез. Алерго статус. Имуно статус.<br>
+                                    </li>
+                                    <li>
+                                        У вас будет свой сайт в интернете, бесплатно.<br>
+                                    </li>
+                                    <li>
+                                        Сохранение истории болезни: <br>
+                                        Дата визита. Субъективные жалобы. Дополнительные исследования. Данные рентгеновский исследований, лабораторных исследований.
+                                        Клинический диагноз. Проведённое лечение. Назначение врача. Стоимость услуг.<br>
+                                    </li>
+                                    <li>
+                                        Сохранение истории болезни: <br>
+                                        Дата визита. Субъективные жалобы. Дополнительные исследования. Данные рентгеновский исследований, лабораторных исследований.
+                                        Клинический диагноз. Проведённое лечение. Назначение врача. Стоимость услуг.<br>
+                                    </li>
+                                    <li>
+                                        Поиск по базе пациентов:<br>
+                                        По фио. По тел. По полу. По возрасту. По дате посещении. По долгам. По vip статусу.<br>
+                                    </li>
+                                    <li>
+                                        Программа будет вам напоминать:<br>
+                                        Плановый осмотр раз в пол года. Запланированный осмотр. Напоминание о запланированном событии. Если праздник у пациента.
+                                        Если должник. Запланированные посещения<br>
+                                    </li>
+                                    <li>
+                                        Программа работает на таких устройствах:<br>
+                                        Android. Windows phone. Apple. Ноутбуки. Настольные компьютеры. Планшеты. Везде где есть интернет.<br>
+                                    </li>
+                                    <li>
+                                        Создать расписание:<br>
+                                        Добавить визит пациента. Записать контактные данные: фио, тел, дата визита, время. Добавить событие: название события (пример: купить бинт), время события.<br>
+                                    </li>
+                                    <li>
+                                        Создание рассылки<br>
+                                        Тема рассылки. Адрес рассылки. Время и дата рассылки<br>
+                                    </li>
+                                    <li>
+                                        Задачи:<br>
+                                        Установка задачи. Напоминание о запланированной задачи.<br>
+                                    </li>
+                                </ol>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Section: team -->
+    <!-- Section: works -->
+    <!-- /Section: works -->
+    <!-- Section: testimonial -->
+    <section id="testimonial" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            <h2 class="h-bold" style="color: white">Отзывы</h2>
+                            <p style="color: white">Несколько отзывов от наших клиентов</p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-reviews broun-block">
+            <div class="container">
+                <div class="row">
+                    <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Доктор</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                        <p>В системе doctor- premium удобный интерфэйс на интуитивно понятном уровне, полезный функционал для врачей.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/1.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Анна</a>
+                                        <span>Москва</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 hidden-xs">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Директор терапевт</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                        <p>Понравилось функцией повторные визиты – я информирую пациентов о предстоящих осмотрах, лечении, забочусь об их здоровье, и формирую полную запись на прием.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/2.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Андрей</a>
+                                        <span>Минск</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Доктор кардиолог</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                        <p>Очень удобна функция напоминания о дате визита.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/3.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Елена</a>
+                                        <span>Киев</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Доктор стоматолог</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                        <p>Очень радует возможность просматривать свое расписание в мобильном телефоне и планшете.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/4.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Юорий</a>
+                                        <span>Петербург</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 hidden-xs">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Доктор стоматолог</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                        <p>Поработав несколько дней, я поняла, как проста и удобна программа doctor-premium. Даже не понимаю, как мы без неё обходились раньше.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/5.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Ирина</a>
+                                        <span>Ереван</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                                    <div class="block-text rel zmin">
+                                        <a title="" href="#">Директор клиники</a>
+                                        <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                        <p>Программу для клиники выбирал долго, около года. Пересмотрел много вариантов. Doctor-premium - моим требованиям отвечает полностью: бесплатная; возможность просматривать свое расписание на мобильном телефоне.</p>
+                                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                    </div>
+                                    <div class="person-text rel text-light">
+                                        <img src="~/Content/LandigPage/img/testimonials/6.jpg" alt="" class="person img-circle"/>
+                                        <a title="" href="#">Людмила</a>
+                                        <span>Витебск</span>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Section: testimonial -->
+
+
+    <section id="partner" class="home-section paddingbot-60">
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            <h2 class="h-bold">Для партнеров.</h2>
+                            <p>Мы в поиске партнеров, кто желает участвовать в нашем проекте, свяжитесь с нами по email: infodoctorpremium@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container marginbot-50">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2" style="margin-top: 4%;">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="section-heading text-center">
+                            <p>
+                                Показать друзьям программу
+                                <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                <div class="ya-share2" style="" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="Я использую в работе Doctor-premium бесплатную  программу  для сохранения моей базы пациентов"></div>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+        </div>
+
+        @*<div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-3">
+                                <div class="partner">
+                                    <a href="#"><img src="~/Content/LandigPage/img/dummy/partner-1.jpg" alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="partner">
+                                    <a href="#"><img src="~/Content/LandigPage/img/dummy/partner-2.jpg" alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="partner">
+                                    <a href="#"><img src="~/Content/LandigPage/img/dummy/partner-3.jpg" alt="" /></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                <div class="partner">
+                                    <a href="#"><img src="~/Content/LandigPage/img/dummy/partner-4.jpg" alt="" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+    </section>
+    </div>
+    </div>
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Наша миссия:</h5>
+                            <p>
+                                Дать возможность всем докторам скопировать свою базу пациентов.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Полезные ссылки</h5>
+                            <ul>
+                                <li><a href="http://www.un.org/">United nations</a></li>
+                                <li><a href="http://www.redcross.org/">Red Cross</a></li>
+                                <li><a href="http://www.msf.org/">MSF</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>ОСТАЛИСЬ ВОПРОСЫ?</h5>
+                            <p>
+                                Наши контакты
+                            </p>
+                            <ul>
+                                @*<li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-skype fa-stack-2x"></i>
+                                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                    </span> skype: info.microsoft.com
+                                </li>*@
+                                <li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                    </span> infodoctorpremium@gmail.com
+                                </li>
+                                <li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+                                    </span> График работы онлайн системы - 24 / 7
+                                </li>
+                                
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    @*<div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Our location</h5>
+                                <p>The Suithouse V303, Kuningan City, Jakarta Indonesia 12940</p>
+
+                            </div>
+                        </div>*@
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Свяжитесь с нами</h5>
+                            <ul class="company-social">
+                                <li class="social-facebook"><a href="https://www.facebook.com/groups/765680770239043/" target="blank" rel="nofollow"><i class="fa fa-facebook"></i></a></li>
+                                @*<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>*@
+                                <li class="social-google"><a href="https://www.linkedin.com/groups/8558904" target="blank" rel="nofollow"><i class="fa fa-linkedin"></i></a></li>
+                                @*<li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                                    <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>*@
+                                <li class="social-facebook"><a href="https://new.vk.com/public126747071" target="blank" rel="nofollow"><i class="fa fa-vk"></i></a></li>
+                                @*<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>*@
+                                <a href="https://ok.ru/group/53334451945539" target="blank">
+                                    <img src="~/Content/images/ok.jpg" alt="" width="40" height="40" />
+                                </a>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                            <div class="text-left">
+                                <p>&copy;Copyright 2016 - Doctor-premium. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="wow fadeInRight" data-wow-delay="0.1s">
+                            <div class="text-right">
+                                <p><a href="http://bootstraptaste.com/" target="blank" rel="nofollow">Bootstrap Themes</a> by Bootstrap</p>
+                            </div>
+                            <!--
+                                All links in the footer should remain intact.
+                                Licenseing information is available at: http://bootstraptaste.com/license/
+                                You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Medicio
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>

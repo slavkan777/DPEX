@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorPremium.Web", "DoctorPremium.Web\DoctorPremium.Web.csproj", "{12F78ADB-A177-4CE0-9A7D-096BB5DBECF4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorPremium.Tests", "DoctorPremium.Tests\DoctorPremium.Tests.csproj", "{A9FFCA19-1B3A-4B6D-9FE9-D4A6896CAC22}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DoctorPremium.Database", "DoctorPremium.Database\DoctorPremium.Database.sqlproj", "{05EDD96B-80A5-4D20-AC2C-1EA003BDB234}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorPremium.DAL", "DoctorPremium.DAL\DoctorPremium.DAL.csproj", "{156FD26C-718A-4641-B2BE-42AB314E895F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorPremium.Common", "DoctorPremium.Common\DoctorPremium.Common.csproj", "{072FE2AA-4F9A-4F82-BF16-1AD5592C83A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorPrmium.Services", "DoctorPrmium.Services\DoctorPrmium.Services.csproj", "{732D18B9-A4D5-46C6-8A89-4ADC6D6BEF9E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12F78ADB-A177-4CE0-9A7D-096BB5DBECF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12F78ADB-A177-4CE0-9A7D-096BB5DBECF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12F78ADB-A177-4CE0-9A7D-096BB5DBECF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12F78ADB-A177-4CE0-9A7D-096BB5DBECF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9FFCA19-1B3A-4B6D-9FE9-D4A6896CAC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9FFCA19-1B3A-4B6D-9FE9-D4A6896CAC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9FFCA19-1B3A-4B6D-9FE9-D4A6896CAC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9FFCA19-1B3A-4B6D-9FE9-D4A6896CAC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05EDD96B-80A5-4D20-AC2C-1EA003BDB234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05EDD96B-80A5-4D20-AC2C-1EA003BDB234}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{156FD26C-718A-4641-B2BE-42AB314E895F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156FD26C-718A-4641-B2BE-42AB314E895F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156FD26C-718A-4641-B2BE-42AB314E895F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156FD26C-718A-4641-B2BE-42AB314E895F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{072FE2AA-4F9A-4F82-BF16-1AD5592C83A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072FE2AA-4F9A-4F82-BF16-1AD5592C83A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072FE2AA-4F9A-4F82-BF16-1AD5592C83A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072FE2AA-4F9A-4F82-BF16-1AD5592C83A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{732D18B9-A4D5-46C6-8A89-4ADC6D6BEF9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{732D18B9-A4D5-46C6-8A89-4ADC6D6BEF9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{732D18B9-A4D5-46C6-8A89-4ADC6D6BEF9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{732D18B9-A4D5-46C6-8A89-4ADC6D6BEF9E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://doctorpremium.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = DoctorPremium.Database\\DoctorPremium.Database.sqlproj
+		SccProjectName1 = DoctorPremium.Database
+		SccLocalPath1 = DoctorPremium.Database
+		SccProjectUniqueName2 = DoctorPremium.Common\\DoctorPremium.Common.csproj
+		SccProjectName2 = DoctorPremium.Common
+		SccLocalPath2 = DoctorPremium.Common
+		SccProjectUniqueName3 = DoctorPremium.DAL\\DoctorPremium.DAL.csproj
+		SccProjectName3 = DoctorPremium.DAL
+		SccLocalPath3 = DoctorPremium.DAL
+		SccProjectUniqueName4 = DoctorPremium.Tests\\DoctorPremium.Tests.csproj
+		SccProjectName4 = DoctorPremium.Tests
+		SccLocalPath4 = DoctorPremium.Tests
+		SccProjectUniqueName5 = DoctorPremium.Web\\DoctorPremium.Web.csproj
+		SccProjectName5 = DoctorPremium.Web
+		SccLocalPath5 = DoctorPremium.Web
+		SccProjectUniqueName6 = DoctorPrmium.Services\\DoctorPrmium.Services.csproj
+		SccProjectName6 = DoctorPrmium.Services
+		SccLocalPath6 = DoctorPrmium.Services
+	EndGlobalSection
+EndGlobal

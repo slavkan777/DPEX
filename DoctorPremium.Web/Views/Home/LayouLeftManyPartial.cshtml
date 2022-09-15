@@ -1,0 +1,133 @@
+﻿@model DoctorPremium.Web.Models.RightMoneyDataModels
+
+
+
+<div class="col-lg-4" style="padding: 0px;width: 100%">
+
+    <div class="panel panel-default closed hover">
+
+        <div class="panel-heading">
+
+            <h4>
+                <span class="icon16 icomoon-icon-equalizer-2"></span>
+                <span style="font-weight: normal;font-size: 14px;">@Resources.Resource.Money</span>
+            </h4>
+            <a href="#" class="maximize" style="display: block;">Minimize</a>
+        </div>
+        <div class="panel-body" style="display: block; padding: 0px;">
+
+            <div class="sidebar-widget">
+                @*<a class="btn btn-success" href="/Home/Help" style="width: 100%; margin: 1px; font-size: 17px;    color: white;padding-top: 1px">@Resources.Resource.HelpButton</a>*@
+                <h5 class="title">@Resources.Resource.TitleMoney</h5>
+                <div class="content">
+
+                    <div class="stats">
+                        <div class="item">
+
+                            <div class="head clearfix">
+                                <div class="txt"> @Resources.Resource.TodayBefore</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.one2)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.TodayNext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.one1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.SevenBefore</div>
+
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.seven2))) </div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.SevenNext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.seven1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.ThirtyBefore</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.thirty2))) </div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.ThirtyNext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.thirty1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.SixtyBefore</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.sixty2))) </div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.SixtyNext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.sixty1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.NinetyBefore</div>
+
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.ninety2)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.NinetyNext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.ninety1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.OneTwentyBefore</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.oneHundredTwenty2)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.OneTwentynext</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.oneHundredTwenty1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.OneEightyBefore</div>
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.oneHundredEighty2)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="head clearfix">
+                                <div class="txt">@Resources.Resource.OneEightyNext</div> 
+                                <div class="number" style="font-size: 12px;">@Html.Raw(HttpUtility.HtmlEncode(String.Format("{0:0.00}", Model.oneHundredEighty1)))</div>
+                                <span class="icon16 icomoon-icon-coin left" style="margin-top: 0px;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- End .panel -->
+
+</div>

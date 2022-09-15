@@ -1,0 +1,6 @@
+2016-09-22 11:56:53,522 [1] INFO  - Startup application.
+2016-09-22 21:10:54,865 [1] INFO  - Startup application.
+2016-09-22 21:12:06,558 [15] INFO  - Application end.
+2016-09-22 21:12:25,878 [18] INFO  - Startup application.
+2016-09-22 21:14:26,189 [14] ERROR - Ошибка сервера: Cannot perform runtime binding on a null reference
+2016-09-22 21:24:31,126 [1] INFO  - Startup application.

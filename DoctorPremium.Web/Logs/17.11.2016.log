@@ -1,0 +1,12 @@
+2016-11-17 22:28:25,934 [23] INFO  - Startup application.
+2016-11-17 22:28:28,476 [5] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 22:28:58,904 [5] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:10:31,411 [32] INFO  - Startup application.
+2016-11-17 23:10:35,029 [35] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:11:12,102 [35] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:14:42,415 [13] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:18:28,576 [26] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:19:47,984 [23] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:21:48,939 [19] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-17 23:23:42,908 [1] INFO  - Startup application.
+2016-11-17 23:26:39,631 [1] INFO  - Startup application.

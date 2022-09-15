@@ -1,0 +1,1003 @@
+﻿@{
+    Layout = "~/Views/Shared/_LaoutLanding.cshtml";
+}
+<nav class="navbar navbar-custom navbar-fixed-top">
+    <div class="top-area">
+        <div class="container">
+            <div class="row">
+                <a class="navbar-brand" href="/Home/index" style="float: none;">
+                    <img src="~/Content/LandigPage/img/logo.png" alt="" class="col-md-2 hidden-xs" />
+                </a>
+                <div class="col-sm-6 col-md-6" style="font-weight: bold; width: 80%; float: right">
+                    <p class="bold text-left  hidden-xs" style="margin-bottom: 5px;float: left;">
+                        If you have a question, write to us: infodoctorpremium@gmail.com
+                    </p>
+                    <p class="bold text-right  col-sx-3" style="margin-bottom: 5px;float: right;">
+
+                        @if (Request.IsAuthenticated)
+                        {
+                            <a href=@Url.Action("index", "Schedule") class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">Office</a>
+                            <a href="javascript:document.getElementById('logoutForm').submit()" class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">@Resources.Resource.Exit</a>
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+                        }
+                        else
+                        {
+                            <a class="btn btn-skin btn-sm" href=@Url.Action("Register", "Account") style="background-color: #7eb138">Sign up</a>
+                            <a href=@Url.Action("Login", "Account") class="btn btn-skin btn-sm" style="margin-left: 5px; background-color: #7eb138">Log in</a>
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container navigation" style="padding-bottom: 0px;">
+
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="#facilities">Tutorial</a></li>
+                @*<li><a href="#vidio">Instructions</a></li>*@
+                @*<li><a href="#service">Why wee?</a></li>
+                    <li><a href="#doctor">Aboute</a></li>*@
+                @*<li><a href="#testimonial">Customers</a></li>*@
+                <li><a href="#partner">Contacts</a></li>
+                <li><a href="/Home/Help">Help page</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="badge custom-badge red pull-right">language</span>En <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="margin-top: 16px;">
+                        <li>
+                            @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguage", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+                            {
+                                @Html.Hidden("lang", "ru")
+                            }
+                            <a href="#" onclick="$('#ChangeLanguage').submit(); return false;">Ru</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<div id="wrapper">
+    <div id="content" style="height: auto">
+        <div class="inner" style="height: auto">
+            <!-- Section: intro -->
+            <section id="intro" class="intro">
+                <div class="intro-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="wow fadeInDown" data-wow-offset="0" data-wow-delay="0.1s" style="font-size: 30px;">
+                                    <h2 class="h-ultra">Free EHR and EMR web systems</h2>
+                                </div>
+                                <div class="wow fadeInUp animated" data-wow-offset="0" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                    <h4 class="h-light">Access<span class="color"> Doctor-premium</span> from anywhere</h4>
+                                </div>
+                                <div class="well well-trans">
+                                    <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                        About Doctor-premium:
+                                        <ul class="lead-list">
+                                            <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Who use Doctor-premium?</strong><br /> Healthcare practitioners worldwide.</span></li>
+                                            <li><span class="fa fa-check fa-2x icon-success"></span> <span class="list"><strong>Why use Doctor-premium?</strong><br />Secure, Reliable and Trusted.</span></li>
+                                        </ul>
+                                        <p class="text-right wow bounceIn" data-wow-delay="0.4s">
+                                            <a href="/Home/Help" class="btn btn-skin btn-lg" style="font-size: 13px; background-color: #7eb138; float: left; margin-right: 5px;" rel="nofollow" target="blank">Help</a>
+                                            <a class="btn btn-skin btn-lg" href=@Url.Action("Register", "Account") style="background-color: #7eb138; float: left; margin-right: 5px;font-size: 13px">Sign up</a>
+
+                                            @using (Html.BeginForm("LoginTestAccount", "Account", FormMethod.Post))
+                                            {
+                                                <button type="submit" style="font-size: 13px" class="btn btn-skin btn-lg">Try it now<i class=" fa fa-angle-right"></i></button>
+                                            }
+
+                                            @*<a href="/Home/Help" class="btn btn-skin btn-sm" style="margin: 15px; float: left;font-size: 15px;background-color: #7eb138;" rel="nofollow" target="blank">Инструкция</a>*@
+
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                                    <img src="~/Content/LandigPage/img/dummy/img-1.png" class="img-responsive" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+            <!-- Section: vidio -->
+            <section id="vidio" class="intro">
+
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <h2 style="margin-top: 35px;" class="h-bold">Video</h2>
+                                    <p>
+                                        free emr tutorial
+                                    </p>
+
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="intro-content paddingbot-50" style="padding-top: 50px">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-26" style="width: 100%; height: 100%">
+                                <div class="col-lg-26" style="width: 100%; height: 100%">
+                                    <iframe class="col-lg-26" style="width: 100%; height: 580px" src="https://www.youtube.com/embed/Wc2UL3l60MQ" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2" style="margin-top: 4%;">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <p>
+                                        Show a friend program
+                                        <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                        <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                        <div class="ya-share2" style="" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="I use in the Doctor-premium free app to save my patient base."></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- /Section: vidio -->
+
+
+        <!-- /Section: faclities -->
+            <section id="facilities" class="home-section paddingbot-60">
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <h2 class="h-bold" style="font-size: 70px;">Tutorial</h2>
+                                    <p>Not sure where to start?</p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="wow bounceInUp" data-wow-delay="0.3s">
+                                <div id="owl-works" class="owl-carousel">
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Start/s-1.jpg" title="Start." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Start/s-1.jpg"><img src="~/Instruction/HelpPageEn/Start/s-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Start/s-2.jpg" title="Start" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Start/s-2.jpg"><img src="~/Instruction/HelpPageEn/Start/s-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Start/s-3.jpg" title="Start" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Start/s-3.jpg"><img src="~/Instruction/HelpPageEn/Start/s-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*schedule*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-0.jpg" title="Schedule." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-0.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-1.jpg" title="1. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-1.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-2.jpg" title="2. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-2.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-3.jpg" title="3. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-3.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-4.jpg" title="4. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-4.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-5.jpg" title="5. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-5.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-6.jpg" title="6. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-6.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-6.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-7.jpg" title="7. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-7.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-7.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-8.jpg" title="8. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-8.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-8.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Schedule/Schedule-9.jpg" title="9. Schedule" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Schedule/Schedule-9.jpg"><img src="~/Instruction/HelpPageEn/Schedule/Schedule-9.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*patient*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-0.jpg" title="10. Patient card." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-0.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-1.jpg" title="11. Patient card." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-1.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-2.jpg" title="12. Patient card." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-2.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-3.jpg" title="13. Patient card." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-3.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-4.jpg" title="14. Patient card." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-4.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-5.jpg" title="15. Patient card" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-5.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-6.jpg" title="16. Patient card" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-6.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-6.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-7.jpg" title="17. Patient card" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-7.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-7.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-8.jpg" title="18. Patient card" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-8.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-8.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Patient/patient-9.jpg" title="19. Patient card" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Patient/patient-9.jpg"><img src="~/Instruction/HelpPageEn/Patient/patient-9.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*patientVisit*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-0.jpg" title="17. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-0.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-1.jpg" title="18. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-1.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-2.jpg" title="19. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-2.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-3.jpg" title="20. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-3.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-4.jpg" title="21. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-4.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-5.jpg" title="22. Patient visit" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PatientVisit/patientvisit-5.jpg"><img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Balance*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-0.jpg" title="23. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-0.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-1.jpg" title="24. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-1.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-2.jpg" title="25. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-2.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-3.jpg" title="26. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-3.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-4.jpg" title="27. Баланс" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-4.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-5.jpg" title="28. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-5.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-6.jpg" title="29. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-6.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-6.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-7.jpg" title="30. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-7.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-7.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-8.jpg" title="31. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-8.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-8.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Balance/Balance-9.jpg" title="32. Balance" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Balance/Balance-9.jpg"><img src="~/Instruction/HelpPageEn/Balance/Balance-9.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*User page*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/UserPage/UserPage-0.jpg" title="33. User page" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/UserPage/UserPage-0.jpg"><img src="~/Instruction/HelpPageEn/UserPage/UserPage-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/UserPage/UserPage-1.jpg" title="34. User page" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/UserPage/UserPage-1.jpg"><img src="~/Instruction/HelpPageEn/UserPage/UserPage-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/UserPage/UserPage-2.jpg" title="35. User page" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/UserPage/UserPage-2.jpg"><img src="~/Instruction/HelpPageEn/UserPage/UserPage-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*<div class="item">
+                                            <a href="~/Instruction/HelpPageEn/UserPage/UserPage-3.jpg" title="33. Возращаемся обратно" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/UserPage/UserPage-3.jpg"><img src="~/Instruction/HelpPageEn/UserPage/UserPage-3.jpg" class="img-responsive " alt="img"></a>
+                                        </div>*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/UserPage/UserPage-4.jpg" title="36. User page" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/UserPage/UserPage-4.jpg"><img src="~/Instruction/HelpPageEn/UserPage/UserPage-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Search base*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-0.jpg" title="37. Search base*" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-0.jpg"><img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-1.jpg" title="38. Search base*" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-1.jpg"><img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-2.jpg" title="39. Search base*" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-2.jpg"><img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Personal web site*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-0.jpg" title="40. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-0.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-1.jpg" title="41. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-1.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-2.jpg" title="42. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-2.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-3.jpg" title="43. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-3.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-4.jpg" title="44. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-4.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-5.jpg" title="45. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-5.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-6.jpg" title="46. Personal web site" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-6.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-6.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Advertising*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-7.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-7.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-7.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-8.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-8.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-8.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-9.jpg" title="54.1 Реклама вашего сайта" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-9.jpg"><img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-9.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Registration*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-0.jpg" title="47. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-0.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-1.jpg" title="48. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-1.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-2.jpg" title="49. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-2.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-3.jpg" title="50. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-3.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-4.jpg" title="51. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-4.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-4.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-5.jpg" title="52. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-5.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-5.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Registration/Registration-6.jpg" title="53. Registration" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Registration/Registration-6.jpg"><img src="~/Instruction/HelpPageEn/Registration/Registration-6.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Remember password*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Remember/Remember-0.jpg" title="54. Remember password" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Remember/Remember-0.jpg"><img src="~/Instruction/HelpPageEn/Remember/Remember-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Remember/Remember-1.jpg" title="55. Remember password" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Remember/Remember-1.jpg"><img src="~/Instruction/HelpPageEn/Remember/Remember-1.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Remember/Remember-2.jpg" title="56. Remember password" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Remember/Remember-2.jpg"><img src="~/Instruction/HelpPageEn/Remember/Remember-2.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Remember/Remember-3.jpg" title="57. Remember password" data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Remember/Remember-3.jpg"><img src="~/Instruction/HelpPageEn/Remember/Remember-3.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    @*Contact*@
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Contact/Contact-0.jpg" title="58. Contact." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Contact/Contact-0.jpg"><img src="~/Instruction/HelpPageEn/Contact/Contact-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                    <div class="item">
+                                        <a href="~/Instruction/HelpPageEn/Contact/Contact-1.jpg" title="59. Contact." data-lightbox-gallery="gallery1" data-lightbox-hidpi="~/Instruction/HelpPageEn/Contact/Contact-0.jpg"><img src="~/Instruction/HelpPageEn/Contact/Contact-0.jpg" class="img-responsive " alt="img"></a>
+                                    </div>
+                                </div>
+
+                                <a href="@Url.Action("Help", "Home")">
+                                    <h2 class="h-bold" style="text-align: right; color: margin-left:5px; color: #3fbbc0; font-size: 45px">More...</h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Section: vidio -->
+            @*<section id="vidio" class="intro">
+
+                    <div class="container marginbot-50">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2">
+                                <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                    <div class="section-heading text-center">
+                                        <h2 class="h-bold">Video tutorial</h2>
+                                        <p>See instruction</p>
+                                    </div>
+                                </div>
+                                <div class="divider-short"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="intro-content paddingbot-50">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-26" style="width: 100%; height: 100%">
+                                    <div class="col-lg-26" style="width: 100%; height: 100%">
+                                        <iframe class="col-lg-26" style="width: 100%; height: 580px" src="http://player.vimeo.com/video/22428395"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container marginbot-50">
+                        <div class="row">
+                            <div class="col-lg-8 col-lg-offset-2" style=" margin-top: 4%;">
+                                <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                    <div class="section-heading text-center">
+                                        <p>
+                                            Share this software for friends
+                                            <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                            <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                            <div class="ya-share2" style="" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="I use the  free software  Doctor-premium. Software for doctors and clinics."> </div>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="divider-short"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>*@
+
+            <!-- /Section: vidio -->
+            <!-- Section: boxes -->
+            <section id="boxes" class="home-section paddingtop-80">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-3">
+                            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="box text-center">
+
+                                    <i class="fa fa-check fa-3x circled bg-skin"></i>
+                                    <h4 class="h-bold">For whom?</h4>
+                                    <p>
+                                        DOCTOR-PREMIUM It's particularly popular with Osteopaths, Dantists, Chiropractors, Physiotherapists, Podiatrists, Psychologists, Naturopaths and Massage Therapists.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="box text-center">
+
+                                    <i class="fa fa-list-alt fa-3x circled bg-skin"></i>
+                                    <h4 class="h-bold">Access from anywhere on any device</h4>
+                                    <p>
+                                        Doctro-premium works right from the browser on your phone, tablet, Mac or PC, so there is no app to install or syncing required.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="box text-center">
+                                    <i class="fa fa-user-md fa-3x circled bg-skin"></i>
+                                    <h4 class="h-bold">Simple management of accounts</h4>
+                                    <p>
+                                        Simple management of clients accounts.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+                            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="box text-center">
+
+                                    <i class="fa fa-hospital-o fa-3x circled bg-skin"></i>
+                                    <h4 class="h-bold">The easiest way to manage your appointments</h4>
+                                    <p>
+                                        It's never been simpler to manage your schedule.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- /Section: boxes -->
+
+
+            <section id="callaction" class="home-section paddingtop-40">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="callaction bg-gray">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="cta-text">
+                                                <h3>WHY WEE?</h3>
+                                                <p>We are free and we have good functionality: .</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                                            <div class="cta-btn">
+                                                <a href="#" class="btn btn-skin btn-lg">ABOVE</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Section: services -->
+            <section id="service" class="home-section nopadding paddingtop-60">
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                            <div class="wow fadeInUp" data-wow-delay="0.2s">
+                                <img src="~/Content/LandigPage/img/dummy/img-1.jpg" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+
+                            <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-stethoscope fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Convenient and secure treatment notes</h5>
+                                        <p>With Doctor-premium you can access your treatment notes from anywhere without jeopardising security. All treatment notes are stored securely to help you meet your legal requirements.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wow fadeInRight" data-wow-delay="0.2s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-wheelchair fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Add patient information</h5>
+                                        <p>History, information about health etc...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wow fadeInRight" data-wow-delay="0.3s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-plus-square fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Accounting for medical service payment</h5>
+                                        <p>Registration payment, patient balance management.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-3 col-md-3">
+
+                            <div class="wow fadeInRight" data-wow-delay="0.1s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-h-square fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Invoice and receipt payments quickly.</h5>
+                                        <p>Handling payments with Doctor-premium is fast and flexible. Create an invoice straight from the appointment, add any products and collect the payment. Easily override prices on each invoice for complete flexibility..</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="wow fadeInRight" data-wow-delay="0.2s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-filter fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Patient medical history</h5>
+                                        <p>The Patients Ability in Doctor-premium is an information hub that displays all of the demographic, insurance, clinical and ledger data in a user friendly format. You can also create Treatment Plans and break them into phases quickly and easily. All of the information and function you need right at your fingertips.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wow fadeInRight" data-wow-delay="0.3s">
+                                <div class="service-box">
+                                    <div class="service-icon">
+                                        <span class="fa fa-user-md fa-3x"></span>
+                                    </div>
+                                    <div class="service-desc">
+                                        <h5 class="h-light">Personal web site</h5>
+                                        <p>We give you personal office</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /Section: services -->
+            <!-- Section: team -->
+            <section id="doctor" class="home-section bg-gray paddingbot-60">
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center" style="text-align: left; color: black; font-size: 20px;">
+                                    <h2 class="h-bold">About</h2>
+                                    <p>DOCTOR-PREMIUM – Like by more than 10,000 healthcare practitioners DOCTOR-PREMIUM is the best way to manage and grow your business.</p>
+                                    <p>Tour:</p>
+                                    <p>
+                                        <ol>
+                                            <li>
+                                                Save patient informations <br>
+                                                Full name, date of birth, Tel., E Mail., Address.<br>
+                                            </li>
+                                            <li>
+                                                Save medical data: <br>
+                                            </li>
+                                            <li>
+                                                Anamnesis. Allergy status. Immune status..<br>
+                                            </li>
+                                            <li>
+                                                You will have personal website.<br>
+                                            </li>
+                                            <li>
+                                                Saving history: <br>
+                                                Date of visit. Additional data. These X-ray data, laboratory data.
+                                                Clinical diagnosis. The performed treatment. Assigning a doctor. The cost of services. <br>
+                                            </li>
+                                            <li>
+                                                Search on the database of patients: <br>
+                                                By name, phone, the gender, to the age, time and date of the visit. According debts, and search on vip status. <br>
+                                            </li>
+                                            <li>
+                                                The program will remind you::<br>
+                                                Visit patients, task for doctor.<br>
+                                            </li>
+                                            <li>
+                                                Program works on these devices: <br>
+                                                Android. Windows phone. Apple. Notebooks. Desktop Computers. Tablets. Where there is an Internet. <br>
+                                            </li>
+                                            <li>
+                                                New Schedule: <br>
+                                                Add patient visit. Record contact details: name, phone, date of visit, time. Add an event: event name (example: buy bandage), time of event <br>.
+                                            </li>
+                                            <li>
+                                                Create email sending to patient<br>
+                                                Email Address. Time and date of mailing <br>
+                                            </li>
+                                            <li>
+                                                Objectives: <br>
+                                                Creating a task. A reminder of a scheduled task. <br>
+                                            </li>
+                                        </ol>
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /Section: team -->
+            <!-- Section: works -->
+            <!-- /Section: works -->
+            <!-- Section: testimonial -->
+            <section id="testimonial" class="home-section paddingbot-60 parallax" data-stellar-background-ratio="0.5">
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <h2 class="h-bold" style="color: white">Customer comments</h2>
+                                    <p style="color: white">A few comments from our customers</p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-reviews broun-block">
+                    <div class="container">
+                        <div class="row">
+                            <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Director</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                                <p>I was looking for something that was easy to understand, simple to use, but powerful enough to meet all my expectations. I found Doctor-premium and stopped looking!</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/1.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Janet</a>
+                                                <span>New York</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 hidden-xs">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Terapevt</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                                <p>A simple to use, highly secure and very effective business tool that allows my team and I to get on with the business of healing without wasting time and resources.</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/2.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Carl</a>
+                                                <span>Boston</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Cardiologist Dr.</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span></span></div>
+                                                <p>We have been using Doctor-premium for around 6 months now and have been VERY impressed.</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/3.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Susan</a>
+                                                <span>Tennessee</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="col-md-4 col-sm-6">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Dantist</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                                <p>Good schedule in mobile.</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/4.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Jhon</a>
+                                                <span>Colorado</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 hidden-xs">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Doctor</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                                <p>Very easy software.</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/5.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Susan</a>
+                                                <span>Paris</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                                            <div class="block-text rel zmin">
+                                                <a title="" href="#">Director of clinic</a>
+                                                <div class="mark">My rating: <span class="rating-input"><span data-value="0" class="glyphicon glyphicon-star"></span><span data-value="1" class="glyphicon glyphicon-star"></span><span data-value="2" class="glyphicon glyphicon-star"></span><span data-value="3" class="glyphicon glyphicon-star"></span><span data-value="4" class="glyphicon glyphicon-star"></span><span data-value="5" class="glyphicon glyphicon-star"></span>  </span></div>
+                                                <p>I like free software.</p>
+                                                <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                            </div>
+                                            <div class="person-text rel text-light">
+                                                <img src="~/Content/LandigPage/img/testimonials/6.jpg" alt="" class="person img-circle" />
+                                                <a title="" href="#">Jennifer</a>
+                                                <span>Washington</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <a class="left carousel-control" href="#carousel-reviews" role="button" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-reviews" role="button" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /Section: testimonial -->
+
+
+            <section id="partner" class="home-section paddingbot-60">
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="wow lightSpeedIn" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <h2 class="h-bold">For partners.</h2>
+                                    <p>We search partners, who wish to participate in our project, please contact by email: infodoctorpremium@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container marginbot-50">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2" style="margin-top: 4%;">
+                            <div class="wow fadeInDown" data-wow-delay="0.1s">
+                                <div class="section-heading text-center">
+                                    <p>
+                                        Share this software for friends
+                                        <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                        <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                        <div class="ya-share2" style="" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="I use the  free software  Doctor-premium. Software for doctors and clinics."></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="divider-short"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Doctor-Premium</h5>
+                            <p>
+                                Program include: patient data, storing the history of the rendered services, surveys, reports and other functions.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Linq</h5>
+                            <ul>
+                                <li><a href="http://www.un.org/">United nations</a></li>
+                                <li><a href="http://www.redcross.org/">Red Cross</a></li>
+                                <li><a href="http://www.msf.org/">MSF</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Do You have question?</h5>
+                            <p>
+                                Our contacts
+                            </p>
+                            <ul>
+                                @*<li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-skype fa-stack-2x"></i>
+                                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                    </span> skype: info.microsoft.com
+                                </li>*@
+                                <li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                    </span> infodoctorpremium@gmail.com
+                                </li>
+                                <li>
+                                    <span class="fa-stack fa-lg">
+                                        <i class="fa fa-circle fa-stack-2x"></i>
+                                        <i class="fa fa-calendar-o fa-stack-1x fa-inverse"></i>
+                                    </span> System work - 24 / 7
+                                </li>
+                                @*<li>
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
+                                        </span> +62 0888 904 711
+                                    </li>*@
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    @*<div class="wow fadeInDown" data-wow-delay="0.1s">
+                            <div class="widget">
+                                <h5>Our location</h5>
+                                <p>The Suithouse V303, Kuningan City, Jakarta Indonesia 12940</p>
+
+                            </div>
+                        </div>*@
+                    <div class="wow fadeInDown" data-wow-delay="0.1s">
+                        <div class="widget">
+                            <h5>Contact in us</h5>
+                            <ul class="company-social">
+                                <li class="social-facebook"><a href="https://www.facebook.com/groups/765680770239043/" target="blank"><i class="fa fa-facebook"></i></a></li>
+                                @*<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>*@
+                                <li class="social-google"><a href="https://www.linkedin.com/groups/8558904" target="blank"><i class="fa fa-linkedin"></i></a></li>
+                                @*<li class="social-vimeo"><a href="#"><i class="fa fa-vimeo-square"></i></a></li>
+                                    <li class="social-dribble"><a href="#"><i class="fa fa-dribbble"></i></a></li>*@
+                                <li class="social-facebook"><a href="https://new.vk.com/public126747071" target="blank"><i class="fa fa-vk"></i></a></li>
+                                @*<li class="social-twitter"><a href="#"><i class="fa fa-twitter"></i></a></li>*@
+                                <a href="https://ok.ru/group/53334451945539" target="blank">
+                                    <img src="~/Content/images/ok.jpg" alt="" width="40" height="40" />
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sub-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="wow fadeInLeft" data-wow-delay="0.1s">
+                            <div class="text-left">
+                                <p>&copy;Copyright 2016 - Doctor-premium. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="wow fadeInRight" data-wow-delay="0.1s">
+                            <div class="text-right">
+                                <p><a href="http://bootstraptaste.com/" target="blank" rel="nofollow">Bootstrap Themes</a> by BootstrapTaste</p>
+                            </div>
+                            <!--
+                                All links in the footer should remain intact.
+                                Licenseing information is available at: http://bootstraptaste.com/license/
+                                You can buy this theme without footer links online at: http://bootstraptaste.com/buy/?theme=Medicio
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>

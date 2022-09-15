@@ -1,0 +1,295 @@
+﻿@using System.Globalization
+@using DoctorPremium.Web.Helpers
+@model DoctorPremium.Web.Models.PatientVisitEditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head {
+    @Scripts.Render("~/bundles/assetsPatientJS")
+	@Scripts.Render("~/bundles/ChosenJS")
+	@Scripts.Render("~/bundles/UploadJS")
+	@Scripts.Render("~/bundles/UnobtrusiveJS")
+	@Styles.Render("~/Content/assetsPatientCSS")
+	@Styles.Render("~/Content/ChosenCSS")
+	@Styles.Render("~/bundles/UploadCSS")
+}
+
+<div class="row">
+    @*<div class="col-sm-12">
+        <div class="panel panel-default">*@
+	<div class="heading">
+		<h3>@Resources.PatientVisitLang.LabelVisit</h3>
+		@if (Model.PatientId > 0)
+		{
+		    <span class="font-bold top13" style="margin-top: 15px;">@Model.FullName</span>
+            if (ViewBag.Debt >= 0)
+            {
+                <span class="icon16 icomoon-icon-coin left" style="float: right;font-size:20px"> </span>
+                <span class="font-bold top13" style="color:green; float: right; margin-left: 15px; font-size: 25px; margin-right: 15px;">@ViewBag.Debt.ToString("0.00")</span>
+                <span class="font-bold top13" style="color:green; float: right; font-size: 25px;    margin-right: 5px;">@Resources.PatientInfo.BalanceVal:</span>
+            }
+            else
+            {
+                <span class="icon16 icomoon-icon-coin left" style="float: right;font-size:20px;    margin-right: 5px;"> </span>
+                <span class="font-bold top13" style="color:red; float: right; margin-left: 15px; font-size:25px;    margin-right: 15px;">@ViewBag.Debt.ToString("0.00")</span>
+                <span class="font-bold top13" style="color:red; float: right; font-size: 25px;    margin-right: 5px;">@Resources.PatientInfo.BalanceVal:</span>
+            }
+        }
+	</div>
+
+            @using (Html.BeginForm("Edit", "PatientVisit",FormMethod.Post, new { @id = "editVisitForm" }))
+			{
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.PatientVisitId)
+                @Html.HiddenFor(model => model.PatientId)
+                @Html.HiddenFor(model => model.PatientVisitPaymentId)
+                @Html.HiddenFor(model => model.ScheduleRecordID)
+				@Html.HiddenFor(model => model.NextVizitRecordId)
+                <div class="col-lg-6">
+                    @*<a class="btn btn-success btn-xs" href="/Home/Help" style="float: right;"><span class="icon16 icomoon-icon-info-2 white"></span> @Resources.Resource.InfoAllBlueButton</a>*@
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.VisitDate)
+						<div class="input-group date def_datepicker" style="margin-top: 10px">
+							@Html.TextBox("VisitDate", Model.VisitDate.ToString("d"), new { @class = "form-control" })
+							@*@Html.TextBoxFor(model => model.VisitDate, "{0:d}", new { @class = "form-control", data_mask = "99/99/9999" })*@
+							<span class="input-group-addon add-on"><i class="icon-calendar"></i></span>
+							@Html.ValidationMessageFor(model => model.VisitDate, "", new { @class = "text-danger" })
+						</div>
+                    </div>
+
+                    <div class="form-group  col-md-6">
+                        @Html.LabelFor(model => model.VisitStartTime)
+                        <div class="input-group bootstrap-timepicker">
+                            <div class="input-group bootstrap-timepicker">
+                                @Html.EditorFor(model => model.VisitStartTime, new { htmlAttributes = new { @class = "form-control timepicker-24" } })
+                                <span class="input-group-addon add-on"><i class="icon-time"></i></span>
+                                @Html.ValidationMessageFor(model => model.VisitStartTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Duration)
+                        <div class="input-group">
+                            @Html.DropDownListFor(model => model.Duration, Model.DurationItems, new { @class = "form-control" })
+                            <span class="input-group-addon add-on" ><i class="icon-time"></i></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.PurposeOfVisit, new { @style = " margin-right: 500px;width: 200px;" })   
+                        @Html.TextAreaFor(model => model.PurposeOfVisit, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.PurposeOfVisit, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SubjectiveComplaints)
+                        @Html.TextAreaFor(model => model.SubjectiveComplaints, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.SubjectiveComplaints, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.AdditionalResearch)
+                        @Html.TextAreaFor(model => model.AdditionalResearch, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.AdditionalResearch, "", new { @class = "text-danger" })
+                    </div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.CostOfServices, htmlAttributes: new { @class = "control-label", style = "width: 100%; text-align: left" })
+						<div class="input-group">
+							@Html.EditorFor(model => model.CostOfServices, new { htmlAttributes = new { @class = "form-control", @id = "CostOfServices" } })
+							<span class="input-group-addon">money</span>
+							@Html.ValidationMessageFor(model => model.CostOfServices, "", new { @class = "text-danger" })
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.Paid, htmlAttributes: new { @class = "control-label", style = "width: 100%; text-align: left" })
+						<div class="input-group">
+							@Html.EditorFor(model => model.Paid, new { htmlAttributes = new { @class = "form-control", @id = "Paid" } })
+							<span class="input-group-addon">money</span>
+							@Html.ValidationMessageFor(model => model.Paid, "", new { @class = "text-danger" })
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" style="width: 100%; text-align: left">@Resources.PatientInfo.Result</label>
+						<div class="input-group">
+							<label id="AllMany" class="form-control summerypayment" type="text" style="color: black"></label>
+							<span class="input-group-addon">money</span>
+						</div>
+					</div>
+					<div class="form-group">
+						@Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label" })
+						@Html.TextAreaFor(model => model.Comment, new { @class = "form-control", rows = "4" })
+						@Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+					</div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.LaboratoryResearch)
+                        @Html.TextAreaFor(model => model.LaboratoryResearch, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.LaboratoryResearch, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ClinicalDiagnosis)
+                        @Html.TextAreaFor(model => model.ClinicalDiagnosis, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.ClinicalDiagnosis, "", new { @class = "text-danger", })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Treatment)
+                        @Html.TextAreaFor(model => model.Treatment, new { @class = "form-control", rows = "4" })
+                        @Html.ValidationMessageFor(model => model.Treatment, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.DoctorAssignments)
+                        @Html.TextAreaFor(model => model.DoctorAssignments, new { @class = "form-control", rows = "2" })
+                        @Html.ValidationMessageFor(model => model.DoctorAssignments, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-horizontal">
+                        @Html.LabelFor(model => model.NextVisitDate)
+	                    <div class="input-group date def_datepicker">
+		                    @Html.TextBoxFor(model => model.NextVisitDate, "{0:d}", new { @class = "form-control" })
+		                    <span class="input-group-addon add-on"><i class="icon-calendar"></i></span>
+		                    @Html.ValidationMessageFor(model => model.NextVisitDate, "", new { @class = "text-danger" })
+	                    </div>
+                    </div>
+                    <div class="form-horizontal">
+                        @Html.LabelFor(model => model.NextVisitStartTime)
+                        <div class="input-group bootstrap-timepicker" style="width: 100%; text-align: left">
+                            <div class="input-group bootstrap-timepicker">
+                                @Html.EditorFor(model => model.NextVisitStartTime, new { htmlAttributes = new { @class = "form-control timepicker-24", style = "width: 100%; text-align: left" } })
+                                <span class="input-group-addon add-on"><i class="icon-time"></i></span>
+                                @Html.ValidationMessageFor(model => model.NextVisitStartTime, "", new { @class = "text-danger", style = "width: 100%; text-align: left" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-horizontal">
+                        @Html.LabelFor(model => model.CostOfFeautureServices)
+                        @Html.EditorFor(model => model.CostOfFeautureServices, new { htmlAttributes = new { @class = "form-control", @id = "CostOfFeautureServices", onkeyup = "return proverka(this);", onchange = "return proverka(this);" } })
+                        @Html.ValidationMessageFor(model => model.CostOfFeautureServices, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CommentNextVisit)
+                        @Html.TextAreaFor(model => model.CommentNextVisit, new { @class = "form-control", rows = "5" })
+                        @Html.ValidationMessageFor(model => model.CommentNextVisit, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row top15">
+                    <div class="col-md-4 col-md-offset-8" style="float: left; margin-left: 2%;width:96%">
+                        <button id="btnDelete" type="button" data-patientid="@Model.PatientVisitId" class="btn btn-danger" style="float: left;">@Resources.Schedule.Delete</button>
+                        <button class="btn btn-default" type="submit" value="Save" style="float: right;margin-left:6px"> @Resources.Schedule.Save</button>
+                        @Html.ActionLink(@Resources.Schedule.Cancel, "List", "Patient", null, new { @class = "btn btn-default", onclick = "return confirm('you will lost data!')", style = "float: right;" })
+                    </div>
+                </div>
+            }
+        @*</div>
+    </div>*@
+</div>
+@section scripts
+{
+	@Scripts.Render("~/bundles/UploadJS")
+
+	<script type="text/javascript">
+
+		$('.def_datepicker').datepicker({
+			//format: "dd/mm/yyyy",
+			todayBtn: true,
+			language: '@(LanguageHelper.GetCurrentLanguage())',
+			orientation: "top left",
+			todayHighlight: true
+		});
+
+		$(document).ready(function() {
+			$('#VisitStartTime').focus();
+			$('#VisitStartTime').timepicker('hideWidget');
+			$('#PurposeOfVisit').focus();
+			
+			$('#Paid, #CostOfServices').on('keyup', function() {
+			    var fullcost =  $('#CostOfServices').val();
+			    var  cost1 = $('#CostOfServices').text().replace('.', ',');
+			    var  Value1 = parseFloat(fullcost.split(',').join('.'));
+
+
+			    var Value21 = $('#Paid').val();
+			    var  Value2 = parseFloat(Value21.split(',').join('.'));
+			    var result = Value2 - Value1; 
+			    result = result.toFixed(2);
+				$('#AllMany').empty();
+				$('#AllMany').text(result);
+
+			});
+			$.validator.methods.range = function(value, element, param) {
+				var globalizedValue = value.replace(",", ".");
+				return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+			}
+
+			$.validator.methods.number = function(value, element) {
+				if (@(LanguageHelper.GetCurrentLanguageId()) == 2) {
+					return this.optional(element) || /^-?(?:\d+|\d{1,2}(?:[\s,]\d{2})+)(?:[,]\d{1,2})?$/.test(value);
+				} else {
+					return this.optional(element) || /^-?(?:\d+|\d{1,2}(?:[\s\.]\d{2})+)(?:[\.]\d{1,2})?$/.test(value);
+				}
+			}
+		});
+
+		$(function() {
+			jQuery.validator.unobtrusive.parse();
+			jQuery.validator.unobtrusive.parse("#editVisitForm");
+			if (@(LanguageHelper.GetCurrentLanguageId()) == 2) {	//hack parse rus date
+				$.validator.addMethod('date',
+					function(value, element, params) {
+						if (this.optional(element)) {
+							return true;
+						};
+						var result = false;
+						try {
+							$.datepicker.parseDate('dd.mm.yy', value);
+							result = true;
+						} catch (err) {
+							result = false;
+						}
+						return result;
+					}, ''
+				);
+			}
+		});
+
+		$("#editVisitForm").submit(function(e, v) {
+			e.preventDefault();
+			$(this).validate();
+			if ($(this).valid()) {
+				this.submit();
+				return false;
+			}
+			return false;
+		});
+
+		/*function proverka(input) {
+			//input.value = input.value.replace(/[^\d.]/g, '');
+		};*/
+		/*	$('#CostOfFeautureServices').attr('maxlength', 9);
+			$('#CostOfServices').attr('maxlength', 9);
+			$('#Paid').attr('maxlength', 9);*/
+		$("#btnDelete").click(function() {
+			var id = $("#btnDelete").attr("data-Patientid");
+			if (confirm("@Resources.Resource.DeleteConfirm")) {
+				$.ajax({
+					type: "Post",
+					url: '@Url.Action("DeleteVisitPatient", "PatientVisit")' + '?id=' + id,
+					data: $(this).serialize(),
+					success: function(data) {
+						if (data.success) {
+							window.location = '@Url.Action("List", "Patient")';
+						}
+					}
+				});
+			}
+		});
+	</script>
+}
+
+
+
+

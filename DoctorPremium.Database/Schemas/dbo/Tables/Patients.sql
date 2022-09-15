@@ -1,0 +1,37 @@
+﻿CREATE TABLE [dbo].[Patients] (
+    [PatientId]             INT              IDENTITY (1, 1) NOT NULL,
+	[UserId]               INT  NOT NULL,
+	[CardNumber]     NVARCHAR (10)    NULL,
+	[LastName]   NVARCHAR(64)             NOT NULL,
+	[FirstName]   NVARCHAR(64)             NOT NULL,
+	[SurName]   NVARCHAR(64)             NULL,
+	[Photo]   NVARCHAR(200)             NULL,
+	[IsMale]   BIT         NOT NULL,
+	[BirthDate]   DATE         NOT NULL,
+	[CountryId]   INT             NULL,
+	[CityId]   INT             NULL,
+	[Address]   NVARCHAR(200)         NULL,
+	[HomePhone]   NVARCHAR(16)         NULL,
+	[MobilePhone]   NVARCHAR(16)         NULL,
+	[Email]   NVARCHAR(80)         NULL,
+	[AnyContact]   NVARCHAR(200)         NULL,
+	[WorkPlace]   NVARCHAR(200)         NULL,     
+    [Comment]        NVARCHAR (500)  NULL,
+	[Anamnez]        NVARCHAR (500)   NULL,
+    [AlergoStatus]   NVARCHAR (500)   NULL,
+    [ImmunoStatus]   NVARCHAR (500)   NULL,
+    [AdditionalInfo]        NVARCHAR (500)   NULL,
+	[Debt] MONEY         NOT   NULL,
+	[CommentDentalCard]        NVARCHAR (400)  NULL,
+	[IsVIP] BIT NOT NULL, 
+    [CreateDateUtc]   DATETIME         NOT NULL,
+    [UpdateDateUtc]   DATETIME         NULL,
+	[IsDeleted] BIT NOT NULL, 
+    CONSTRAINT [PK_Patients] PRIMARY KEY CLUSTERED ([PatientId] ASC), 
+	CONSTRAINT [FK_Patients_AspNetUsers] FOREIGN KEY ([UserId]) REFERENCES [dbo].[AspNetUsers] ([Id]),
+	CONSTRAINT [FK_Patients_Countries] FOREIGN KEY ([CountryId]) REFERENCES [dbo].[Countries] ([CountryId]),
+	CONSTRAINT [FK_Patients_Cities] FOREIGN KEY ([CityId]) REFERENCES [dbo].[Cities] ([CityId])
+);
+GO
+--CREATE UNIQUE NONCLUSTERED INDEX [PatientCardNumber]
+--    ON [dbo].[Patients]([CardNumber] ASC);

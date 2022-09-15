@@ -1,0 +1,1047 @@
+﻿@{
+    Layout = "~/Views/Shared/_LaoutHelp.cshtml";
+}
+<!-- Header  Starts -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav" style="HEIGHT: 80px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Logo  Starts -->
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/HelpPage/images/logo.png" alt="logo">
+                        <!-- #Logo Ends -->
+                    </a>
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="dropdown col-xs-12" style="float: right; margin-left: 2%;width: 140px;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="width: 100%;float: right;margin-left: 3%;margin-top: 2%;" aria-expanded="false"><span class="badge custom-badge red pull-right" style="background-color: red;">Language</span>En <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="margin-top: 16px;">
+                        <li>
+                            @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguage", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+							{
+								@Html.Hidden("lang", "ru")
+							}
+							<a href="#" onclick="$('#ChangeLanguage').submit(); return false;">Ru</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Nav Starts -->
+                <div class="navbar-collapse  collapse">
+
+                    <ul class="nav navbar-nav navbar-right scroll">
+                        <li><a href="#start">Begin</a></li>
+                        <li><a href="#begin">Start work</a></li>
+                        <li><a href="#detail">Details</a></li>
+                        <li><a href="#register">Registration</a></li>
+
+                        @*<li class="active"><a href="#works">Home</a></li>
+
+                            <li><a href="#partners">Partners</a></li>
+                            <li><a href="#contact">Contact</a></li>*@
+                    </ul>
+                </div>
+                <!-- #Nav Ends -->
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- #Header Starts -->
+<!-- start -->
+<div id="start1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Begin</h2>
+</div>
+
+<div id="start" class=" clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeIn">
+        <img src="~/Instruction/HelpPageEn/Start/s-1.jpg" alt="img01" />
+        <figcaption>
+            <h2></h2>
+            <p>
+                <br>
+                <a href="~/Instruction/HelpPageEn/Start/s-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Start/s-2.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Start<br>
+                <a href="~/Instruction/HelpPageEn/Start/s-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Start/s-3.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Begin work<br>
+                <a href="~/Instruction/HelpPageEn/Start/s-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+<!-- begin -->
+<div id="begin1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Schedule.</h2>
+</div>
+
+<div id="begin" class=" clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-0.1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-0.1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-2.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-3.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-5.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-6.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-7.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-8.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-8.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Schedule/Schedule-9.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Add event in schedule.<br>
+                <a href="~/Instruction/HelpPageEn/Schedule/Schedule-9.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+<!-- schedule -->
+<div id="detail1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Patient card.</h2>
+</div>
+
+<div id="detail" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-3.jpg" title=" 1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-7.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-8.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-8.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-9.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-9.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Patient/patient-10.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create patient card.<br>
+                <a href="~/Instruction/HelpPageEn/Patient/patient-10.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="Patient" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Medical history.</h2>
+</div>
+
+<div id="Patient1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PatientVisit/patientvisit-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Medical history of patient.<br>
+                <a href="~/Instruction/HelpPageEn/PatientVisit/patientvisit-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="Balance" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Balance.</h2>
+</div>
+
+<div id="Balance1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-7.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-8.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-8.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-9.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-9.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Balance/Balance-10.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create balance of patient.<br>
+                <a href="~/Instruction/HelpPageEn/Balance/Balance-10.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+
+</div>
+
+<div id="UserPage" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">User page</h2>
+</div>
+
+<div id="UserPage1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/UserPage/UserPage-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create user page.<br>
+                <a href="~/Instruction/HelpPageEn/UserPage/UserPage-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/UserPage/UserPage-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create user page.<br>
+                <a href="~/Instruction/HelpPageEn/UserPage/UserPage-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/UserPage/UserPage-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create user page.<br>
+                <a href="~/Instruction/HelpPageEn/UserPage/UserPage-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/UserPage/UserPage-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create user page.<br>
+                <a href="~/Instruction/HelpPageEn/UserPage/UserPage-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+
+</div>
+
+
+<div id="SearchInBase" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Search in base.</h2>
+</div>
+
+<div id="SearchInBase1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Search patients in base<br>
+                <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Search patients in base<br>
+                <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Search patients in base<br>
+                <a href="~/Instruction/HelpPageEn/SearchInBase/SearchInBase-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="SearchInBase" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Personal web site</h2>
+</div>
+
+<div id="SearchInBase1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-6.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-7.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-7.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-8.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-8.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-9.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Create personal web site.<br>
+                <a href="~/Instruction/HelpPageEn/PersonalWebSite/PersonalWebSite-9.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+ 
+<!-- New -->
+
+
+<div id="register1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Registration.</h2>
+</div>
+
+<div id="register" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-0.jpg" alt=" img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-4.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-5.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Registration/Registration-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Registration.<br>
+                <a href="~/Instruction/HelpPageEn/Registration/Registration-6.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="#remeber" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Remember password.</h2>
+</div>
+
+<div id="#remeber1" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Remember/Remember-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Remember password.<br>
+                <a href="~/Instruction/HelpPageEn/Remember/Remember-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Remember/Remember-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Remember password.<br>
+                <a href="~/Instruction/HelpPageEn/Remember/Remember-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Remember/Remember-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Remember password.<br>
+                <a href="~/Instruction/HelpPageEn/Remember/Remember-2.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Remember/Remember-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Remember password.<br>
+                <a href="~/Instruction/HelpPageEn/Remember/Remember-3.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="Contact" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Contacts.</h2>
+</div>
+
+<div id="Contact1" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Contact/Contact-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Contacts.<br>
+                <a href="~/Instruction/HelpPageEn/Contact/Contact-0.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageEn/Contact/Contact-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Contacts.<br>
+                <a href="~/Instruction/HelpPageEn/Contact/Contact-1.jpg" title="1" data-gallery>Open</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<!--End new-->
+<!-- works -->
+<!-- Cirlce Starts -->
+<div id="about" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Number one in the world.</h2>
+
+    <div class="row">
+
+        <div class="col-sm-6 wowload fadeInLeft">
+            <h4><i class="fa fa-paint-brush"></i> Why we?</h4>
+            <p>We are free and we have the same services as paid programs: schedule, visits, cards of patients, etc. And we give you a free website on the Internet.</p>
+        </div>
+        <div class="col-sm-6 wowload fadeInRight">
+            <h4><i class="fa fa-code"></i>Free Intelligent Practice Management and Clinical Software.</h4>
+            <p>Love by more than 10,000 healthcare practitioners. Trusted in over 55 countries worldwide.</p>
+        </div>
+    </div>
+
+    <div class="process">
+        <h3 class="text-center wowload fadeInUp">Functionality</h3>
+        <ul class="row text-center list-inline  wowload bounceInUp">
+            <li>
+                <span><i class="fa fa-history"></i><b>Free patient Registration</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-puzzle-piece"></i><b>Patient Records</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-database"></i><b>Patient Scheduling</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-magic"></i><b>Personal website for you</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-cloud-upload"></i><b>Patient Billing</b></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- #Cirlce Ends -->
+<!-- About Starts -->
+<div class="highlight-info">
+    <div class="overlay spacer">
+        <div class="container">
+            <div class="row text-center  wowload fadeInDownBig">
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-smile-o  fa-5x"></i><h4>More than 10 000 customers</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-rocket  fa-5x"></i><h4>24/7 operation</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-cloud-download  fa-5x"></i><h4>Saving All formats files</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-map-marker fa-5x"></i><h4>Access doctor-premium from anywhere</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About Ends -->
+
+<div id="partners" class="container spacer ">
+    <h2 class="text-center  wowload fadeInUp">Meet some of our happy customers</h2>
+    <div class="clearfix">
+        <div class="col-sm-6 partners  wowload fadeInLeft">
+            <img src="~/Content/HelpPage/images/partners/1.jpg" alt="partners">
+            <img src="~/Content/HelpPage/images/partners/2.jpg" alt="partners">
+            @*<img src="~/Content/HelpPage/images/partners/3.jpg" alt="partners">
+                <img src="~/Content/HelpPage/images/partners/4.jpg" alt="partners">*@
+        </div>
+        <div class="col-sm-6">
+
+
+            <div id="carousel-testimonials" class="carousel slide testimonails  wowload fadeInRight" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active animated bounceInRight row">
+                        <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/1.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p> I was looking for something that was easy to understand, simple to use, but powerful enough to meet all my expectations. I found Doctor-premium and stopped looking! </p>
+                            <span>Janet - <b>New york</b></span>
+                        </div>
+                    </div>
+                    <div class="item  animated bounceInRight row">
+                        <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/2.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p>A simple to use, highly secure and very effective business tool that allows my team and I to get on with the business of healing without wasting time and resources.</p>
+                            <span>Carl  - <b>Boston</b></span>
+                        </div>
+                    </div>
+                    <div class="item  animated bounceInRight row">
+                        <div class="animated slideInLeft  col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/3.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p>We have been using Doctor-premium for around 6 months now and have been VERY impressed.</p>
+                            <span>Susan - <b>Tennessee</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="1"></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+                </ol>
+                <!-- Indicators -->
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <!-- team -->
+    @*<h3 class="text-center  wowload fadeInUp">Our team</h3>
+        <p class="text-center  wowload fadeInLeft">Our creative team that is making everything possible</p>
+        <div class="row grid team  wowload fadeInUpBig">
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/8.jpg" alt="img01" class="img-responsive" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/10.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/12.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/17.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+
+        </div>*@
+    <!-- team -->
+
+</div>
+
+
+
+<!--Contact Starts-->
+@*<div id="contact" class="spacer">
+
+        <div class="container contactform center">
+            <h2 class="text-center  wowload fadeInUp">Get in touch to start your project</h2>
+            <div class="row wowload fadeInLeftBig">
+                <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Company">
+                    <textarea rows="5" placeholder="Message"></textarea>
+                    <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>*@
+<!--Contact Ends-->

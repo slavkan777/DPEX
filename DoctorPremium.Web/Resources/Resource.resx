@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BasePatients" xml:space="preserve">
+    <value>Пациенты</value>
+  </data>
+  <data name="BuyPersonalVariant" xml:space="preserve">
+    <value>Купить себе.</value>
+  </data>
+  <data name="DeleteConfirm" xml:space="preserve">
+    <value>Вы  точно хотите удалить?</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Сloud-based healthcare platform</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="HelpButton" xml:space="preserve">
+    <value>Помощь</value>
+  </data>
+  <data name="HelpButtonUrl" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="InfoAllBlueButton" xml:space="preserve">
+    <value>Пример как заполнять эту страницу</value>
+  </data>
+  <data name="InfoAllButtonHelp" xml:space="preserve">
+    <value>Помощь?</value>
+  </data>
+  <data name="InfoAllButtonVidioHelp" xml:space="preserve">
+    <value>Видео инструкция</value>
+  </data>
+  <data name="InfoSchedule" xml:space="preserve">
+    <value>Пример как заполнять рассписание</value>
+  </data>
+  <data name="Infowillbelost" xml:space="preserve">
+    <value>Введённые данные будут потеряны!</value>
+  </data>
+  <data name="Keywords" xml:space="preserve">
+    <value>база пациентов,	база данных пациентов, база врач пациент, база пациентов больниц, 
+медицинская база данных пациентов, база пациентов программа, база данных пациентов больниц,
+база пациентов поликлиники, база пациентов стоматологии, база ведения пациентов,
+список пациентов больницы база данных, база данных пациентов поликлиники, база неизвестных пациентов
+база данных пациентов исследования, база учета пациентов, картотека пациентов</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="Money" xml:space="preserve">
+    <value>Зарплата</value>
+  </data>
+  <data name="MySite" xml:space="preserve">
+    <value>Мой сайт</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Навигация</value>
+  </data>
+  <data name="NewCard" xml:space="preserve">
+    <value>Новый пациент</value>
+  </data>
+  <data name="NinetyBefore" xml:space="preserve">
+    <value>за 90 дн.</value>
+  </data>
+  <data name="NinetyNext" xml:space="preserve">
+    <value>за 90 дн.</value>
+  </data>
+  <data name="Notepad" xml:space="preserve">
+    <value>Блокнот</value>
+  </data>
+  <data name="OneEightyBefore" xml:space="preserve">
+    <value>за 180 дн.</value>
+  </data>
+  <data name="OneEightyNext" xml:space="preserve">
+    <value>за 180 дн.</value>
+  </data>
+  <data name="OneTwentyBefore" xml:space="preserve">
+    <value>за 120 дн.</value>
+  </data>
+  <data name="OneTwentynext" xml:space="preserve">
+    <value>за 120 дн.</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Перейти на сайт</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Расписание</value>
+  </data>
+  <data name="SettingPage" xml:space="preserve">
+    <value>Настройка страницы </value>
+  </data>
+  <data name="SevenBefore" xml:space="preserve">
+    <value>за 7 дн.</value>
+  </data>
+  <data name="SevenNext" xml:space="preserve">
+    <value>за 7 дн.</value>
+  </data>
+  <data name="SixtyBefore" xml:space="preserve">
+    <value>за 60 дн.</value>
+  </data>
+  <data name="SixtyNext" xml:space="preserve">
+    <value>за 60 дн.</value>
+  </data>
+  <data name="ThirtyBefore" xml:space="preserve">
+    <value>за 30 дн.</value>
+  </data>
+  <data name="ThirtyNext" xml:space="preserve">
+    <value>за 30 дн.</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Cloud Healthcare Platform.</value>
+  </data>
+  <data name="TitleMoney" xml:space="preserve">
+    <value>получено / ожидается</value>
+  </data>
+  <data name="TodayBefore" xml:space="preserve">
+    <value>за 1 дн.</value>
+  </data>
+  <data name="TodayNext" xml:space="preserve">
+    <value>за 1 дн.</value>
+  </data>
+  <data name="Varning" xml:space="preserve">
+    <value>Тестовый аккаунт. Внимание!</value>
+  </data>
+  <data name="VarningText" xml:space="preserve">
+    <value>Вводите только тестовые данные. Вы находитесь в тестовом аккаунте. Для ввода своих личных данных по пациентам, пройдите  бесплатную быструю регистрацию.</value>
+  </data>
+  <data name="VarningTextLink" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+</root>

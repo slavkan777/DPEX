@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b687696ca3cb4059b83244a19b7cbf10" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="DoctorPremiumModel.AspNetRole" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.AspNetUserClaim" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.AspNetUserLogin" Width="1.5" PointX="7.5" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.AspNetUser" Width="1.5" PointX="5.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.City" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Country" Width="1.5" PointX="0.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.DentalCard" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Language" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.PatientDocument" Width="1.5" PointX="9.75" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Patient" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.PatientVisitPayment" Width="1.5" PointX="12" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.PatientVisit" Width="1.5" PointX="9.75" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Region" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.ScheduleRecord" Width="1.5" PointX="13" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.ScheduleRecordType" Width="1.5" PointX="10.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.TimeZone" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.UserInfo" Width="1.5" PointX="10.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.UserPublicPage" Width="1.5" PointX="7.5" PointY="19.375" IsExpanded="true" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_AspNetUser_PublicPage" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Patients_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_ScheduleRecord_AspNetUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_AspNetUser" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Cities_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Cities_Regions" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Patients_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Patients_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Regions_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_Countries" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_DentalCards_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_PatientDocument_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_PatientVisit_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_ScheduleRecord_Patients" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_PatientVisitPayment_PatientVisit" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_ScheduleRecord_PatientVisits" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_ScheduleRecord_ScheduleRecordType" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_UserInfo" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_Languages" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_UserInfo_TimeZones" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Help" Width="1.5" PointX="3" PointY="5.375" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_Helps_Languages" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.SessionData" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="DoctorPremiumModel.Setting" Width="1.5" PointX="10.375" PointY="2.125" />
+        <AssociationConnector Association="DoctorPremiumModel.FK_SessionData_AspNetUsers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,11 @@
+2016-11-28 21:45:50,996 [1] INFO  - Startup application.
+2016-11-28 21:49:27,885 [1] INFO  - Startup application.
+2016-11-28 22:09:46,075 [21] INFO  - Startup application.
+2016-11-28 22:09:47,327 [19] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-28 22:09:52,548 [20] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientVisit/images/favicon.ico
+2016-11-28 22:10:08,465 [19] ERROR - Ошибка сервера: An error occurred while updating the entries. See the inner exception for details.
+2016-11-28 22:10:08,467 [19] ERROR - InnerEx:The INSERT statement conflicted with the FOREIGN KEY constraint "FK_ScheduleRecord_Patients". The conflict occurred in database "DoctorPremium", table "dbo.Patients", column 'PatientId'.
+The statement has been terminated.
+2016-11-28 22:10:13,773 [25] ERROR - Не найдена страница или файл по адресу: http://localhost:47153/PatientCard/New
+2016-11-28 22:24:15,939 [1] INFO  - Startup application.
+2016-11-28 22:25:26,354 [1] INFO  - Startup application.

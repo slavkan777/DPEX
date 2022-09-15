@@ -1,0 +1,170 @@
+﻿@using System.Globalization
+@using System.Web.UI.WebControls
+@model DoctorPremium.Web.Models.PublicSiteModels
+
+@{
+    ViewBag.Title = "Добавление нового пациента";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section head {
+    @Scripts.Render("~/bundles/assetsPatientJS")
+    @Styles.Render("~/bundles/UploadCSS")
+    @Styles.Render("~/Content/assetsScheduleCSS")
+    @Styles.Render("~/bundles/TextEditor")
+    @Scripts.Render("~/bundles/assetsScheduleJS")
+    @Scripts.Render("~/bundles/TextEditorJS")
+    @Scripts.Render("~/bundles/ChosenJS")
+	@Styles.Render("~/Content/ChosenCSS")
+
+    @*<script type="text/javascript" src="~/Scripts/jquery-1.9.1.min.js"></script>*@
+    <link rel="stylesheet" href="/Content/plugins/sceditor/themes/default.min.css" type="text/css" media="all" />
+}
+
+
+@using (Html.BeginForm("Settings", "PublicSite", FormMethod.Post, new { id = "EditUserInfoForm", enctype = "multipart/form-data" }))
+{
+
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.UserId)
+
+    @Html.HiddenFor(model => model.NameOfDoctor)
+
+    <div class="row">
+        @*<div class="col-sm-12">
+            <div class="panel panel-default" style="padding: 15px">*@
+        <div class="heading">
+            <h3>@Resources.PublicS.UserInfo:</h3>
+        </div>
+        <div class="row" style="padding-top: 30px">
+            @*<a class="btn btn-success btn-xs" href="/Home/Help" style="float: left; margin-left: 3%; margin-bottom: 2%"><span class="icon16 icomoon-icon-info-2 white"></span> @Resources.Resource.InfoAllBlueButton</a>*@
+            <div class="form-group">
+                @Html.LabelFor(model => model.AboutOfDoctor, htmlAttributes: new { @class = "control-label col-md-3", style = "width: 100%" })
+                @*@Html.TextAreaFor(model => model.AboutOfDoctor, new { htmlAttributes = new { @class = "form-control", style = "width: 100%", rows = "3" } })*@
+                @Html.TextAreaFor(model => model.AboutOfDoctor, new { @class = "form-control noresize", style = "width: 90%; margin-left: 15px;", rows = "5" })
+                @Html.ValidationMessageFor(model => model.AboutOfDoctor, "", new { @class = "text-danger" })
+
+            </div>
+
+        </div>
+        <div class="row" style="padding-top: 30px">
+            <div class="col-lg-6">
+                @*<div class="form-group">
+
+                        @Html.LabelFor(model => model.DoctorService, htmlAttributes: new {@class = "control-label col-md-3", style = "width: 100%"})
+                        @Html.EditorFor(model => model.DoctorService, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DoctorService, "", new {@class = "text-danger"})
+
+                    </div>*@
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublicEmailAddress, htmlAttributes: new { @class = "control-label", style = "width: 100%" })
+
+                    @Html.EditorFor(model => model.PublicEmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PublicEmailAddress, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublicAddressForPatients, htmlAttributes: new { @class = "control-label", style = "width: 100%" })
+                    @Html.EditorFor(model => model.PublicAddressForPatients, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PublicAddressForPatients, "", new { @class = "text-danger" })
+
+                </div>
+                <div class="form-group">
+                    <div class="wow fadeInDown" data-wow-delay="0.1s" style="float: left;width: 50%;">
+                        <div class="section-heading text-center">
+                            <p style="font-size: 18px">
+                                @Resources.PublicS.Shared
+                                <script type="text/javascript" src="//yastatic.net/es5-shims/0.0.2/es5-shims.min.js" charset="utf-8"></script>
+                                <script type="text/javascript" src="//yastatic.net/share2/share.js" charset="utf-8"></script>
+                                <div class="ya-share2" style="margin-left: 2%;" data-services="facebook,moimir,gplus,twitter,linkedin,vkontakte,odnoklassniki,lj,viber,whatsapp,skype" data-title="@Resources.PublicS.SharedMas"></div>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="divider-short"></div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PublicPhone, htmlAttributes: new { @class = "control-label", style = "width: 100%" })
+
+                    @Html.EditorFor(model => model.PublicPhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PublicPhone, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="form-group" style="width: 60%;margin-top: 6%;">
+                    <div class="input-group">
+                        @Html.LabelFor(model => model.IsPublic, new { @style = "width:100%; border-style: ridge; margin: 0px;  color:red" })
+                        @*<input class="form-control" data-model-field="Email" maxlength="255">*@
+                        @*<div class="input-group-addon" style="padding: 2px">*@
+                        <span class="input-group-addon">
+                            <div class="switch-large" data-on="success" data-off="warning" style="float: right; padding-top: 5%; border: none">
+                                @Html.CheckBoxFor(model => model.IsPublic)
+                                @*<input type="checkbox" checked="checked" data-model-field="EmailNotUse" data-model-vtype="bool" data-model-ctype="CheckBox" data-on-text="ДА" data-off-text="НЕТ" />*@
+                            </div>
+                        </span>
+                        @*<div class="switch-large" data-on="success" data-off="warning" style="float: right; padding-top: 5%; border: none">
+                            @Html.CheckBoxFor(model => model.IsPublic)*@
+                            @*<input type="checkbox" checked="checked" data-model-field="EmailNotUse" data-model-vtype="bool" data-model-ctype="CheckBox" data-on-text="ДА" data-off-text="НЕТ" />*@
+                        @*</div>*@
+                        @*</div>*@
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        @*</div>
+            </div>*@
+    </div>
+
+    <div class="row">
+        <div class="form-group" style="padding-left: 12px">
+            @Html.LabelFor(model => model.DoctorService, htmlAttributes: new { @class = "control-label", style = "width: 100% ; float:none " })
+            @Html.TextAreaFor(model => model.DoctorService, new { @id = "txtPlace", htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DoctorService, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row top15">
+
+        <div class="col-md-9 col-md-offset-7" style="margin-left: 5%">
+            @*<a class="btn btn-success" href="/Home/Help" style=" float: left">@Resources.Resource.HelpButton</a>*@
+            <button class="btn btn-default" style="float: right; margin-left: 5px;" type="submit" value="Save"> @Resources.PublicS.Save</button>
+            @Html.ActionLink(@Resources.PublicS.Cancel, "Index", "Schedule", null, new { @class = "btn btn-default", @style = "float: right", onclick = "return confirm('" + @Resources.Resource.Infowillbelost + "')" })
+            @if (Model.Id > 0)
+            {
+                @Html.ActionLink(@Resources.PublicS.Preview, "Index", "PublicSite", new { Userid = Model.UserId, IsPreview = true }, new { @class = "btn btn-default", @style = "float: right" })
+            }
+        </div>
+    </div>
+    <script>
+        $(function () {
+            // Replace all textarea's
+            // with SCEditor
+            $("#txtPlace").sceditor({
+                plugins: "xhtml",
+
+                width: "96%",
+                height: "20%",
+                style: "/Content/plugins/sceditor/jquery.sceditor.default.min.css",
+
+            });
+        });
+    </script>
+}
+
+
+@section scripts{
+    <script src="~/Content/plugins/forms/switch/static/js/bootstrap-switch.js"></script>
+
+}
+
+
+

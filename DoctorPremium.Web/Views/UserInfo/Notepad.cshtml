@@ -1,0 +1,35 @@
+﻿@using System.Web.Mvc.Html
+ 
+
+
+    <!-- start textarea -->
+    <div class="col-lg-4" style="padding: 0px;width: 100%">
+        <div class="panel panel-default closed hover">
+            <div class="panel-heading">
+                <h4>
+                    <span class="icon16 icomoon-icon-equalizer-2"></span>
+                    <span style="font-weight: normal;font-size: 14px;">@Resources.Resource.Notepad</span>
+                </h4>
+                <a href="#" class="maximize" style="display: block;">Minimize</a>
+            </div>
+            <div class="panel-body" style="display: block; padding: 0px;">
+                <div class="sidebar-widget">
+                    <div class="content">
+                        <div class="col-lg-9" style="width: 100%; padding-right: 0px; padding-left: 0px; padding-top: 5%;">
+                            @Html.TextArea("textareaNotePad", ViewData["Name"] as string, new { @class = "form-control limit uniform", @id = "textareaNotePad", @maxlength = "995", rows = "16" })
+                            <div style="position: absolute; display: none; word-wrap: break-word; white-space: pre-wrap; border: 1px solid rgb(204, 204, 204); font-weight: 400; width: 573px; font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; line-height: 17.1429px; font-size: 12px; padding: 3px;">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row top15">
+                    <div class="left" id="iconIm" style="margin-left: 20%; display: none">
+                        <img src="/Content/images/loaders/circular/002.gif" alt="">
+                    </div>
+                    <div class="col-md-9 col-md-offset-7" style="margin-left: 10%; margin-bottom: 3%;width: 5%;float: right;">
+                        <button id="btn" onclick="NoteFunction()" class=" btn btn-default btn-xs" type="submit" value="Save" style="float: right; margin: 10px;"> @Resources.UserInfos.Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 

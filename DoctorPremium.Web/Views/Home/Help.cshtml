@@ -1,0 +1,1082 @@
+﻿@{
+    Layout = "~/Views/Shared/_LaoutHelp.cshtml";
+}
+<!-- Header Starts -->
+<div class="navbar-wrapper">
+    <div class="container">
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation" id="top-nav" style="HEIGHT: 80px;">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Logo Starts -->
+                    @*<a href="/Home/Index" class="navbar-brand ">*@
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/HelpPage/images/logo.png" alt="logo">
+                        @*<a class="navbar-brand" href="/Home/Index"><img src="~/Content/HelpPage/images/logo.png" alt="logo"></a>*@
+                        <!-- #Logo Ends -->
+                    </a>
+
+
+
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                </div>
+                <div class="dropdown col-xs-12" style="float: right; margin-left: 2%;width: 120px;">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="float: right;margin-left: 3%;margin-top: 2%;" aria-expanded="false"><span class="badge custom-badge red pull-right" style="background-color: red;">Language</span>Ru <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="margin-top: 16px;">
+                        <li>
+                            @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguage", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+							{
+								@Html.Hidden("lang", "en")
+							}
+							<a href="#" onclick="$('#ChangeLanguage').submit(); return false;">En</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Nav Starts -->
+                <div class="navbar-collapse  collapse">
+
+                    <ul class="nav navbar-nav navbar-right scroll">
+                        <li><a href="#start">С чего начать?</a></li>
+                        <li><a href="#begin">Расписание</a></li>
+                        <li><a href="#detail">Детально</a></li>
+                        <li><a href="#register">Регистрация</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- #Header Starts -->
+<!-- start -->
+<div id="start1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Детальная инструкция.</h2>
+</div>
+
+<div id="start" class=" clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeIn">
+        <img src="~/Instruction/HelpPageRu/Start/s-1.jpg" alt="img01" />
+        <figcaption>
+            <h2></h2>
+            <p>
+                <br>
+                <a href="~/Instruction/HelpPageRu/Start/s-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Start/s-2.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Начало сайта<br>
+                <a href="~/Instruction/HelpPageRu/Start/s-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Start/s-3.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Начало работы<br>
+                <a href="~/Instruction/HelpPageRu/Start/s-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="detail1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Карточка пациента.</h2>
+</div>
+
+<div id="detail" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-3.jpg" title=" 1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-7.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-8.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-8.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-9.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-9.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Patient/patient-10.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Создаем карточку пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Patient/patient-10.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<!-- begin -->
+<div id="begin1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Расписание.</h2>
+</div>
+
+<div id="begin" class=" clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-0.1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-0.1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-2.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-3.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-5.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-6.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-7.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-8.jpg" alt="img02" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-8.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Schedule/Schedule-9.jpg" alt="img03" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Добавлям событие в расписание.<br>
+                <a href="~/Instruction/HelpPageRu/Schedule/Schedule-9.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+<!-- schedule -->
+
+
+<div id="Patient" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">История болезни.</h2>
+</div>
+
+<div id="Patient1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PatientVisit/patientvisit-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем историю болезни.<br>
+                <a href="~/Instruction/HelpPageRu/PatientVisit/patientvisit-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="Balance" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Финансы.</h2>
+</div>
+
+<div id="Balance1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента..<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-7.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-8.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-8.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-9.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-9.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-10.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-10.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Balance/Balance-11.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Финансовый учет услуг и баланс пациента.<br>
+                <a href="~/Instruction/HelpPageRu/Balance/Balance-11.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="UserPage" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Страница пользователя.</h2>
+</div>
+
+<div id="UserPage1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/UserPage/UserPage-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем данные о пользователе.<br>
+                <a href="~/Instruction/HelpPageRu/UserPage/UserPage-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/UserPage/UserPage-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем данные о пользователе.<br>
+                <a href="~/Instruction/HelpPageRu/UserPage/UserPage-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/UserPage/UserPage-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем данные о пользователе.<br>
+                <a href="~/Instruction/HelpPageRu/UserPage/UserPage-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/UserPage/UserPage-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем данные о пользователе.<br>
+                <a href="~/Instruction/HelpPageRu/UserPage/UserPage-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/UserPage/UserPage-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Записываем данные о пользователе.<br>
+                <a href="~/Instruction/HelpPageRu/UserPage/UserPage-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+
+</div>
+
+
+<div id="SearchInBase" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Поиск по базе.</h2>
+</div>
+
+<div id="SearchInBase1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Поиск пациентов по базе.<br>
+                <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Поиск пациентов по базе.<br>
+                <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Поиск пациентов по базе.<br>
+                <a href="~/Instruction/HelpPageRu/SearchInBase/SearchInBase-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="PersonalWebSite" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Персональный сайт.</h2>
+</div>
+
+<div id="PersonalWebSite1" class=" clearfix grid clearfix grid AllPicture" style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-7.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-7.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-8.jpg" alt="img01"/>
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-8.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-9.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Персональный сайт.<br>
+                <a href="~/Instruction/HelpPageRu/PersonalWebSite/PersonalWebSite-9.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+ 
+
+<div id="register1" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Регистрация.</h2>
+</div>
+
+<div id="register" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-4.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-4.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-5.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-5.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Registration/Registration-6.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Registration/Registration-6.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="#remeber" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Напомнить пароль.</h2>
+</div>
+
+<div id="#remeber1" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Remember/Remember-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Remember/Remember-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Remember/Remember-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Remember/Remember-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Remember/Remember-2.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Remember/Remember-2.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Remember/Remember-3.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Регистрация.<br>
+                <a href="~/Instruction/HelpPageRu/Remember/Remember-3.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+
+<div id="Contact" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Контакты.</h2>
+</div>
+
+<div id="Contact1" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Contact/Contact-0.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Контакты.<br>
+                <a href="~/Instruction/HelpPageRu/Contact/Contact-0.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Contact/Contact-1.jpg" alt="img01" />
+        <figcaption>
+            @*<h2>DP</h2>*@
+            <p>
+                Контакты.<br>
+                <a href="~/Instruction/HelpPageRu/Contact/Contact-1.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+</div>
+@*<div id="Test" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Test.</h2>
+</div>
+
+<div id="Test1" class="clearfix grid AllPicture " style="padding-top: 0em;">
+    <figure class="effect-oscar  wowload fadeInUp">
+        <img src="~/Instruction/HelpPageRu/Test/PwerPointInstruction.jpg" alt="img01" />
+        <figcaption>
+            <p>
+                Контакты.<br>
+                <a href="~/Instruction/HelpPageRu/Test/PwerPointInstruction.jpg" title="1" data-gallery>Открыть</a>
+            </p>
+        </figcaption>
+    </figure>
+    
+</div>*@
+
+<!-- works -->
+<!-- Cirlce Starts -->
+<div id="about" class="container spacer about">
+    <h2 class="text-center wowload fadeInUp">Номер один в мире.</h2>
+
+    <div class="row">
+
+        <div class="col-sm-6 wowload fadeInLeft">
+            <h4><i class="fa fa-paint-brush"></i> Почему мы?</h4>
+            <p>Мы бесплатные и у нас такой же функционал, как и у других: расписание, визиты, карточки пациентов. Плюс у вас появляется свой офис в интернете.</p>
+        </div>
+        <div class="col-sm-6 wowload fadeInRight">
+            <h4><i class="fa fa-code"></i> Абсолютно бесплатная</h4>
+            <p>Система учета пациентов для докторов и клиник. Более 10 000 во всем мире докторов и клиник нас уже оценили.</p>
+        </div>
+    </div>
+
+    <div class="process">
+        <h3 class="text-center wowload fadeInUp">Возможности</h3>
+        <ul class="row text-center list-inline  wowload bounceInUp">
+            <li>
+                <span><i class="fa fa-history"></i><b>Регистрация пациентов.</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-puzzle-piece"></i><b>Запись на оказание услуг.</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-database"></i><b>Карта пациента</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-magic"></i><b>Персональный сайт</b></span>
+            </li>
+            <li>
+                <span><i class="fa fa-cloud-upload"></i><b>Учет оплаты медуслуг</b></span>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- #Cirlce Ends -->
+<!-- About Starts -->
+<div class="highlight-info">
+    <div class="overlay spacer">
+        <div class="container">
+            <div class="row text-center  wowload fadeInDownBig">
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-smile-o  fa-5x"></i><h4>Более 10 000 клиентов</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-rocket  fa-5x"></i><h4>24 / 7  режим работы</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-cloud-download  fa-5x"></i><h4>Сохранение всех форматов файлов</h4>
+                </div>
+                <div class="col-sm-3 col-xs-6">
+                    <i class="fa fa-map-marker fa-5x"></i><h4>Работаем во всем мире</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About Ends -->
+
+<div id="partners" class="container spacer ">
+    <h2 class="text-center  wowload fadeInUp">Несколько отзывов от наших клиентов</h2>
+    <div class="clearfix">
+        <div class="col-sm-6 partners  wowload fadeInLeft">
+            <img src="~/Content/HelpPage/images/partners/1.jpg" alt="partners">
+            <img src="~/Content/HelpPage/images/partners/2.jpg" alt="partners">
+            @*<img src="~/Content/HelpPage/images/partners/3.jpg" alt="partners">
+                <img src="~/Content/HelpPage/images/partners/4.jpg" alt="partners">*@
+        </div>
+        <div class="col-sm-6">
+
+
+            <div id="carousel-testimonials" class="carousel slide testimonails  wowload fadeInRight" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="item active animated bounceInRight row">
+                        <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/1.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p> Очень радует возможность просматривать свое расписание в мобильном телефоне и планшете. </p>
+                            <span>Елена - <b>Петербург</b></span>
+                        </div>
+                    </div>
+                    <div class="item  animated bounceInRight row">
+                        <div class="animated slideInLeft col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/2.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p>В системе doctor- premium удобный интерфэйс на интуитивно понятном уровне, полезный функционал для врачей.</p>
+                            <span>Юрий - <b>Москва</b></span>
+                        </div>
+                    </div>
+                    <div class="item  animated bounceInRight row">
+                        <div class="animated slideInLeft  col-xs-2"><img alt="portfolio" src="~/Content/HelpPage/images/team/3.jpg" width="100" class="img-circle img-responsive"></div>
+                        <div class="col-xs-10">
+                            <p>Понравилось функцией повторные визиты – я информирую пациентов о предстоящих осмотрах, лечении, забочусь об их здоровье, и формирую полную запись на прием.</p>
+                            <span>Анна - <b>Минск</b></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-testimonials" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="1"></li>
+                    <li data-target="#carousel-testimonials" data-slide-to="2"></li>
+                </ol>
+                <!-- Indicators -->
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+    <!-- team -->
+    @*<h3 class="text-center  wowload fadeInUp">Our team</h3>
+        <p class="text-center  wowload fadeInLeft">Our creative team that is making everything possible</p>
+        <div class="row grid team  wowload fadeInUpBig">
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/8.jpg" alt="img01" class="img-responsive" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/10.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/12.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class=" col-sm-3 col-xs-6">
+                <figure class="effect-chico">
+                    <img src="~/Content/HelpPage/images/team/17.jpg" alt="img01" />
+                    <figcaption>
+                        <p><b>Barbara Husto</b><br>Senior Designer<br><br><a href="#"><i class="fa fa-dribbble"></i></a> <a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i class="fa fa-twitter"></i></a></p>
+                    </figcaption>
+                </figure>
+            </div>
+
+
+        </div>*@
+    <!-- team -->
+
+</div>
+
+
+
+<!--Contact Starts-->
+@*<div id="contact" class="spacer">
+
+        <div class="container contactform center">
+            <h2 class="text-center  wowload fadeInUp">Get in touch to start your project</h2>
+            <div class="row wowload fadeInLeftBig">
+                <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Company">
+                    <textarea rows="5" placeholder="Message"></textarea>
+                    <button class="btn btn-primary"><i class="fa fa-paper-plane"></i> Send</button>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>*@
+<!--Contact Ends-->

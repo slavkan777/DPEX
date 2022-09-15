@@ -1,0 +1,1894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DoctorPremiumModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="OID" Type="int" Nullable="false" />
+          <Property Name="CityNameRu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CityNameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OID" Type="int" Nullable="false" />
+          <Property Name="CountryNameRu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CountryNameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DentalCards">
+          <Key>
+            <PropertyRef Name="DentalCardId" />
+          </Key>
+          <Property Name="DentalCardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="OrderNumber" Type="tinyint" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsCheck" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Helps">
+          <Key>
+            <PropertyRef Name="HelpId" />
+          </Key>
+          <Property Name="HelpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="URL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Order" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="400" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedateUtc" Type="datetime" />
+          <Property Name="IsPublish" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Languages">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LanguageShortName" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="LanguageName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatientDocuments">
+          <Key>
+            <PropertyRef Name="PatientDocumentId" />
+          </Key>
+          <Property Name="PatientDocumentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CardNumber" Type="nvarchar" MaxLength="10" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="64" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsMale" Type="bit" Nullable="false" />
+          <Property Name="BirthDate" Type="date" Nullable="false" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="HomePhone" Type="nvarchar" MaxLength="16" />
+          <Property Name="MobilePhone" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="80" />
+          <Property Name="AnyContact" Type="nvarchar" MaxLength="200" />
+          <Property Name="WorkPlace" Type="nvarchar" MaxLength="200" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="500" />
+          <Property Name="Anamnez" Type="nvarchar" MaxLength="500" />
+          <Property Name="AlergoStatus" Type="nvarchar" MaxLength="500" />
+          <Property Name="ImmunoStatus" Type="nvarchar" MaxLength="500" />
+          <Property Name="AdditionalInfo" Type="nvarchar" MaxLength="500" />
+          <Property Name="Debt" Type="money" Nullable="false" />
+          <Property Name="CommentDentalCard" Type="nvarchar" MaxLength="400" />
+          <Property Name="IsVIP" Type="bit" Nullable="false" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PatientVisitPayments">
+          <Key>
+            <PropertyRef Name="PatientVisitPaymentId" />
+          </Key>
+          <Property Name="PatientVisitPaymentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientVisitId" Type="int" Nullable="false" />
+          <Property Name="CostOfServices" Type="money" />
+          <Property Name="Paid" Type="money" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="200" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatientVisits">
+          <Key>
+            <PropertyRef Name="PatientVisitId" />
+          </Key>
+          <Property Name="PatientVisitId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="VisitDate" Type="date" Nullable="false" />
+          <Property Name="VisitStartTime" Type="time" Precision="7" Nullable="false" />
+          <Property Name="Duration" Type="int" />
+          <Property Name="PurposeOfVisit" Type="nvarchar" MaxLength="300" />
+          <Property Name="SubjectiveComplaints" Type="nvarchar" MaxLength="500" />
+          <Property Name="AdditionalResearch" Type="nvarchar" MaxLength="500" />
+          <Property Name="LaboratoryResearch" Type="nvarchar" MaxLength="500" />
+          <Property Name="ClinicalDiagnosis" Type="nvarchar" MaxLength="500" />
+          <Property Name="Treatment" Type="nvarchar" MaxLength="400" />
+          <Property Name="DoctorAssignments" Type="nvarchar" MaxLength="400" />
+          <Property Name="NextVizitRecordId" Type="int" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Regions">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="OID" Type="int" Nullable="false" />
+          <Property Name="RegionNameRu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RegionNameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleRecords">
+          <Key>
+            <PropertyRef Name="ScheduleRecordId" />
+          </Key>
+          <Property Name="ScheduleRecordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleRecordTypeId" Type="int" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="isFinished" Type="bit" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="PatientVisitId" Type="int" />
+          <Property Name="RecordDate" Type="date" Nullable="false" />
+          <Property Name="RecordStartTime" Type="time" Precision="7" />
+          <Property Name="Duration" Type="tinyint" Nullable="false" />
+          <Property Name="CostOfFeautureServices" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="Title" Type="nvarchar" MaxLength="80" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleRecordTypes">
+          <Key>
+            <PropertyRef Name="ScheduleRecordTypeId" />
+          </Key>
+          <Property Name="ScheduleRecordTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleRecordTypeName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SessionData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SessionId" Type="char" MaxLength="36" Nullable="false" />
+          <Property Name="SessionStart" Type="datetime" Nullable="false" />
+          <Property Name="SessionEnd" Type="datetime" />
+          <Property Name="AspUserId" Type="int" />
+          <Property Name="IPAddress" Type="char" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettingName" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="SettingValue" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeZones">
+          <Key>
+            <PropertyRef Name="TimeZoneId" />
+          </Key>
+          <Property Name="TimeZoneId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystemId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UTCOffset" Type="int" Nullable="false" />
+          <Property Name="TimeZoneNameRu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TimeZoneNameEn" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SupportSummerTime" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoId" />
+          </Key>
+          <Property Name="UserInfoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AspNetUserId" Type="int" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="64" />
+          <Property Name="Photo" Type="nvarchar" MaxLength="640" />
+          <Property Name="IsMale" Type="bit" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Phone1" Type="nvarchar" MaxLength="32" />
+          <Property Name="Phone2" Type="nvarchar" MaxLength="32" />
+          <Property Name="CountryId" Type="int" />
+          <Property Name="CityId" Type="int" />
+          <Property Name="Address" Type="nvarchar" MaxLength="300" />
+          <Property Name="WorkTimeFrom" Type="time" Precision="7" />
+          <Property Name="WorkTimeTo" Type="time" Precision="7" />
+          <Property Name="Notepad" Type="nvarchar" MaxLength="1000" />
+          <Property Name="TimeZoneId" Type="int" Nullable="false" />
+          <Property Name="LanguageId" Type="int" Nullable="false" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="datetime" />
+          <Property Name="LastActivityDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="IsLocked" Type="bit" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserPublicPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="AboutOfDoctor" Type="nvarchar" MaxLength="4000" />
+          <Property Name="DoctorService" Type="nvarchar(max)" />
+          <Property Name="PublicEmailAddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="PublicAddressForPatients" Type="nvarchar" MaxLength="500" />
+          <Property Name="PublicPhone" Type="nvarchar" MaxLength="100" />
+          <Property Name="VisitCounter" Type="int" Nullable="false" />
+          <Property Name="IsPublic" Type="bit" Nullable="false" />
+          <Property Name="CreateDateUtc" Type="datetime" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AspNetUser_PublicPage">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UserPublicPage" Type="Self.UserPublicPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPublicPage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Regions">
+          <End Role="Regions" Type="Self.Regions" Multiplicity="1" />
+          <End Role="Cities" Type="Self.Cities" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DentalCards_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="DentalCards" Type="Self.DentalCards" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="DentalCards">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Helps_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="Helps" Type="Self.Helps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Helps">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientDocument_Patient">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="PatientDocuments" Type="Self.PatientDocuments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientDocuments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patients" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientVisit_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="1" />
+          <End Role="PatientVisits" Type="Self.PatientVisits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientVisits">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientVisitPayment_PatientVisit">
+          <End Role="PatientVisits" Type="Self.PatientVisits" Multiplicity="1" />
+          <End Role="PatientVisitPayments" Type="Self.PatientVisitPayments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientVisits">
+              <PropertyRef Name="PatientVisitId" />
+            </Principal>
+            <Dependent Role="PatientVisitPayments">
+              <PropertyRef Name="PatientVisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regions_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Regions" Type="Self.Regions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_AspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_Patients">
+          <End Role="Patients" Type="Self.Patients" Multiplicity="0..1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_PatientVisits">
+          <End Role="PatientVisits" Type="Self.PatientVisits" Multiplicity="0..1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientVisits">
+              <PropertyRef Name="PatientVisitId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="PatientVisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_ScheduleRecordType">
+          <End Role="ScheduleRecordTypes" Type="Self.ScheduleRecordTypes" Multiplicity="1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleRecordTypes">
+              <PropertyRef Name="ScheduleRecordTypeId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="ScheduleRecordTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SessionData_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="SessionData" Type="Self.SessionData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionData">
+              <PropertyRef Name="AspUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_AspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Cities">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Languages">
+          <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Languages">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_TimeZones">
+          <End Role="TimeZones" Type="Self.TimeZones" Multiplicity="1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZones">
+              <PropertyRef Name="TimeZoneId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="TimeZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="RightMoneyData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DataUserIdForMany" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="DoctorPremiumModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DentalCards" EntityType="Self.DentalCards" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Helps" EntityType="Self.Helps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientDocuments" EntityType="Self.PatientDocuments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisitPayments" EntityType="Self.PatientVisitPayments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatientVisits" EntityType="Self.PatientVisits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Regions" EntityType="Self.Regions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleRecords" EntityType="Self.ScheduleRecords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleRecordTypes" EntityType="Self.ScheduleRecordTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SessionData" EntityType="Self.SessionData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeZones" EntityType="Self.TimeZones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserPublicPage" EntityType="Self.UserPublicPage" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUser_PublicPage" Association="Self.FK_AspNetUser_PublicPage">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserPublicPage" EntitySet="UserPublicPage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Regions" Association="Self.FK_Cities_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DentalCards_Patients" Association="Self.FK_DentalCards_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="DentalCards" EntitySet="DentalCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Helps_Languages" Association="Self.FK_Helps_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="Helps" EntitySet="Helps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientDocument_Patient" Association="Self.FK_PatientDocument_Patient">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="PatientDocuments" EntitySet="PatientDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_AspNetUsers" Association="Self.FK_Patients_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Cities" Association="Self.FK_Patients_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Countries" Association="Self.FK_Patients_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientVisit_Patients" Association="Self.FK_PatientVisit_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientVisitPayment_PatientVisit" Association="Self.FK_PatientVisitPayment_PatientVisit">
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+            <End Role="PatientVisitPayments" EntitySet="PatientVisitPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regions_Countries" Association="Self.FK_Regions_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_AspNetUser" Association="Self.FK_ScheduleRecord_AspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_Patients" Association="Self.FK_ScheduleRecord_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_PatientVisits" Association="Self.FK_ScheduleRecord_PatientVisits">
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_ScheduleRecordType" Association="Self.FK_ScheduleRecord_ScheduleRecordType">
+            <End Role="ScheduleRecordTypes" EntitySet="ScheduleRecordTypes" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SessionData_AspNetUsers" Association="Self.FK_SessionData_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="SessionData" EntitySet="SessionData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_AspNetUser" Association="Self.FK_UserInfo_AspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Cities" Association="Self.FK_UserInfo_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Countries" Association="Self.FK_UserInfo_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Languages" Association="Self.FK_UserInfo_Languages">
+            <End Role="Languages" EntitySet="Languages" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_TimeZones" Association="Self.FK_UserInfo_TimeZones">
+            <End Role="TimeZones" EntitySet="TimeZones" />
+            <End Role="UserInfo" EntitySet="UserInfo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DoctorPremiumModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="UserPublicPages" Relationship="Self.FK_AspNetUser_PublicPage" FromRole="AspNetUsers" ToRole="UserPublicPage" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patients_AspNetUsers" FromRole="AspNetUsers" ToRole="Patients" />
+          <NavigationProperty Name="ScheduleRecords" Relationship="Self.FK_ScheduleRecord_AspNetUser" FromRole="AspNetUsers" ToRole="ScheduleRecords" />
+          <NavigationProperty Name="UserInfoes" Relationship="Self.FK_UserInfo_AspNetUser" FromRole="AspNetUsers" ToRole="UserInfo" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="SessionDatas" Relationship="DoctorPremiumModel.FK_SessionData_AspNetUsers" FromRole="AspNetUser" ToRole="SessionData" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityId" />
+          </Key>
+          <Property Name="CityId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="OID" Type="Int32" Nullable="false" />
+          <Property Name="CityNameRu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CityNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Cities_Countries" FromRole="Cities" ToRole="Countries" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Cities_Regions" FromRole="Cities" ToRole="Regions" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patients_Cities" FromRole="Cities" ToRole="Patients" />
+          <NavigationProperty Name="UserInfoes" Relationship="Self.FK_UserInfo_Cities" FromRole="Cities" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="CountryId" />
+          </Key>
+          <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OID" Type="Int32" Nullable="false" />
+          <Property Name="CountryNameRu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountryNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Countries" FromRole="Countries" ToRole="Cities" />
+          <NavigationProperty Name="Patients" Relationship="Self.FK_Patients_Countries" FromRole="Countries" ToRole="Patients" />
+          <NavigationProperty Name="Regions" Relationship="Self.FK_Regions_Countries" FromRole="Countries" ToRole="Regions" />
+          <NavigationProperty Name="UserInfoes" Relationship="Self.FK_UserInfo_Countries" FromRole="Countries" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="DentalCard">
+          <Key>
+            <PropertyRef Name="DentalCardId" />
+          </Key>
+          <Property Name="DentalCardId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="OrderNumber" Type="Byte" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsCheck" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_DentalCards_Patients" FromRole="DentalCards" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="LanguageId" />
+          </Key>
+          <Property Name="LanguageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageShortName" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LanguageName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserInfoes" Relationship="DoctorPremiumModel.FK_UserInfo_Languages" FromRole="Language" ToRole="UserInfo" />
+          <NavigationProperty Name="Helps" Relationship="DoctorPremiumModel.FK_Helps_Languages" FromRole="Language" ToRole="Help" />
+        </EntityType>
+        <EntityType Name="PatientDocument">
+          <Key>
+            <PropertyRef Name="PatientDocumentId" />
+          </Key>
+          <Property Name="PatientDocumentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="FileName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_PatientDocument_Patient" FromRole="PatientDocuments" ToRole="Patients" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="true" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SurName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsMale" Type="Boolean" Nullable="false" />
+          <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HomePhone" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="MobilePhone" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="AnyContact" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="WorkPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Anamnez" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AlergoStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ImmunoStatus" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalInfo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Debt" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CommentDentalCard" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="IsVIP" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_Patients_AspNetUsers" FromRole="Patients" ToRole="AspNetUsers" />
+          <NavigationProperty Name="City" Relationship="Self.FK_Patients_Cities" FromRole="Patients" ToRole="Cities" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Patients_Countries" FromRole="Patients" ToRole="Countries" />
+          <NavigationProperty Name="DentalCards" Relationship="Self.FK_DentalCards_Patients" FromRole="Patients" ToRole="DentalCards" />
+          <NavigationProperty Name="PatientDocuments" Relationship="Self.FK_PatientDocument_Patient" FromRole="Patients" ToRole="PatientDocuments" />
+          <NavigationProperty Name="PatientVisits" Relationship="Self.FK_PatientVisit_Patients" FromRole="Patients" ToRole="PatientVisits" />
+          <NavigationProperty Name="ScheduleRecords" Relationship="Self.FK_ScheduleRecord_Patients" FromRole="Patients" ToRole="ScheduleRecords" />
+        </EntityType>
+        <EntityType Name="PatientVisitPayment">
+          <Key>
+            <PropertyRef Name="PatientVisitPaymentId" />
+          </Key>
+          <Property Name="PatientVisitPaymentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientVisitId" Type="Int32" Nullable="false" />
+          <Property Name="CostOfServices" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Paid" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDateUtc" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="PatientVisit" Relationship="Self.FK_PatientVisitPayment_PatientVisit" FromRole="PatientVisitPayments" ToRole="PatientVisits" />
+        </EntityType>
+        <EntityType Name="PatientVisit">
+          <Key>
+            <PropertyRef Name="PatientVisitId" />
+          </Key>
+          <Property Name="PatientVisitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="Int32" Nullable="false" />
+          <Property Name="VisitDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="VisitStartTime" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="Duration" Type="Int32" />
+          <Property Name="PurposeOfVisit" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SubjectiveComplaints" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AdditionalResearch" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LaboratoryResearch" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ClinicalDiagnosis" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Treatment" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorAssignments" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="NextVizitRecordId" Type="Int32" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_PatientVisit_Patients" FromRole="PatientVisits" ToRole="Patients" />
+          <NavigationProperty Name="PatientVisitPayments" Relationship="Self.FK_PatientVisitPayment_PatientVisit" FromRole="PatientVisits" ToRole="PatientVisitPayments" />
+          <NavigationProperty Name="ScheduleRecords" Relationship="Self.FK_ScheduleRecord_PatientVisits" FromRole="PatientVisits" ToRole="ScheduleRecords" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="RegionId" />
+          </Key>
+          <Property Name="RegionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="OID" Type="Int32" Nullable="false" />
+          <Property Name="RegionNameRu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegionNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK_Cities_Regions" FromRole="Regions" ToRole="Cities" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_Regions_Countries" FromRole="Regions" ToRole="Countries" />
+        </EntityType>
+        <EntityType Name="ScheduleRecord">
+          <Key>
+            <PropertyRef Name="ScheduleRecordId" />
+          </Key>
+          <Property Name="ScheduleRecordId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleRecordTypeId" Type="Int32" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="isFinished" Type="Boolean" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="PatientVisitId" Type="Int32" />
+          <Property Name="RecordDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="RecordStartTime" Type="Time" Precision="7" />
+          <Property Name="Duration" Type="Byte" Nullable="false" />
+          <Property Name="CostOfFeautureServices" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="80" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_ScheduleRecord_AspNetUser" FromRole="ScheduleRecords" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_ScheduleRecord_Patients" FromRole="ScheduleRecords" ToRole="Patients" />
+          <NavigationProperty Name="PatientVisit" Relationship="Self.FK_ScheduleRecord_PatientVisits" FromRole="ScheduleRecords" ToRole="PatientVisits" />
+          <NavigationProperty Name="ScheduleRecordType" Relationship="Self.FK_ScheduleRecord_ScheduleRecordType" FromRole="ScheduleRecords" ToRole="ScheduleRecordTypes" />
+        </EntityType>
+        <EntityType Name="ScheduleRecordType">
+          <Key>
+            <PropertyRef Name="ScheduleRecordTypeId" />
+          </Key>
+          <Property Name="ScheduleRecordTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleRecordTypeName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ScheduleRecords" Relationship="Self.FK_ScheduleRecord_ScheduleRecordType" FromRole="ScheduleRecordTypes" ToRole="ScheduleRecords" />
+        </EntityType>
+        <EntityType Name="TimeZone">
+          <Key>
+            <PropertyRef Name="TimeZoneId" />
+          </Key>
+          <Property Name="TimeZoneId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystemId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UTCOffset" Type="Int32" Nullable="false" />
+          <Property Name="TimeZoneNameRu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TimeZoneNameEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupportSummerTime" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="UserInfoes" Relationship="DoctorPremiumModel.FK_UserInfo_TimeZones" FromRole="TimeZone" ToRole="UserInfo" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserInfoId" />
+          </Key>
+          <Property Name="UserInfoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AspNetUserId" Type="Int32" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="SurName" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" MaxLength="640" FixedLength="false" Unicode="true" />
+          <Property Name="IsMale" Type="Boolean" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Phone1" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Phone2" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="CountryId" Type="Int32" />
+          <Property Name="CityId" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="WorkTimeFrom" Type="Time" Precision="7" />
+          <Property Name="WorkTimeTo" Type="Time" Precision="7" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdateDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LastActivityDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsLocked" Type="Boolean" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_UserInfo_AspNetUser" FromRole="UserInfo" ToRole="AspNetUsers" />
+          <NavigationProperty Name="City" Relationship="Self.FK_UserInfo_Cities" FromRole="UserInfo" ToRole="Cities" />
+          <NavigationProperty Name="Country" Relationship="Self.FK_UserInfo_Countries" FromRole="UserInfo" ToRole="Countries" />
+          <Property Name="TimeZoneId" Type="Int32" Nullable="false" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="DoctorPremiumModel.FK_UserInfo_Languages" FromRole="UserInfo" ToRole="Language" />
+          <NavigationProperty Name="TimeZone" Relationship="DoctorPremiumModel.FK_UserInfo_TimeZones" FromRole="UserInfo" ToRole="TimeZone" />
+          <Property Name="Notepad" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserPublicPage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="AboutOfDoctor" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="DoctorService" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PublicEmailAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PublicAddressForPatients" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="PublicPhone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsPublic" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDateUtc" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="UpdateDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_AspNetUser_PublicPage" FromRole="UserPublicPage" ToRole="AspNetUsers" />
+          <Property Name="VisitCounter" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AspNetUser_PublicPage">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="UserPublicPage" Type="Self.UserPublicPage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserPublicPage">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_AspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_AspNetUser">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="AspNetUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cities_Regions">
+          <End Role="Regions" Type="Self.Region" Multiplicity="1" />
+          <End Role="Cities" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Regions">
+              <PropertyRef Name="RegionId" />
+            </Principal>
+            <Dependent Role="Cities">
+              <PropertyRef Name="RegionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Cities">
+          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="CityId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patients_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="Patients" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Patients">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Regions_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="1" />
+          <End Role="Regions" Type="Self.Region" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="Regions">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Countries">
+          <End Role="Countries" Type="Self.Country" Multiplicity="0..1" />
+          <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="CountryId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DentalCards_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="DentalCards" Type="Self.DentalCard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="DentalCards">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientDocument_Patient">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="PatientDocuments" Type="Self.PatientDocument" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientDocuments">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientVisit_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="1" />
+          <End Role="PatientVisits" Type="Self.PatientVisit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="PatientVisits">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_Patients">
+          <End Role="Patients" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patients">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatientVisitPayment_PatientVisit">
+          <End Role="PatientVisits" Type="Self.PatientVisit" Multiplicity="1" />
+          <End Role="PatientVisitPayments" Type="Self.PatientVisitPayment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientVisits">
+              <PropertyRef Name="PatientVisitId" />
+            </Principal>
+            <Dependent Role="PatientVisitPayments">
+              <PropertyRef Name="PatientVisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_PatientVisits">
+          <End Role="PatientVisits" Type="Self.PatientVisit" Multiplicity="0..1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PatientVisits">
+              <PropertyRef Name="PatientVisitId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="PatientVisitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleRecord_ScheduleRecordType">
+          <End Role="ScheduleRecordTypes" Type="Self.ScheduleRecordType" Multiplicity="1" />
+          <End Role="ScheduleRecords" Type="Self.ScheduleRecord" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScheduleRecordTypes">
+              <PropertyRef Name="ScheduleRecordTypeId" />
+            </Principal>
+            <Dependent Role="ScheduleRecords">
+              <PropertyRef Name="ScheduleRecordTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Countries" EntityType="Self.Country" />
+          <EntitySet Name="DentalCards" EntityType="Self.DentalCard" />
+          <EntitySet Name="Languages" EntityType="Self.Language" />
+          <EntitySet Name="PatientDocuments" EntityType="Self.PatientDocument" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="PatientVisitPayments" EntityType="Self.PatientVisitPayment" />
+          <EntitySet Name="PatientVisits" EntityType="Self.PatientVisit" />
+          <EntitySet Name="Regions" EntityType="Self.Region" />
+          <EntitySet Name="ScheduleRecords" EntityType="Self.ScheduleRecord" />
+          <EntitySet Name="ScheduleRecordTypes" EntityType="Self.ScheduleRecordType" />
+          <EntitySet Name="TimeZones" EntityType="Self.TimeZone" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="UserPublicPages" EntityType="Self.UserPublicPage" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AspNetUser_PublicPage" Association="Self.FK_AspNetUser_PublicPage">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserPublicPage" EntitySet="UserPublicPages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_AspNetUsers" Association="Self.FK_Patients_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_AspNetUser" Association="Self.FK_ScheduleRecord_AspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_AspNetUser" Association="Self.FK_UserInfo_AspNetUser">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Countries" Association="Self.FK_Cities_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cities_Regions" Association="Self.FK_Cities_Regions">
+            <End Role="Regions" EntitySet="Regions" />
+            <End Role="Cities" EntitySet="Cities" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Cities" Association="Self.FK_Patients_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Cities" Association="Self.FK_UserInfo_Cities">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patients_Countries" Association="Self.FK_Patients_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Patients" EntitySet="Patients" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Regions_Countries" Association="Self.FK_Regions_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Regions" EntitySet="Regions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Countries" Association="Self.FK_UserInfo_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DentalCards_Patients" Association="Self.FK_DentalCards_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="DentalCards" EntitySet="DentalCards" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientDocument_Patient" Association="Self.FK_PatientDocument_Patient">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="PatientDocuments" EntitySet="PatientDocuments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientVisit_Patients" Association="Self.FK_PatientVisit_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_Patients" Association="Self.FK_ScheduleRecord_Patients">
+            <End Role="Patients" EntitySet="Patients" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatientVisitPayment_PatientVisit" Association="Self.FK_PatientVisitPayment_PatientVisit">
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+            <End Role="PatientVisitPayments" EntitySet="PatientVisitPayments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_PatientVisits" Association="Self.FK_ScheduleRecord_PatientVisits">
+            <End Role="PatientVisits" EntitySet="PatientVisits" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleRecord_ScheduleRecordType" Association="Self.FK_ScheduleRecord_ScheduleRecordType">
+            <End Role="ScheduleRecordTypes" EntitySet="ScheduleRecordTypes" />
+            <End Role="ScheduleRecords" EntitySet="ScheduleRecords" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <FunctionImport Name="RightMoneyData" ReturnType="Collection(DoctorPremiumModel.RightMoneyData_Result)">
+          <Parameter Name="DataUserIdForMany" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <AssociationSet Name="FK_UserInfo_UserInfo" Association="DoctorPremiumModel.FK_UserInfo_UserInfo">
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+            <End Role="UserInfo1" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_Languages" Association="DoctorPremiumModel.FK_UserInfo_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserInfo_TimeZones" Association="DoctorPremiumModel.FK_UserInfo_TimeZones">
+            <End Role="TimeZone" EntitySet="TimeZones" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
+          </AssociationSet>
+          <EntitySet Name="Helps" EntityType="DoctorPremiumModel.Help" />
+          <AssociationSet Name="FK_Helps_Languages" Association="DoctorPremiumModel.FK_Helps_Languages">
+            <End Role="Language" EntitySet="Languages" />
+            <End Role="Help" EntitySet="Helps" />
+          </AssociationSet>
+          <EntitySet Name="SessionDatas" EntityType="DoctorPremiumModel.SessionData" />
+          <EntitySet Name="Settings" EntityType="DoctorPremiumModel.Setting" />
+          <AssociationSet Name="FK_SessionData_AspNetUsers" Association="DoctorPremiumModel.FK_SessionData_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="SessionData" EntitySet="SessionDatas" />
+          </AssociationSet>
+        </EntityContainer>
+        <ComplexType Name="RightMoneyData_Result">
+          <Property Type="Decimal" Name="one1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="one2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="seven1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="seven2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="thirty1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="thirty2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="sixty1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="sixty2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ninety1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="ninety2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="oneHundredTwenty1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="oneHundredTwenty2" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="oneHundredEighty1" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="oneHundredEighty2" Nullable="true" Precision="19" />
+        </ComplexType>
+        <Association Name="FK_UserInfo_UserInfo">
+          <End Type="DoctorPremiumModel.UserInfo" Role="UserInfo" Multiplicity="1" />
+          <End Type="DoctorPremiumModel.UserInfo" Role="UserInfo1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="UserInfo">
+              <PropertyRef Name="UserInfoId" />
+            </Principal>
+            <Dependent Role="UserInfo1">
+              <PropertyRef Name="UserInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_Languages">
+          <End Type="DoctorPremiumModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="DoctorPremiumModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserInfo_TimeZones">
+          <End Type="DoctorPremiumModel.TimeZone" Role="TimeZone" Multiplicity="1" />
+          <End Type="DoctorPremiumModel.UserInfo" Role="UserInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeZone">
+              <PropertyRef Name="TimeZoneId" />
+            </Principal>
+            <Dependent Role="UserInfo">
+              <PropertyRef Name="TimeZoneId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Help">
+          <Key>
+            <PropertyRef Name="HelpId" />
+          </Key>
+          <Property Name="HelpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="URL" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Order" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Notes" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="CreateDateUtc" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedateUtc" Type="DateTime" Precision="3" />
+          <Property Name="IsPublish" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Language" Relationship="DoctorPremiumModel.FK_Helps_Languages" FromRole="Help" ToRole="Language" />
+        </EntityType>
+        <Association Name="FK_Helps_Languages">
+          <End Type="DoctorPremiumModel.Language" Role="Language" Multiplicity="1" />
+          <End Type="DoctorPremiumModel.Help" Role="Help" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Language">
+              <PropertyRef Name="LanguageId" />
+            </Principal>
+            <Dependent Role="Help">
+              <PropertyRef Name="LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SessionData">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SessionId" Type="String" Nullable="false" MaxLength="36" FixedLength="true" Unicode="false" />
+          <Property Name="SessionStart" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SessionEnd" Type="DateTime" Precision="3" />
+          <Property Name="AspUserId" Type="Int32" />
+          <Property Name="IPAddress" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="DoctorPremiumModel.FK_SessionData_AspNetUsers" FromRole="SessionData" ToRole="AspNetUser" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="SettingId" />
+          </Key>
+          <Property Name="SettingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettingName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="SettingValue" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_SessionData_AspNetUsers">
+          <End Type="DoctorPremiumModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="DoctorPremiumModel.SessionData" Role="SessionData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SessionData">
+              <PropertyRef Name="AspUserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DoctorPremiumModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="CityNameRu" ColumnName="CityNameRu" />
+                <ScalarProperty Name="CityNameEn" ColumnName="CityNameEn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Country">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="CountryNameRu" ColumnName="CountryNameRu" />
+                <ScalarProperty Name="CountryNameEn" ColumnName="CountryNameEn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DentalCards">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.DentalCard">
+              <MappingFragment StoreEntitySet="DentalCards">
+                <ScalarProperty Name="DentalCardId" ColumnName="DentalCardId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsCheck" ColumnName="IsCheck" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Languages">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Language">
+              <MappingFragment StoreEntitySet="Languages">
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="LanguageShortName" ColumnName="LanguageShortName" />
+                <ScalarProperty Name="LanguageName" ColumnName="LanguageName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientDocuments">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.PatientDocument">
+              <MappingFragment StoreEntitySet="PatientDocuments">
+                <ScalarProperty Name="PatientDocumentId" ColumnName="PatientDocumentId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Patient">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsMale" ColumnName="IsMale" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AnyContact" ColumnName="AnyContact" />
+                <ScalarProperty Name="WorkPlace" ColumnName="WorkPlace" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Anamnez" ColumnName="Anamnez" />
+                <ScalarProperty Name="AlergoStatus" ColumnName="AlergoStatus" />
+                <ScalarProperty Name="ImmunoStatus" ColumnName="ImmunoStatus" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="Debt" ColumnName="Debt" />
+                <ScalarProperty Name="CommentDentalCard" ColumnName="CommentDentalCard" />
+                <ScalarProperty Name="IsVIP" ColumnName="IsVIP" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="UpdateDateUtc" ColumnName="UpdateDateUtc" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisitPayments">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.PatientVisitPayment">
+              <MappingFragment StoreEntitySet="PatientVisitPayments">
+                <ScalarProperty Name="PatientVisitPaymentId" ColumnName="PatientVisitPaymentId" />
+                <ScalarProperty Name="PatientVisitId" ColumnName="PatientVisitId" />
+                <ScalarProperty Name="CostOfServices" ColumnName="CostOfServices" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="UpdateDateUtc" ColumnName="UpdateDateUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatientVisits">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.PatientVisit">
+              <MappingFragment StoreEntitySet="PatientVisits">
+                <ScalarProperty Name="PatientVisitId" ColumnName="PatientVisitId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
+                <ScalarProperty Name="VisitStartTime" ColumnName="VisitStartTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="PurposeOfVisit" ColumnName="PurposeOfVisit" />
+                <ScalarProperty Name="SubjectiveComplaints" ColumnName="SubjectiveComplaints" />
+                <ScalarProperty Name="AdditionalResearch" ColumnName="AdditionalResearch" />
+                <ScalarProperty Name="LaboratoryResearch" ColumnName="LaboratoryResearch" />
+                <ScalarProperty Name="ClinicalDiagnosis" ColumnName="ClinicalDiagnosis" />
+                <ScalarProperty Name="Treatment" ColumnName="Treatment" />
+                <ScalarProperty Name="DoctorAssignments" ColumnName="DoctorAssignments" />
+                <ScalarProperty Name="NextVizitRecordId" ColumnName="NextVizitRecordId" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="UpdateDateUtc" ColumnName="UpdateDateUtc" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Region">
+              <MappingFragment StoreEntitySet="Regions">
+                <ScalarProperty Name="RegionId" ColumnName="RegionId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="OID" ColumnName="OID" />
+                <ScalarProperty Name="RegionNameRu" ColumnName="RegionNameRu" />
+                <ScalarProperty Name="RegionNameEn" ColumnName="RegionNameEn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleRecords">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.ScheduleRecord">
+              <MappingFragment StoreEntitySet="ScheduleRecords">
+                <ScalarProperty Name="ScheduleRecordId" ColumnName="ScheduleRecordId" />
+                <ScalarProperty Name="ScheduleRecordTypeId" ColumnName="ScheduleRecordTypeId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="isFinished" ColumnName="isFinished" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="PatientVisitId" ColumnName="PatientVisitId" />
+                <ScalarProperty Name="RecordDate" ColumnName="RecordDate" />
+                <ScalarProperty Name="RecordStartTime" ColumnName="RecordStartTime" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="CostOfFeautureServices" ColumnName="CostOfFeautureServices" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleRecordTypes">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.ScheduleRecordType">
+              <MappingFragment StoreEntitySet="ScheduleRecordTypes">
+                <ScalarProperty Name="ScheduleRecordTypeId" ColumnName="ScheduleRecordTypeId" />
+                <ScalarProperty Name="ScheduleRecordTypeName" ColumnName="ScheduleRecordTypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeZones">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.TimeZone">
+              <MappingFragment StoreEntitySet="TimeZones">
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="SystemId" ColumnName="SystemId" />
+                <ScalarProperty Name="UTCOffset" ColumnName="UTCOffset" />
+                <ScalarProperty Name="TimeZoneNameRu" ColumnName="TimeZoneNameRu" />
+                <ScalarProperty Name="TimeZoneNameEn" ColumnName="TimeZoneNameEn" />
+                <ScalarProperty Name="SupportSummerTime" ColumnName="SupportSummerTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="Notepad" ColumnName="Notepad" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="TimeZoneId" ColumnName="TimeZoneId" />
+                <ScalarProperty Name="UserInfoId" ColumnName="UserInfoId" />
+                <ScalarProperty Name="AspNetUserId" ColumnName="AspNetUserId" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsMale" ColumnName="IsMale" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Phone1" ColumnName="Phone1" />
+                <ScalarProperty Name="Phone2" ColumnName="Phone2" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="CityId" ColumnName="CityId" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="WorkTimeFrom" ColumnName="WorkTimeFrom" />
+                <ScalarProperty Name="WorkTimeTo" ColumnName="WorkTimeTo" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="UpdateDateUtc" ColumnName="UpdateDateUtc" />
+                <ScalarProperty Name="LastActivityDateUtc" ColumnName="LastActivityDateUtc" />
+                <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserPublicPages">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.UserPublicPage">
+              <MappingFragment StoreEntitySet="UserPublicPage">
+                <ScalarProperty Name="VisitCounter" ColumnName="VisitCounter" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="AboutOfDoctor" ColumnName="AboutOfDoctor" />
+                <ScalarProperty Name="DoctorService" ColumnName="DoctorService" />
+                <ScalarProperty Name="PublicEmailAddress" ColumnName="PublicEmailAddress" />
+                <ScalarProperty Name="PublicAddressForPatients" ColumnName="PublicAddressForPatients" />
+                <ScalarProperty Name="PublicPhone" ColumnName="PublicPhone" />
+                <ScalarProperty Name="IsPublic" ColumnName="IsPublic" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="UpdateDateUtc" ColumnName="UpdateDateUtc" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DoctorPremiumModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="RightMoneyData" FunctionName="DoctorPremiumModel.Store.RightMoneyData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DoctorPremiumModel.RightMoneyData_Result">
+                <ScalarProperty Name="one1" ColumnName="one1" />
+                <ScalarProperty Name="one2" ColumnName="one2" />
+                <ScalarProperty Name="seven1" ColumnName="seven1" />
+                <ScalarProperty Name="seven2" ColumnName="seven2" />
+                <ScalarProperty Name="thirty1" ColumnName="thirty1" />
+                <ScalarProperty Name="thirty2" ColumnName="thirty2" />
+                <ScalarProperty Name="sixty1" ColumnName="sixty1" />
+                <ScalarProperty Name="sixty2" ColumnName="sixty2" />
+                <ScalarProperty Name="ninety1" ColumnName="ninety1" />
+                <ScalarProperty Name="ninety2" ColumnName="ninety2" />
+                <ScalarProperty Name="oneHundredTwenty1" ColumnName="oneHundredTwenty1" />
+                <ScalarProperty Name="oneHundredTwenty2" ColumnName="oneHundredTwenty2" />
+                <ScalarProperty Name="oneHundredEighty1" ColumnName="oneHundredEighty1" />
+                <ScalarProperty Name="oneHundredEighty2" ColumnName="oneHundredEighty2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Helps">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Help">
+              <MappingFragment StoreEntitySet="Helps">
+                <ScalarProperty Name="IsPublish" ColumnName="IsPublish" />
+                <ScalarProperty Name="UpdatedateUtc" ColumnName="UpdatedateUtc" />
+                <ScalarProperty Name="CreateDateUtc" ColumnName="CreateDateUtc" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="LanguageId" ColumnName="LanguageId" />
+                <ScalarProperty Name="HelpId" ColumnName="HelpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SessionDatas">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.SessionData">
+              <MappingFragment StoreEntitySet="SessionData">
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="AspUserId" ColumnName="AspUserId" />
+                <ScalarProperty Name="SessionEnd" ColumnName="SessionEnd" />
+                <ScalarProperty Name="SessionStart" ColumnName="SessionStart" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="DoctorPremiumModel.Setting">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="SettingName" ColumnName="SettingName" />
+                <ScalarProperty Name="SettingId" ColumnName="SettingId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

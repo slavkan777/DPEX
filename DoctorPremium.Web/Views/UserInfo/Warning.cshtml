@@ -1,0 +1,14 @@
+﻿ <!-- start textarea -->
+ 
+
+
+
+    <div class="alert alert-block alert-danger fade in сol-lg-4 col-xl-4 col-md-3 col-sm-4 col-xs-9" style="float: left; margin-left: 6%;">
+        <button type="button" class="close" onclick="HiddenLabel()" data-dismiss="alert" >×</button>
+        <h4 class="alert-heading">@Resources.Resource.Varning</h4>
+        <p style="font-size: 17px;">@Resources.Resource.VarningText</p>
+        <p>
+            <a class="btn btn-danger" href=@Url.Action("Register", "Account")> @Resources.Resource.VarningTextLink</a>  
+            @*<a class="btn" href="#">Or do this</a>*@
+        </p>
+    </div>

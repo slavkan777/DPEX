@@ -1,0 +1,79 @@
+﻿@using DoctorPremium.Web.Controllers
+@using DoctorPremium.Web.Helpers
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang=@LanguageHelper.GetCurrentLanguage()>
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="UTF-8" />
+    <title>@ViewBag.Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Force IE9 to render in normla mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE 8]><link href="~/content/css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="~/content/js/libs/excanvas.min.js"></script>
+      <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <script type="text/javascript" src="~/content/js/libs/respond.min.js"></script>
+    <![endif]-->
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/content/images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/content/images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/content/images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="~/content/images/apple-touch-icon-57-precomposed.png" />
+    @Scripts.Render("~/Content/assetsLoginJS")
+
+    @Styles.Render("~/Content/assetsLoginCSS")
+
+    @Styles.Render("~/Content/assetsLayoutCSS")
+    @Scripts.Render("~/bundles/assetsLayoutJS")
+
+
+    @RenderSection("head", required: false)
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+
+<body class="loginPage">
+
+    <div class="container">
+
+        <div id="header">
+
+            <div class="row">
+
+                <div class="navbar">
+                    <div class="container">
+                        <a class="navbar-brand" href=@Url.Action("Index", "Home")>
+                            <img src="~/Content/LandigPage/img/logoLanding.png" alt="" width="180" height="40" />
+                        </a>
+                        @*<a class="navbar-brand" href=@Url.Action("index", "Home")>doctor-premium<span class="slogan">.com</span></a>*@
+                    </div>
+                </div><!-- /navbar -->
+
+            </div><!-- End .row -->
+
+        </div><!-- End #header -->
+
+    </div><!-- End .container -->
+
+    <div class="container">
+        @RenderBody()
+    </div><!-- End .container -->
+    <!-- END BODY -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("input, textarea, select").not('.nostyle').uniform();
+        });
+    </script>
+</body>
+
+</html>

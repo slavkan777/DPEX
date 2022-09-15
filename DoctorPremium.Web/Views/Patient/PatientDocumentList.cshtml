@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DoctorPremium.Web.Models.PatientDocumentViewModel>
+
+<div class="top15">
+	<table class="table">
+		<tr>
+			<th>
+				Файл
+			</th>
+			<th>
+				Комментарий
+			</th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					<a target="blank" href=@String.Concat("/UploadFiles/", item.FileName)>@item.FileName</a>
+					@*@Html.DisplayFor(modelItem => item.Path)*@
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Description)
+				</td>
+			</tr>
+		}
+
+	</table>
+</div>

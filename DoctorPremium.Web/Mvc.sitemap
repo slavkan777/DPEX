@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0"
+            xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
+
+	<mvcSiteMapNode title="Home" controller="Home" action="Index" preservedRouteParameters="lang">
+		<mvcSiteMapNode title="Help" controller="Home" action="Help" preservedRouteParameters="lang"/>
+		<mvcSiteMapNode title="PublicSites" controller="PublicSite" action="Index">
+			<mvcSiteMapNode title="" controller="PublicSite" action="Index" dynamicNodeProvider="DoctorPremium.Web.SiteMap.PublicSitesDynamicNodeProvider, DoctorPremium.Web"/>
+		</mvcSiteMapNode>
+	</mvcSiteMapNode>
+</mvcSiteMap>

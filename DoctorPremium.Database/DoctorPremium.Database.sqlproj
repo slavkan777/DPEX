@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DoctorPremium.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{05edd96b-80a5-4d20-ac2c-1ea003bdb234}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DoctorPremium.Database</RootNamespace>
+    <AssemblyName>DoctorPremium.Database</AssemblyName>
+    <ModelCollation>1049,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+    <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="Schemas" />
+    <Folder Include="Schemas\dbo" />
+    <Folder Include="Schemas\dbo\Functions" />
+    <Folder Include="Schemas\dbo\Stored Procedures" />
+    <Folder Include="Schemas\dbo\Tables" />
+    <Folder Include="Schemas\dbo\Views" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Scripts\Pre-Deployment" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Schemas\dbo\Functions\GetContactFullName.sql" />
+    <Build Include="Schemas\dbo\Stored Procedures\ApplicationLogInsert.sql" />
+    <Build Include="Schemas\dbo\Tables\Patients.sql" />
+    <Build Include="Schemas\dbo\Tables\PatientVisit.sql" />
+    <Build Include="Schemas\dbo\Tables\PatientVisitPayment.sql" />
+    <Build Include="Schemas\dbo\Tables\UserInfo.sql" />
+    <Build Include="Schemas\dbo\Views\vPatient.sql" />
+    <Build Include="Schemas\dbo\Views\vPatientVisitHistory.sql" />
+    <Build Include="Schemas\dbo\Views\vSchedule.sql" />
+    <Build Include="Schemas\dbo\Tables\AspNetRoles.sql" />
+    <Build Include="Schemas\dbo\Tables\AspNetUserClaims.sql" />
+    <Build Include="Schemas\dbo\Tables\AspNetUserLogins.sql" />
+    <Build Include="Schemas\dbo\Tables\AspNetUserRoles.sql" />
+    <Build Include="Schemas\dbo\Tables\AspNetUsers.sql" />
+    <Build Include="Schemas\dbo\Tables\DentalCards.sql" />
+    <Build Include="Schemas\dbo\Tables\ScheduleRecords.sql" />
+    <Build Include="Schemas\dbo\Tables\ScheduleRecordTypes.sql" />
+    <Build Include="Schemas\dbo\Tables\UserPublicPages.sql" />
+    <Build Include="Schemas\dbo\Tables\PatientDocuments.sql" />
+    <Build Include="Schemas\dbo\Tables\Languages.sql" />
+    <Build Include="Schemas\dbo\Tables\Countries.sql" />
+    <Build Include="Schemas\dbo\Tables\Cities.sql" />
+    <Build Include="Schemas\dbo\Tables\Regions.sql" />
+    <Build Include="Schemas\dbo\Tables\TimeZones.sql" />
+    <Build Include="Schemas\dbo\Stored Procedures\RightMoneyData.sql" />
+    <Build Include="Schemas\dbo\Tables\Helps.sql" />
+    <Build Include="Schemas\dbo\Tables\SessionData.sql" />
+    <Build Include="Schemas\dbo\Tables\Settings.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\InitialData.sql" />
+    <None Include="Scripts\Post-Deployment\Country and cities.sql" />
+    <None Include="Scripts\Post-Deployment\TimeZones.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DoctorPremium.Database.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="DoctorPremium.Database.refactorlog" />
+  </ItemGroup>
+</Project>

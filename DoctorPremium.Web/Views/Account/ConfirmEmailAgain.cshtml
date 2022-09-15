@@ -1,0 +1,69 @@
+﻿@model DoctorPremium.Web.Models.ConfirmEmailAgainViewModel
+@{
+	//ViewBag.Title = "Forgot your password?";
+	Layout = null;
+}
+
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="UTF-8" />
+	<title>Запрос принят.</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<!--[if IE]>
+	   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	   <![endif]-->
+	@Styles.Render("~/Content/assetsLoginCSS")
+	<!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body>
+
+	<!-- PAGE CONTENT -->
+	<div class="container">
+		<div class="text-center">
+			<img style="display:inline-block" alt="Doctor Practice" src="~/Content/assets/WebAppIcon.png">
+			<div style="display:inline-block; color: rgba(25, 149, 214, 1); font-size: 22px; ">&nbsp;&nbsp;Докторская Практика</div>
+		</div>
+		<div class="tab-content">
+			<div id="login" class="tab-pane active">
+				@using (Html.BeginForm("ConfirmEmailAgain", "Account", FormMethod.Post, new { @class = "form-signin", role = "form" }))
+				{
+					@Html.AntiForgeryToken()
+					@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+					<p class="text-muted text-center btn-block btn btn-primary btn-rect">
+						Введите ваш E-mail
+					</p>
+					<div class="form-group">
+						@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "E-mail" })
+						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+					</div>
+					<div class="form-group">
+						@*<div class="col-md-offset-2 col-md-10">*@
+						<button class="btn text-muted text-center btn-success form-control" type="submit">Отправить</button>
+						@*</div>*@
+					</div>
+				}
+			</div>
+		</div>
+				<div class="text-center">
+					<ul class="list-inline">
+						<li><a class="text-muted" href="@Url.Action("Index","Home")" data-toggle="tab">Главная страница</a></li>
+					</ul>
+				</div>
+	</div>
+</body>
+<!-- END BODY -->
+</html>

@@ -1,0 +1,389 @@
+﻿@using DoctorPremium.Web.Helpers
+@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
+<html lang=@LanguageHelper.GetCurrentLanguage()>
+<head>
+    <meta charset="UTF-8" />
+    <title>Doctor Premium</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="icon" type="image/png" href="~/content/images/favicon.jpg" />
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Force IE9 to render in normla mode -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+    <!--[if IE 8]><link href="~/content/css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script type="text/javascript" src="~/content/js/libs/excanvas.min.js"></script>
+        <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script type="text/javascript" src="~/content/js/libs/respond.min.js"></script>
+      <![endif]-->
+    <!-- Le styles -->
+    <!-- Use new way for google web fonts
+        http://www.smashingmagazine.com/2012/07/11/avoiding-faux-weights-styles-google-web-fonts -->
+    <!-- Headings -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css' />
+    <!-- Text -->
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css' />
+    <!--[if lt IE 9]>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
+        <link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="~/content/images/favicon.jpg" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/content/images/apple-touch-icon-144-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/content/images/apple-touch-icon-114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/content/images/apple-touch-icon-72-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" href="~/content/images/apple-touch-icon-57-precomposed.png" />
+
+
+    @Styles.Render("~/Content/assetsLayoutCSS")
+    @Scripts.Render("~/bundles/assetsLayoutJS")
+
+
+    @RenderSection("head", required: false)
+
+</head>
+
+<body>
+    <!-- loading animation -->
+    @*<div id="qLoverlay"></div>
+        <div id="qLbar"></div>*@
+
+    <div id="header">
+        <nav class="navbar navbar-default" style="height: 66px;">
+            <div class="navbar-header">
+                <a href=@Url.Action("index", "Home") class="navbar-brand hidden-xs">
+                    <img src="~/Content/LandigPage/img/logoLanding.png" alt="" width="180" height="40" />
+                </a>
+                @*<a style="font-size: 17px; margin-left: 38px;" class="navbar-brand col-xs-12" href=@Url.Action("index", "Home")>doctor-premium.com</a>*@
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="z-index: 1000;">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon16 icomoon-icon-arrow-4"></span>
+                </button>
+            </div>
+
+            @Html.Action("Warning", "UserInfo")
+
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse" style="max-height: 140px;">
+                <ul class="nav navbar-right usernav">
+                    <li class="hidden-md hidden-sm hidden-lg" style="margin-top: 10px;">
+                        <ul>
+                            <li>
+                                @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguageHide", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+                                {
+                                    <select id="langHide" name="lang" class="dropdown-toggle avatar" style=" padding-left 0px;width 115px;">
+                                        <option value="ru" @(LanguageHelper.GetCurrentLanguage().Contains("ru") ? "selected = selected" : "")>Русский</option>
+                                        <option value="en" @(LanguageHelper.GetCurrentLanguage().Contains("en") ? "selected = selected" : "")>English</option>
+                                    </select>
+                                }
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li class=" hidden-md hidden-sm hidden-lg">
+                        <ul>
+                            @*<li><a href="#"><span class="icon16 icomoon-icon-user-plus"></span>Edit profile</a></li>*@
+                            <li>
+                                <a style="color: red; font-size: 22px;min-width: 200px;" href=@Url.Action("Edit", "UserInfo")> @Resources.Resource.Profile</a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="#" class="dropdown-toggle avatar" data-toggle="dropdown" style="width: 100%;">
+                            <span class="icon16 icomoon-icon-font" style="">@Resources.Resource.Language</span>
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="menu">
+                                <ul>
+                                    <li>
+                                        @using (Html.BeginForm("ChangeCulture", "Home", FormMethod.Post, new { @id = "ChangeLanguage", @class = "dropdown-toggle avatar", @style = "padding-left: 4px;" }))
+                                        {
+                                            <select id="lang" name="lang" class="dropdown-toggle avatar" style=" padding-left: 0px;width: 115px;">
+                                                <option value="ru" @(LanguageHelper.GetCurrentLanguage().Contains("ru") ? "selected = selected" : "")>Русский</option>
+                                                <option value="en" @(LanguageHelper.GetCurrentLanguage().Contains("en") ? "selected = selected" : "")>English</option>
+                                            </select>
+                                        }
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown hidden-xs">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
+                            @*<img src="~/content/images/avatar.jpg" alt="" class="image" />*@
+                            @if (User != null)
+                            {
+                                <span class="icon16 icomoon-icon-eye left"></span>@User.Identity.Name
+
+                            }
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="menu">
+                                <ul>
+                                    @*<li><a href="#"><span class="icon16 icomoon-icon-user-plus"></span>Edit profile</a></li>*@
+
+                                    @*<li><a href="#"><span class="icon16 icomoon-icon-user-plus"></span></a></li>*@
+                                    <li>
+                                        <a href=@Url.Action("Edit", "UserInfo")><span class="icon16 icomoon-icon-user-plus"></span>@Resources.Resource.Profile</a>
+
+                                    </li>
+                                   
+                                </ul>
+                            </li>
+
+                        </ul>
+                    <li>
+                        <a href="javascript:document.getElementById('logoutForm').submit()" style="width: 100%"><span class="icon16 icomoon-icon-exit"></span><span class="txt">@Resources.Resource.Exit</span></a>
+                        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                        {
+                            @Html.AntiForgeryToken()
+                        }
+                    </li>
+                </ul>
+
+            </div><!-- /.nav-collapse -->
+        </nav><!-- /navbar -->
+
+    </div><!-- End #header -->
+
+    <div id="wrapper" style="min-height: 1000px;">
+
+        <!--Responsive navigation button-->
+        <div class="resBtn" style="position: fixed;">
+            <a href="#"><span class="icon16 minia-icon-list-3"></span></a>
+        </div>
+
+        <!--Left Sidebar collapse button-->
+        <div class="collapseBtn leftbar" style="margin-top: -3px;">
+            <a href="#" class="tipR" title="Hide Left Sidebar"><span class="icon12 minia-icon-layout"></span></a>
+        </div>
+        <!--Right Sidebar collapse button-->
+        <div class="collapseBtn rightbar" style="margin-top: -3px;">
+            <a href="#" class="tipR" title="Hide Right Sidebar"><span class="icon12 minia-icon-layout"></span></a>
+        </div>
+
+        <!--Sidebar right background-->
+        <div id="sidebarbg-right"></div>
+        <!--Sidebar background-->
+        <div id="sidebarbg"></div>
+        <!--Sidebar content-->
+        <div id="sidebar">
+
+            <div class="shortcuts" style="height: 49px;">
+                @*<ul>
+                        <li><a href="support.html" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
+                        <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
+                        <li><a href="charts.html" title="Sales statistics" class="tip"><span class="icon24 icomoon-icon-pie-2"></span></a></li>
+                        <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+                    </ul>*@@*<ul>
+                        <li><a href="support.html" title="Support section" class="tip"><span class="icon24 icomoon-icon-support"></span></a></li>
+                        <li><a href="#" title="Database backup" class="tip"><span class="icon24 icomoon-icon-database"></span></a></li>
+                        <li><a href="charts.html" title="Sales statistics" class="tip"><span class="icon24 icomoon-icon-pie-2"></span></a></li>
+                        <li><a href="#" title="Write post" class="tip"><span class="icon24 icomoon-icon-pencil"></span></a></li>
+                    </ul>*@
+
+                </div><!-- End search -->
+
+                <div class="sidenav">
+
+                    <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                        <h5 class="title" style="margin-bottom:0">@Resources.Resource.Navigation</h5>
+                    </div><!-- End .sidenav-widget -->
+
+                    <div class="mainnav">
+                        <ul>
+							<li><a href=@Url.Action("paypal", "UserInfo") target="_blank"><span class="icon16 icomoon-icon-credit"></span>Donate</a></li>
+                            <li><a href=@Url.Action("index", "Schedule" )><span class="icon16 icomoon-icon-calendar"></span>@Resources.Resource.Schedule</a></li>
+                            <li>
+                                <a href=@Url.Action("New", "Patient" )>
+                                    <span class="icon16 icomoon-icon-user"></span>@Resources.Resource.NewCard
+                                </a>
+                            </li>
+                            <li>
+                                <a href=@Url.Action("List", "Patient" )>
+                                    <span class="icon16 typ-icon-users "></span>@Resources.Resource.BasePatients
+                                </a>
+                            </li>
+                            @*<li>
+                                    <a href=@Url.Action("Index", "Message")>
+                                        <span class="icon16 icomoon-icon-envelop"></span>Рассылка
+                                    </a>
+                                </li>*@
+                            @*<li>
+                                    <a href=@Url.Action("Index", "Message" )>
+                                        <span class="icon16 icomoon-icon-envelop"></span>
+                                    </a>
+                                </li>*@
+                            <li>
+                                <a href="#"><span class="icon16 icomoon-icon-home-2"></span>@Resources.Resource.MySite<span class="hasDrop icon16 icomoon-icon-arrow-down-2"></span></a>
+                                <ul class="sub">
+                                    <li><a href=@Url.Action("Index", "PublicSite", new {@Userid = User != null ? User.Identity.GetUserId() : "0"})><span class="icon16 icomoon-icon-file-4 "></span>@Resources.Resource.Page</a></li>
+                                    <li><a href=@Url.Action("Settings", "PublicSite")><span class="icon16 icomoon-icon-settings"></span>@Resources.Resource.SettingPage</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href=@Url.Action("BuyPersonalVariant", "Schedule") style="" target="blank" rel="nofollow">
+                                    <span class="icon16 icomoon-icon-info"></span><span class="notification red" style="padding-left: 10px; right: 10px; padding-right: 10px;">NEW</span>@Resources.Resource.BuyPersonalVariant
+                                </a>
+                            </li>
+                            <li>
+                                <a href=@Url.Action("VidioHelp", "Schedule" ) style="background: #a4d5a6;" target="blank" rel="nofollow">
+                                    <span class=" entypo-icon-arrow-9" style="padding-left: 10px; padding-right: 10px;"></span>@Resources.Resource.InfoAllButtonVidioHelp
+                                </a>
+                            </li>
+                            <li>
+                                <a href=@Url.Action("Help", "Home") target="blank" rel="nofollow" style="background: #a4d5a6;">
+                                    <span class="typ-icon-question" style="padding-left: 10px; padding-right: 10px;"></span>@Resources.Resource.HelpButton
+                                </a>
+                            </li>
+
+                            <li>
+                                @Html.Action("Notepad", "UserInfo")
+                            </li>
+
+                            @*<a class="btn btn-success" href="/Home/Help" style="width: 100%; margin: 1px; font-size: 17px;    color: white;padding-top: 1px">@Resources.Resource.HelpButton</a>*@
+
+                        </ul>
+
+
+                    </div>
+
+                </div><!-- End sidenav -->
+
+
+
+            </div><!-- End #sidebar -->
+
+            <div id="sidebar-right">
+
+                <div class="shortcuts" style="height: 49px;">
+
+                </div><!-- End search -->
+
+                <div class="sidenav">
+
+                    <div class="sidebar-widget" style="margin: -1px 0 0 0;">
+                        <h5 class="title" style="margin-bottom:0">@Resources.Resource.Navigation</h5>
+                    </div><!-- End .sidenav-widget -->
+
+                    <div class="mainnav">
+                        <ul>
+                            <li>
+                                <div id="clock" class="light">
+                                    <div class="display">
+                                        <div class="weekdays"></div>
+                                        <div class="ampm"></div>
+                                        <div class="alarm"></div>
+                                        <div class="digits"></div>
+                                    </div>
+
+                                </div>
+                                @*@Html.RenderPartial("LayouLeftManyPartial", "Home")*@
+
+                            </li>
+                            <li>
+                                @RenderSection("RIGHT", required: false)
+                                @Html.Action("LayouLeftManyPartial", "Home")
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- End .sidenav-widget -->
+                </div><!-- End sidenav -->
+            </div><!-- End #sidebar -->
+            <!--Body content-->
+            <div id="content-two" class="clearfix">
+                <div class="contentwrapper">
+                    <!--Content wrapper-->
+                    @*<div class="heading">
+
+                            <h3>Dashboard</h3>
+                        </div>*@<div class="heading">
+
+                        <h3></h3>
+                        @*</div><div class="heading">
+
+                            <h3></h3>*@
+                    </div><!-- End .heading-->
+                    @RenderBody()
+                </div><!-- End contentwrapper -->
+
+            </div><!-- End #content -->
+
+        </div><!-- End #wrapper -->
+        <div id="footer">
+            <h4 style="padding-top: 1%; padding-left: 10%;">
+                <span class="icon16 icomoon-icon-pencil"></span> <span> Email: &nbsp;infodoctorpremium@gmail.com &nbsp; </span><span class="icon16 icomoon-icon-skype"></span> @*<span> Skype: &nbsp;info.microsoft.com &nbsp; </span>*@
+
+                <a href="https://www.facebook.com/groups/765680770239043/" target="blank">
+                    <img src="~/Content/images/faceb.jpg" alt="" width="30" height="30" />
+                </a>
+                <a href="https://www.linkedin.com/groups/8558904" target="blank">
+                    <img src="~/Content/images/li.jpg" alt="" width="30" height="30" />
+                </a>
+                <a href="https://new.vk.com/public126747071" target="blank">
+                    <img src="~/Content/images/vk.jpg" alt="" width="30" height="30" />
+                </a>
+                <a href="https://ok.ru/group/53334451945539" target="blank">
+                    <img src="~/Content/images/ok.jpg" alt="" width="30" height="30" />
+                </a>
+                <a href=@Url.Action("Help","Home") type="button" class="btn btn-link"><span class="icon16 icomoon-icon-link-2"></span> @Resources.Resource.InfoAllButtonHelp</a>
+            </h4>
+        </div>
+
+        @RenderSection("scripts", required: false)
+
+
+
+        <script type="text/javascript">
+            $('#lang').change(function () {
+                $('#ChangeLanguage').submit();
+            });
+
+        </script>
+        <script type="text/javascript">
+            $('#langHide').change(function () {
+                $('#ChangeLanguageHide').submit();
+            });
+
+        </script>
+
+        <script type="text/javascript">
+
+            function NoteFunction() {
+                $('#iconIm').fadeIn('fast');
+                setTimeout(function () { $('#iconIm').fadeOut('fast') }, 3000);  //30000 = 30 секунд
+                var textareaNotePadVal = $('#textareaNotePad').val();
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("Notepad", "UserInfo")' + '?textareaNotePadVal=' + textareaNotePadVal,
+                    data: $(this).serialize()
+                });
+            }
+
+            function HiddenLabel() {
+                var LabVal = true;
+                $.ajax({
+                    type: "Post",
+                    url: '@Url.Action("LabelSession", "UserInfo")' + '?LabVal=' + LabVal,
+                    data: $(this).serialize()
+                });
+
+
+            }
+
+        </script>
+    </body>
+</html>
